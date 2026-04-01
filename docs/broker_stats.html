@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>券商分點買賣超統計分析</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .stats-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .controls {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #e9ecef;
+            color: #495057;
+        }
+
+        .btn-secondary:hover {
+            background: #dee2e6;
+        }
+
+        .btn.active {
+            background: #28a745;
+            color: white;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .broker-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .broker-card {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .broker-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+        }
+
+        .broker-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .broker-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .broker-id {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .broker-body {
+            padding: 20px;
+        }
+
+        .stocks-section {
+            margin-bottom: 20px;
+        }
+
+        .stocks-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #dee2e6;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .buy-indicator {
+            color: #28a745;
+        }
+
+        .sell-indicator {
+            color: #dc3545;
+        }
+
+        .stock-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .stock-table th {
+            background: #f8f9fa;
+            padding: 10px;
+            text-align: left;
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .stock-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.95rem;
+        }
+
+        .stock-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .stock-code {
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .stock-name {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .volume-positive {
+            color: #28a745;
+            font-weight: 700;
+        }
+
+        .volume-negative {
+            color: #dc3545;
+            font-weight: 700;
+        }
+
+        .rank-badge {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .rank-1 { background: #ffd700; color: #000; }
+        .rank-2 { background: #c0c0c0; color: #000; }
+        .rank-3 { background: #cd7f32; color: #fff; }
+        .rank-other { background: #e9ecef; color: #666; }
+
+        .loading {
+            text-align: center;
+            padding: 60px;
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .error {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #856404;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .stats-summary {
+                grid-template-columns: 1fr;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .stock-table {
+                font-size: 0.85rem;
+            }
+
+            .stock-table th,
+            .stock-table td {
+                padding: 8px 5px;
+            }
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 券商分點買賣超統計分析</h1>
+            <p class="subtitle">分析各券商分點的買賣超前10名股票</p>
+        </header>
+
+        <div class="stats-summary" id="statsSummary">
+            <div class="stat-card">
+                <div class="stat-value" id="totalBrokers">-</div>
+                <div class="stat-label">分析券商數</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="analysisDays">-</div>
+                <div class="stat-label">分析天數</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="dateRange">-</div>
+                <div class="stat-label">日期區間</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="lastUpdate">-</div>
+                <div class="stat-label">最後更新</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 搜尋券商名稱或股票代碼...">
+            </div>
+            <div class="filter-group">
+                <button class="btn btn-secondary" id="sortByBuy">按買超排序</button>
+                <button class="btn btn-secondary" id="sortBySell">按賣超排序</button>
+                <button class="btn btn-secondary active" id="showAll">顯示全部</button>
+            </div>
+        </div>
+
+        <div class="content">
+            <div id="loadingMessage" class="loading">載入數據中...</div>
+            <div id="errorMessage" class="error" style="display: none;"></div>
+            <div id="brokersContainer" class="broker-grid"></div>
+            <div id="noResults" class="no-results" style="display: none;">
+                找不到符合條件的結果
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let allBrokerData = [];
+        let filteredData = [];
+
+        // 載入數據
+        async function loadData() {
+            try {
+                const response = await fetch('data/broker_stats.json');
+                if (!response.ok) throw new Error('無法載入數據');
+
+                const data = await response.json();
+
+                // 更新統計摘要
+                updateStatsSummary(data);
+
+                // 儲存數據
+                allBrokerData = data.results || [];
+                filteredData = [...allBrokerData];
+
+                // 顯示數據
+                renderBrokers(filteredData);
+
+                // 隱藏載入訊息
+                document.getElementById('loadingMessage').style.display = 'none';
+            } catch (error) {
+                console.error('載入數據失敗:', error);
+                document.getElementById('loadingMessage').style.display = 'none';
+                document.getElementById('errorMessage').textContent =
+                    '無法載入數據，請確認 data/broker_stats.json 檔案存在。錯誤: ' + error.message;
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+        }
+
+        // 更新統計摘要
+        function updateStatsSummary(data) {
+            document.getElementById('totalBrokers').textContent = data.brokers_analyzed || 0;
+            document.getElementById('analysisDays').textContent = `${data.analysis_days || 0} 天`;
+
+            if (data.date_range) {
+                const start = new Date(data.date_range.start).toLocaleDateString('zh-TW');
+                const end = new Date(data.date_range.end).toLocaleDateString('zh-TW');
+                document.getElementById('dateRange').textContent = `${start.slice(5)} - ${end.slice(5)}`;
+            }
+
+            if (data.updated) {
+                const updated = new Date(data.updated);
+                document.getElementById('lastUpdate').textContent = updated.toLocaleString('zh-TW', {
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            }
+        }
+
+        // 渲染券商卡片
+        function renderBrokers(brokers) {
+            const container = document.getElementById('brokersContainer');
+            const noResults = document.getElementById('noResults');
+
+            if (!brokers || brokers.length === 0) {
+                container.innerHTML = '';
+                noResults.style.display = 'block';
+                return;
+            }
+
+            noResults.style.display = 'none';
+
+            container.innerHTML = brokers.map(broker => `
+                <div class="broker-card">
+                    <div class="broker-header">
+                        <div class="broker-name">${broker.broker_name}</div>
+                        <div class="broker-id">ID: ${broker.broker_id}</div>
+                    </div>
+                    <div class="broker-body">
+                        ${renderStockSection('買超前10名', broker.top_buy_stocks, true)}
+                        ${renderStockSection('賣超前10名', broker.top_sell_stocks, false)}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // 渲染股票區塊
+        function renderStockSection(title, stocks, isBuy) {
+            if (!stocks || stocks.length === 0) {
+                return '';
+            }
+
+            const indicatorClass = isBuy ? 'buy-indicator' : 'sell-indicator';
+            const icon = isBuy ? '📈' : '📉';
+
+            return `
+                <div class="stocks-section">
+                    <div class="section-title ${indicatorClass}">
+                        ${icon} ${title}
+                    </div>
+                    <table class="stock-table">
+                        <thead>
+                            <tr>
+                                <th>排名</th>
+                                <th>股票</th>
+                                <th>買賣超</th>
+                                <th>買進</th>
+                                <th>賣出</th>
+                                <th>天數</th>
+                                <th>日均</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${stocks.map(stock => renderStockRow(stock, isBuy)).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        // 渲染股票行
+        function renderStockRow(stock, isBuy) {
+            const rankClass = stock.rank <= 3 ? `rank-${stock.rank}` : 'rank-other';
+            const volumeClass = stock.total_net_vol >= 0 ? 'volume-positive' : 'volume-negative';
+            const stockCode = Math.floor(stock.stock_code);
+
+            return `
+                <tr>
+                    <td>
+                        <span class="rank-badge ${rankClass}">${stock.rank}</span>
+                    </td>
+                    <td>
+                        <div class="stock-code">${stockCode}</div>
+                        ${stock.stock_name ? `<div class="stock-name">${stock.stock_name}</div>` : ''}
+                    </td>
+                    <td class="${volumeClass}">
+                        ${formatVolume(stock.total_net_vol)}
+                    </td>
+                    <td>${formatVolume(stock.total_buy_vol)}</td>
+                    <td>${formatVolume(stock.total_sell_vol)}</td>
+                    <td>${stock.trading_days}</td>
+                    <td class="${volumeClass}">
+                        ${formatVolume(stock.avg_net_vol)}
+                    </td>
+                </tr>
+            `;
+        }
+
+        // 格式化數量
+        function formatVolume(vol) {
+            const num = parseFloat(vol);
+            if (isNaN(num)) return '-';
+
+            const sign = num >= 0 ? '+' : '';
+            return sign + num.toLocaleString('zh-TW', {
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 2
+            });
+        }
+
+        // 搜尋功能
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase().trim();
+
+            if (!searchTerm) {
+                filteredData = [...allBrokerData];
+            } else {
+                filteredData = allBrokerData.filter(broker => {
+                    // 搜尋券商名稱
+                    if (broker.broker_name.toLowerCase().includes(searchTerm)) {
+                        return true;
+                    }
+
+                    // 搜尋券商ID
+                    if (broker.broker_id.toLowerCase().includes(searchTerm)) {
+                        return true;
+                    }
+
+                    // 搜尋股票代碼
+                    const hasStock = [...(broker.top_buy_stocks || []), ...(broker.top_sell_stocks || [])]
+                        .some(stock => String(Math.floor(stock.stock_code)).includes(searchTerm));
+
+                    return hasStock;
+                });
+            }
+
+            renderBrokers(filteredData);
+        });
+
+        // 按買超排序
+        document.getElementById('sortByBuy').addEventListener('click', function() {
+            const sorted = [...filteredData].sort((a, b) => {
+                const aMax = Math.max(...(a.top_buy_stocks || []).map(s => s.total_net_vol));
+                const bMax = Math.max(...(b.top_buy_stocks || []).map(s => s.total_net_vol));
+                return bMax - aMax;
+            });
+            renderBrokers(sorted);
+            updateActiveButton(this);
+        });
+
+        // 按賣超排序
+        document.getElementById('sortBySell').addEventListener('click', function() {
+            const sorted = [...filteredData].sort((a, b) => {
+                const aMin = Math.min(...(a.top_sell_stocks || []).map(s => s.total_net_vol));
+                const bMin = Math.min(...(b.top_sell_stocks || []).map(s => s.total_net_vol));
+                return aMin - bMin;
+            });
+            renderBrokers(sorted);
+            updateActiveButton(this);
+        });
+
+        // 顯示全部
+        document.getElementById('showAll').addEventListener('click', function() {
+            renderBrokers(filteredData);
+            updateActiveButton(this);
+        });
+
+        // 更新按鈕狀態
+        function updateActiveButton(activeBtn) {
+            document.querySelectorAll('.filter-group .btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            activeBtn.classList.add('active');
+        }
+
+        // 頁面載入時執行
+        window.addEventListener('DOMContentLoaded', loadData);
+    </script>
+</body>
+</html>

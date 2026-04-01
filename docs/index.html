@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="utf-8">
+  <title>台股三大法人持股追蹤（上市＋上櫃）</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="追蹤三大法人（外資、投信、自營商）持股比例變化及券商分點主力進出">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- 頂部導航 -->
+  <header class="header">
+    <div class="header-content">
+      <h1>📊 台股法人籌碼追蹤</h1>
+      <p class="header-subtitle">整合三大法人持股 + 券商分點主力進出</p>
+    </div>
+    <nav class="main-nav">
+      <button class="nav-btn active" data-section="institutional">三大法人</button>
+      <button class="nav-btn" data-section="broker">券商分點</button>
+    </nav>
+  </header>
+
+  <!-- 三大法人區塊 -->
+  <section id="institutional" class="section active">
+    <div class="card">
+      <h2>🏛️ 三大法人持股比例追蹤</h2>
+      <p class="subtitle">
+        資料來源：TWSE / TPEX 官方盤後資料。投信與自營商持股為模型估計值，僅供研究使用。
+      </p>
+      <div class="controls">
+        <div class="control-block">
+          <label for="stockInput">股票代碼：</label>
+          <input id="stockInput" type="text" placeholder="2330">
+          <button id="loadBtn">載入</button>
+          <span id="statusText" class="subtitle"></span>
+        </div>
+        <div class="control-block">
+          <label for="marketFilter">市場：</label>
+          <select id="marketFilter">
+            <option value="ALL">全部</option>
+            <option value="TWSE">上市 (TWSE)</option>
+            <option value="TPEX">上櫃 (TPEX)</option>
+          </select>
+        </div>
+        <div class="control-block">
+          <label for="windowFilter">視窗：</label>
+          <select id="windowFilter">
+            <option value="5">5 日</option>
+            <option value="20" selected>20 日</option>
+            <option value="60">60 日</option>
+            <option value="120">120 日</option>
+          </select>
+        </div>
+        <div class="control-block">
+          <label><input type="checkbox" id="logScaleCheckbox"> Log scale</label>
+        </div>
+      </div>
+      <div class="control-block small checkbox-group">
+        <span>顯示：</span>
+        <label><input type="checkbox" id="showForeign" checked> 外資</label>
+        <label><input type="checkbox" id="showTrust" checked> 投信</label>
+        <label><input type="checkbox" id="showDealer" checked> 自營商</label>
+        <label><input type="checkbox" id="showTotal" checked> 合計</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col chart-col">
+        <div class="card">
+          <h3 id="chartTitle">2330 三大法人持股比重</h3>
+          <canvas id="ratioChart" height="280"></canvas>
+        </div>
+      </div>
+      <div class="col table-col">
+        <div class="card">
+          <h3>📈 三大法人持股變化排名</h3>
+          <p class="subtitle">
+            按選定視窗之三大法人合計持股比重變化排序
+          </p>
+          <div class="table-container">
+            <table id="rankTable">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>股票</th>
+                  <th>市場</th>
+                  <th>持股%</th>
+                  <th>ΔChange</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 券商分點區塊 -->
+  <section id="broker" class="section">
+    <div class="card">
+      <h2>🏦 券商分點主力進出追蹤</h2>
+      <p class="subtitle">
+        追蹤外資券商（高盛、摩根、美林）及國內主力（凱基、元大、富邦）的買賣超情況。資料來源：富邦 e-Broker。
+      </p>
+      <div style="margin-top: 15px;">
+        <a href="broker_stats.html" target="_blank" style="display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: transform 0.2s;">
+          📊 查看完整買賣超統計分析 →
+        </a>
+      </div>
+    </div>
+
+    <!-- 券商趨勢圖 -->
+    <div class="card">
+      <div class="card-header">
+        <h3>📈 目標券商累計買賣超趨勢</h3>
+        <div class="control-block">
+          <label for="brokerSelect">選擇券商：</label>
+          <select id="brokerSelect">
+            <option value="ALL">全部目標券商</option>
+          </select>
+        </div>
+      </div>
+      <canvas id="brokerTrendChart" height="200"></canvas>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-header">
+            <h3>📊 今日券商買賣超排名</h3>
+            <span id="brokerUpdateTime" class="update-time"></span>
+          </div>
+          <div class="table-container">
+            <table id="brokerRankTable">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>券商分點</th>
+                  <th>買賣超(張)</th>
+                  <th>買超</th>
+                  <th>賣超</th>
+                  <th>股票數</th>
+                </tr>
+              </thead>
+
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <h3>🎯 目標券商追蹤</h3>
+          <p class="subtitle target-list">
+            追蹤：凱基、美林、摩根、高盛、瑞銀、野村、大和、麥格理、元大、富邦
+          </p>
+          <div id="targetBrokersContent" class="broker-grid">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📋 今日交易明細</h3>
+      <p id="brokerTradesStatus" class="subtitle">載入中...</p>
+      <div class="table-container large">
+        <table id="brokerTradesTable">
+          <thead>
+            <tr>
+              <th>日期</th>
+              <th>股票</th>
+              <th>券商分點</th>
+              <th>買進</th>
+              <th>賣出</th>
+              <th>買賣超</th>
+              <th>佔比%</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>資料每日自動更新 | GitHub: <a href="https://github.com/voidful/tw-institutional-stocker"
+        target="_blank">tw-institutional-stocker</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
