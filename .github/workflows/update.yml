@@ -39,15 +39,22 @@ jobs:
         run: |
           python update_broker.py
 
+      - name: Verify net buy/sell ranking against Fubon (non-blocking)
+        continue-on-error: true
+        run: |
+          python verify_three_inst_ranking.py --windows 5 10 30 || true
+
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data docs/data
-          if ! git diff --cached --quiet; then
-            git commit --amend -m "chore: update latest data only"
-            git push --force origin HEAD:main
-          else
+          # 一般 commit（不再 --amend / --force-push）：保留每日歷史，避免某天
+          # 抓取失敗或不完整時，把正確資料以 force-push 永久覆蓋且無法復原。
+          if git diff --cached --quiet; then
             echo "No changes to commit."
+          else
+            git commit -m "chore: daily data update $(date -u +%Y-%m-%d)"
+            git push origin HEAD:main
           fi
 

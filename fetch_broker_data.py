@@ -13,8 +13,30 @@ import re
 import time
 from datetime import date, datetime
 from typing import Optional
+from zoneinfo import ZoneInfo
 
 import pandas as pd
+
+# 台灣時區（CI 在 UTC 執行，需用台北時間推算交易年份）
+TPE = ZoneInfo("Asia/Taipei")
+
+
+def _resolve_trade_date(date_text: str) -> str:
+    """將頁面上無年份的 'MM/DD' 交易日轉成真實 ISO 日期（YYYY-MM-DD）。
+
+    年份依台北今日推算，並處理 12 月→1 月跨年：若解析出的月份大於今日月份，
+    代表是去年的交易日。無法解析時回傳空字串。
+    """
+    m = re.search(r"(\d{1,2})/(\d{1,2})", date_text or "")
+    if not m:
+        return ""
+    month, day = int(m.group(1)), int(m.group(2))
+    today = datetime.now(TPE).date()
+    year = today.year - 1 if month > today.month else today.year
+    try:
+        return date(year, month, day).isoformat()
+    except ValueError:
+        return ""
 
 # Playwright import with fallback
 try:
@@ -125,15 +147,25 @@ def fetch_broker_trading(stock_code: str, target_date: Optional[str] = None) -> 
         # If target_date specified, try to select it
         if target_date:
             try:
+                # 將兩邊的日期正規化成可比較的 'MM/DD'（零補位）後做「精確」比對，
+                # 避免子字串誤判（例如 '12/1' 命中 '12/10'）。找不到則略過，沿用預設日期。
+                def _canon(s: str) -> str:
+                    m = re.search(r"(\d{1,2})/(\d{1,2})", s or "")
+                    return f"{int(m.group(1)):02d}/{int(m.group(2)):02d}" if m else ""
+
+                want = _canon(target_date)
                 # Find and select date from dropdown
                 select = page.query_selector("select")
-                if select:
+                if select and want:
                     options = select.query_selector_all("option")
                     for opt in options:
-                        if target_date in (opt.get_attribute("value") or ""):
-                            select.select_option(value=opt.get_attribute("value"))
+                        val = opt.get_attribute("value") or ""
+                        if _canon(val) == want:
+                            select.select_option(value=val)
                             page.wait_for_load_state("networkidle")
                             break
+                    else:
+                        print(f"[WARN] target_date {target_date!r} not found in dropdown for {stock_code}; using default date")
             except Exception:
                 pass  # Use default date if selection fails
         
@@ -148,7 +180,8 @@ def fetch_broker_trading(stock_code: str, target_date: Optional[str] = None) -> 
         rows = table.query_selector_all("tr")
         
         # Get the displayed date from page header
-        # Look for pattern like "12/12" in the page content
+        # Look for pattern like "12/12" in the page content.
+        # 注意：頁面顯示的是最新「交易日」（無年份），需轉成真實 ISO 交易日。
         date_text = ""
         for row in rows[:5]:
             row_text = row.inner_text()
@@ -156,6 +189,9 @@ def fetch_broker_trading(stock_code: str, target_date: Optional[str] = None) -> 
             if match:
                 date_text = match.group(1)
                 break
+
+        # 由無年份的 MM/DD 推算真實交易日（含跨年處理），供下游以真實交易日去重/對齊
+        trade_date = _resolve_trade_date(date_text)
         
         # Find the header row (contains "買超券商" and "賣超券商")
         data_start_idx = 0
@@ -197,6 +233,7 @@ def fetch_broker_trading(stock_code: str, target_date: Optional[str] = None) -> 
                 
                 records.append({
                     "date": date_text,
+                    "trade_date": trade_date,
                     "stock_code": stock_code,
                     "broker_name": buy_broker_name,
                     "broker_id": buy_broker_id,
@@ -228,6 +265,7 @@ def fetch_broker_trading(stock_code: str, target_date: Optional[str] = None) -> 
                 
                 records.append({
                     "date": date_text,
+                    "trade_date": trade_date,
                     "stock_code": stock_code,
                     "broker_name": sell_broker_name,
                     "broker_id": sell_broker_id,

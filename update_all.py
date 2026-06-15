@@ -11,6 +11,7 @@
 import json
 import os
 import csv
+import time
 from io import StringIO
 from datetime import datetime, timedelta, date
 from zoneinfo import ZoneInfo
@@ -26,14 +27,48 @@ DOCS_DIR = os.path.join("docs", "data")
 TIMESERIES_DIR = os.path.join(DOCS_DIR, "timeseries")
 INST_BASELINE_PATH = os.path.join(DATA_DIR, "inst_baseline.csv")
 
-WINDOWS = [5, 20, 60, 120]
+# 三大法人「持股比重變化」與「買賣超」排行共用的檢查點（視窗）。
+# 5 / 10 / 30 日可對照富邦 zgk 頁面驗證，20 日為本程式自行算出。
+WINDOWS = [5, 10, 20, 30]
 FLOW_COLUMNS = ["date", "code", "name", "foreign_net", "trust_net", "dealer_net", "market"]
 FOREIGN_COLUMNS = ["date", "code", "name", "market", "total_shares", "foreign_shares", "foreign_ratio"]
 INIT_FETCH_DAYS = 60
 BACKFILL_LOOKBACK_DAYS = 120
 
+# TPEX 新版三大法人買賣明細 JSON API。
+# 舊版 /web/stock/3insti/daily_trade/3itrade_hedge_result.php 已於 2025/12 失效，
+# 自該日起上櫃三大法人買賣超無法更新；改用此端點。
+TPEX_DAILY_TRADE_URL = "https://www.tpex.org.tw/www/zh-tw/insti/dailyTrade"
+
 
 # ---------- generic helpers ----------
+
+def http_get_bytes(url: str, params: Optional[dict] = None, timeout: int = 25) -> bytes:
+    """GET 回傳 response bytes；requests 失敗時退回 curl。
+
+    某些環境下 Python 的 SSL stack 對 www.tpex.org.tw 會丟 SSLError（握手失
+    敗），但系統 curl 可正常連線。為了讓資料在本機與 CI 都能穩定抓取，這裡在
+    requests 失敗時改用 curl 作為後援。
+    """
+    headers = {"User-Agent": "Mozilla/5.0"}
+    try:
+        resp = requests.get(url, params=params, timeout=timeout, headers=headers)
+        return resp.content
+    except Exception as exc:  # noqa: BLE001  (SSLError / ConnectionError 等)
+        import subprocess
+        import urllib.parse
+
+        full = url + (("?" + urllib.parse.urlencode(params)) if params else "")
+        try:
+            out = subprocess.run(
+                ["curl", "-sS", "--max-time", str(timeout),
+                 "-H", "User-Agent: Mozilla/5.0", full],
+                capture_output=True, check=True,
+            )
+            return out.stdout
+        except Exception:
+            raise exc
+
 
 def ensure_dirs():
     for p in (DATA_DIR, DOCS_DIR, TIMESERIES_DIR):
@@ -256,33 +291,53 @@ def calc_fetch_dates(
 
 # ---------- TWSE: T86 (daily flows) ----------
 
-def fetch_twse_t86(trade_date: date) -> pd.DataFrame:
-    """三大法人買賣超統計資訊 (T86) for TWSE.
+def flow_corrupt_mask(out: pd.DataFrame, total: pd.Series) -> pd.Series:
+    """標記「官方三大法人合計欄位有值，但 外資+投信+自營 ≠ 該合計」的列。
 
-    注意：/fund/T86 是 Big5 編碼，必須用 cp950 解碼，否則欄位會是亂碼。
+    這類列通常是回應被截斷或單列解析異常（某成分被讀成 0），會讓買賣超算錯。
+    官方合計為 0（少數列合計欄留白）者不在檢查範圍——其三個成分仍可信。
     """
-    datestr = trade_date.strftime("%Y%m%d")
-    url = "https://www.twse.com.tw/fund/T86"
-    params = {
-        "response": "csv",
-        "date": datestr,
-        "selectType": "ALLBUT0999",
-    }
-    resp = requests.get(url, params=params, timeout=20)
+    s = (
+        pd.to_numeric(out["foreign_net"], errors="coerce").fillna(0)
+        + pd.to_numeric(out["trust_net"], errors="coerce").fillna(0)
+        + pd.to_numeric(out["dealer_net"], errors="coerce").fillna(0)
+    )
+    total = pd.to_numeric(total, errors="coerce").fillna(0)
+    return (total != 0) & (s != total)
 
-    csv_text = resp.content.decode("cp950", errors="ignore")
+
+def _roc_title_date(text: str) -> Optional[date]:
+    """從 TWSE/TPEX 報表標題抓出『115年06月04日』形式的日期（民國轉西元）。"""
+    import re
+
+    m = re.search(r"(\d{2,3})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日", text[:300])
+    if not m:
+        return None
+    try:
+        return date(int(m.group(1)) + 1911, int(m.group(2)), int(m.group(3)))
+    except ValueError:
+        return None
+
+
+def _parse_twse_t86(csv_text: str, trade_date: date):
+    """解析 T86 CSV，回傳 (out_df, corrupt_mask, status)。
+
+    status: "ok" | "empty"(該日無資料) | "wrongdate"(回應日期 != 請求日期，需重抓)。
+    """
+    # 防呆：rapid bulk 抓取時 TWSE 偶爾會回「別天」的資料，且該回應自洽（合計對得上），
+    # 單純比對 sum==total 抓不到，必須比對報表標題日期。
+    title_date = _roc_title_date(csv_text)
+    if title_date is not None and title_date != trade_date:
+        return empty_flows_df(), None, "wrongdate"
+
     df = pd.read_csv(StringIO(csv_text), header=1)
-
-    df = df.dropna(how="all", axis=0)
-    df = df.dropna(how="all", axis=1)
+    df = df.dropna(how="all", axis=0).dropna(how="all", axis=1)
     df = normalize_columns(df)
-
     if df.empty or len(df.columns) == 0:
-        return empty_flows_df()
+        return empty_flows_df(), None, "empty"
 
     code_col = find_col_any(df, ["證券代號"])
     name_col = find_col_any(df, ["證券名稱"])
-
     col_foreign_ex_net = find_col_any(
         df,
         [
@@ -293,13 +348,8 @@ def fetch_twse_t86(trade_date: date) -> pd.DataFrame:
     )
     col_foreign_self_net = find_col_any(df, ["外資自營商買賣超股數"])
     col_trust_net = find_col_any(df, ["投信買賣超股數"])
-    col_dealer_net = find_col_any(
-        df,
-        [
-            "自營商買賣超股數合計",
-            "自營商買賣超股數",
-        ],
-    )
+    col_dealer_net = find_col_any(df, ["自營商買賣超股數合計", "自營商買賣超股數"])
+    col_total_net = find_col_any(df, ["三大法人買賣超股數"], required=False)
 
     df["code"] = df[code_col].astype(str).str.replace("=", "").str.replace('"', "")
     df["code"] = df["code"].str.strip().str.zfill(4)
@@ -307,8 +357,6 @@ def fetch_twse_t86(trade_date: date) -> pd.DataFrame:
 
     foreign_ex = numeric_series(df[col_foreign_ex_net])
     foreign_self = numeric_series(df[col_foreign_self_net])
-    trust_net = numeric_series(df[col_trust_net])
-    dealer_net = numeric_series(df[col_dealer_net])
 
     out = pd.DataFrame(
         {
@@ -316,15 +364,65 @@ def fetch_twse_t86(trade_date: date) -> pd.DataFrame:
             "code": df["code"],
             "name": df["name"],
             "foreign_net": (foreign_ex + foreign_self),
-            "trust_net": trust_net,
-            "dealer_net": dealer_net,
+            "trust_net": numeric_series(df[col_trust_net]),
+            "dealer_net": numeric_series(df[col_dealer_net]),
             "market": "TWSE",
         }
     )
 
-    mask = out["code"].str.match(r"^\d{4,5}[A-Z]*$")
-    out = out[mask]
-    return out[FLOW_COLUMNS]
+    if col_total_net is not None:
+        corrupt = flow_corrupt_mask(out, numeric_series(df[col_total_net]))
+    else:
+        corrupt = pd.Series(False, index=out.index)
+
+    mask = out["code"].str.match(r"^\d{4,6}[A-Z]*$")
+    return out[mask][FLOW_COLUMNS], corrupt[mask], "ok"
+
+
+def fetch_twse_t86(trade_date: date, attempts: int = 3) -> pd.DataFrame:
+    """三大法人買賣超統計資訊 (T86) for TWSE.
+
+    - /fund/T86 是 Big5 編碼，必須用 cp950 解碼。
+    - 以「外資+投信+自營 == 官方三大法人合計」做完整性檢查；若有列對不起來
+      （多半是回應被截斷／單列解析異常），重抓最多 attempts 次；仍失敗則捨棄
+      該些壞列並警告，避免把錯誤的買賣超寫進歷史。
+    """
+    url = "https://www.twse.com.tw/fund/T86"
+    params = {"response": "csv", "date": trade_date.strftime("%Y%m%d"), "selectType": "ALLBUT0999"}
+
+    last_out = empty_flows_df()
+    last_corrupt = None
+    for attempt in range(attempts):
+        try:
+            resp = requests.get(url, params=params, timeout=20)
+            out, corrupt, status = _parse_twse_t86(
+                resp.content.decode("cp950", errors="ignore"), trade_date
+            )
+        except Exception as e:  # noqa: BLE001
+            if attempt == attempts - 1:
+                raise
+            time.sleep(0.8)
+            continue
+
+        if status == "wrongdate":
+            if attempt < attempts - 1:
+                print(f"[WARN] TWSE T86 {trade_date}: 回應為他日資料，重抓 ...")
+                time.sleep(1.0)
+                continue
+            print(f"[WARN] TWSE T86 {trade_date}: 重抓後仍非當日資料，捨棄")
+            return empty_flows_df()
+        if status == "empty":
+            return out  # 該日無資料（假日等），重抓也沒用
+        if corrupt is None or not bool(corrupt.any()):
+            return out  # 全部對得起來
+        last_out, last_corrupt = out, corrupt
+        if attempt < attempts - 1:
+            print(f"[WARN] TWSE T86 {trade_date}: {int(corrupt.sum())} 列合計對不上，重抓 ...")
+            time.sleep(0.8)
+
+    bad = int(last_corrupt.sum()) if last_corrupt is not None else 0
+    print(f"[WARN] TWSE T86 {trade_date}: 重抓後仍有 {bad} 列異常，捨棄該些列")
+    return last_out[~last_corrupt.values] if last_corrupt is not None else last_out
 
 
 # ---------- TWSE: MI_QFIIS (foreign holdings) ----------
@@ -368,7 +466,7 @@ def fetch_twse_mi_qfiis(trade_date: date) -> pd.DataFrame:
     out["code"] = df[code_col].astype(str).str.replace("=", "").str.replace('"', "").str.strip().str.zfill(4)
     out["name"] = df[name_col].astype(str).str.strip()
 
-    mask = out["code"].str.match(r"^\d{4,5}[A-Z]*$")
+    mask = out["code"].str.match(r"^\d{4,6}[A-Z]*$")
     out = out[mask]
 
     if out.empty:
@@ -393,74 +491,82 @@ def roc_date(d: date) -> str:
 # ---------- TPEX: 三大法人 daily flows ----------
 
 def fetch_tpex_flows(trade_date: date) -> pd.DataFrame:
-    """上櫃股票三大法人買賣明細."""
-    roc = roc_date(trade_date)
-    url = "https://www.tpex.org.tw/web/stock/3insti/daily_trade/3itrade_hedge_result.php"
-    params = {
-        "d": roc,
-        "l": "zh-tw",
-        "o": "htm",
-        "s": "0",
-        "se": "EW",
-        "t": "D",
-    }
-    resp = requests.get(url, params=params, timeout=20)
-    resp.encoding = "utf-8"
-    try:
-        df = read_first_html_table(resp.text)
-    except Exception:
-        # fallback: 某些頁面結構可直接被 read_html 讀出
-        tables = pd.read_html(StringIO(resp.text))
-        if not tables:
-            return empty_flows_df()
-        df = tables[0]
+    """上櫃股票三大法人買賣明細（TPEX 新版 JSON API）。
 
-    df = normalize_columns(df)
-    if df.empty or len(df.columns) == 0:
+    回傳 24 欄，三個一組（買進股數 / 賣出股數 / 買賣超股數）：
+      [0] 代號 [1] 名稱
+      [2..4]   外資及陸資(不含外資自營商)
+      [5..7]   外資自營商
+      [8..10]  外資及陸資合計      -> foreign_net (idx 10)
+      [11..13] 投信               -> trust_net   (idx 13)
+      [14..16] 自營商(自行買賣)
+      [17..19] 自營商(避險)
+      [20..22] 自營商合計          -> dealer_net  (idx 22)
+      [23]     三大法人買賣超股數合計（驗證用）
+    經驗證：foreign_net + trust_net + dealer_net == idx23。
+    """
+    params = {
+        "type": "Daily",
+        "sect": "EW",
+        "date": roc_date(trade_date),
+        "id": "",
+        "response": "json",
+    }
+    try:
+        content = http_get_bytes(TPEX_DAILY_TRADE_URL, params=params)
+        data = json.loads(content.decode("utf-8", "ignore"))
+    except Exception:  # noqa: BLE001
         return empty_flows_df()
 
-    code_col = find_col_any(df, ["代號"])
-    name_col = find_col_any(df, ["名稱"])
+    tables = data.get("tables") or []
+    if not tables:
+        return empty_flows_df()
+    # 防呆：回應日期需與請求日期相符，避免抓到他日資料。
+    resp_date = str(tables[0].get("date") or data.get("date") or "").strip()
+    if resp_date and resp_date != roc_date(trade_date):
+        print(f"[WARN] TPEX flows {trade_date}: 回應日期 {resp_date} 非當日，捨棄")
+        return empty_flows_df()
+    rows = tables[0].get("data") or []
+    if not rows:
+        return empty_flows_df()
 
-    col_foreign_ex_net = find_col_any(
-        df,
-        [
-            "外資及陸資(不含外資自營商)買賣超股數",
-            "外資及陸資買賣超股數(不含外資自營商)",
-            "外資及陸資買賣超股數",
-        ],
-    )
-    col_foreign_self_net = find_col_any(df, ["外資自營商買賣超股數"])
-    col_trust_net = find_col_any(df, ["投信買賣超股數"])
-    col_dealer_net = find_col_any(
-        df,
-        [
-            "自營商買賣超股數合計",
-            "自營商買賣超股數",
-        ],
-    )
+    records = []
+    for r in rows:
+        if not r or len(r) < 24:
+            continue
+        records.append(
+            {
+                "code": str(r[0]).strip().strip("=").strip('"'),
+                "name": str(r[1]).strip(),
+                "foreign_raw": r[10],
+                "trust_raw": r[13],
+                "dealer_raw": r[22],
+                "total_raw": r[23],  # 三大法人買賣超股數合計（驗證用）
+            }
+        )
+    if not records:
+        return empty_flows_df()
 
-    df["code"] = df[code_col].astype(str).str.strip().str.zfill(4)
-    df["name"] = df[name_col].astype(str).str.strip()
-
-    foreign_ex = numeric_series(df[col_foreign_ex_net])
-    foreign_self = numeric_series(df[col_foreign_self_net])
-    trust_net = numeric_series(df[col_trust_net])
-    dealer_net = numeric_series(df[col_dealer_net])
-
+    raw = pd.DataFrame(records)
     out = pd.DataFrame(
         {
             "date": trade_date,
-            "code": df["code"],
-            "name": df["name"],
-            "foreign_net": (foreign_ex + foreign_self),
-            "trust_net": trust_net,
-            "dealer_net": dealer_net,
+            "code": raw["code"].astype(str).str.strip().str.zfill(4),
+            "name": raw["name"],
+            "foreign_net": numeric_series(raw["foreign_raw"]),
+            "trust_net": numeric_series(raw["trust_raw"]),
+            "dealer_net": numeric_series(raw["dealer_raw"]),
             "market": "TPEX",
         }
     )
 
-    mask = out["code"].str.match(r"^\d{4,5}[A-Z]*$")
+    # 完整性檢查：外資+投信+自營 應等於官方合計；對不上的列捨棄並警告。
+    corrupt = flow_corrupt_mask(out, numeric_series(raw["total_raw"]))
+    if bool(corrupt.any()):
+        print(f"[WARN] TPEX flows {trade_date}: {int(corrupt.sum())} 列合計對不上，捨棄該些列")
+        out = out[~corrupt]
+
+    mask = out["code"].str.match(r"^\d{4,6}[A-Z]*$")
     out = out[mask]
     return out[FLOW_COLUMNS]
 
@@ -504,7 +610,7 @@ def fetch_tpex_qfii(trade_date: date) -> pd.DataFrame:
     out["code"] = df[code_col].astype(str).str.strip().str.zfill(4)
     out["name"] = df[name_col].astype(str).str.strip()
 
-    mask = out["code"].str.match(r"^\d{4,5}[A-Z]*$")
+    mask = out["code"].str.match(r"^\d{4,6}[A-Z]*$")
     out = out[mask]
 
     if out.empty:
@@ -541,7 +647,10 @@ def append_history(df_new: pd.DataFrame, path: str, key_cols: list[str]) -> pd.D
     else:
         df_all = df_new
 
-    df_all = df_all.drop_duplicates(subset=key_cols).sort_values(["date", "code"])
+    # keep='last'：重抓同一 (date, code, market) 時，讓「新值」覆蓋舊值，
+    # 以便修正過去抓錯的資料（例如 dealer_net 欄位解析錯誤）。日常更新不會重抓
+    # 既有日期，因此此設定對日常流程無影響。
+    df_all = df_all.drop_duplicates(subset=key_cols, keep="last").sort_values(["date", "code"])
     df_all.to_csv(path, index=False, date_format="%Y-%m-%d")
     return df_all
 
@@ -734,11 +843,26 @@ def add_change_metrics(merged: pd.DataFrame, windows: list[int]) -> pd.DataFrame
         merged["three_inst_ratio_est"], errors="coerce"
     ).fillna(0.0)
     merged = merged.sort_values(["code", "date"]).reset_index(drop=True)
-    by_code = merged.groupby("code")["three_inst_ratio_est"]
+
+    # 以「全市場交易日軸」對齊 w 日變化，而非用 DataFrame 列位移（diff(periods=w)
+    # 會把列數當天數，對有缺漏交易日的個股算錯，且結果會隨「哪些日成功抓到」而變）。
+    # 作法：把比重攤成 code × date 寬表，補上完整交易日軸並在日期方向 ffill（持股
+    # 在沒交易的日子沿用前值），再沿日期軸位移 w 個交易日相減。
+    wide = merged.pivot_table(
+        index="code", columns="date", values="three_inst_ratio_est", aggfunc="last"
+    ).sort_index(axis=1)
+    wide_ff = wide.ffill(axis=1)
 
     for w in windows:
         col = f"three_inst_ratio_change_{w}"
-        merged[col] = by_code.diff(periods=w)
+        diff_w = wide_ff - wide_ff.shift(periods=w, axis=1)
+        long_w = (
+            diff_w.stack()
+            .dropna()
+            .rename(col)
+            .reset_index()  # columns: code, date, col
+        )
+        merged = merged.merge(long_w, on=["code", "date"], how="left")
     return merged
 
 
@@ -793,6 +917,108 @@ def export_change_rankings(
             json.dump(up_json, f, ensure_ascii=False, indent=2)
         with open(down_path, "w", encoding="utf-8") as f:
             json.dump(down_json, f, ensure_ascii=False, indent=2)
+
+def export_netbuy_rankings(
+    flows_all: pd.DataFrame,
+    windows: list[int],
+    out_dir: str = DOCS_DIR,
+    top_n: int = 200,
+):
+    """三大法人「N 日累計買賣超」排行。
+
+    直接用官方每日買賣超（外資合計 / 投信 / 自營商合計）在「最近 N 個交易日」加總，
+    不依賴外資持股，也不做任何估計，因此可直接對照富邦 zgk 頁面（C=5/10/30）驗證。
+
+    單位：張（= 股 / 1000，四捨五入），與富邦頁面一致。
+    每個視窗輸出買超(up) / 賣超(down) 各 top_n 檔，欄位含外資、投信、自營、合計。
+    """
+    if flows_all is None or flows_all.empty:
+        return
+
+    df = flows_all.copy()
+    df = restore_column_from_index(df, "code")
+    df = ensure_columns(df, FLOW_COLUMNS)
+    df["date"] = pd.to_datetime(df["date"], errors="coerce").dt.date
+    df["code"] = df["code"].astype(str).str.strip()
+    df = df.dropna(subset=["date", "code"])
+    df = df[df["code"] != ""]
+    if df.empty:
+        return
+    for c in ("foreign_net", "trust_net", "dealer_net"):
+        df[c] = pd.to_numeric(df[c], errors="coerce").fillna(0.0)
+
+    # 每檔股票最新一筆的名稱 / 市場
+    meta = (
+        df.sort_values("date")
+        .groupby("code")
+        .agg(name=("name", "last"), market=("market", "last"))
+        .reset_index()
+    )
+
+    all_dates = sorted(df["date"].unique())
+    latest_date = all_dates[-1]
+    updated = datetime.now(ZoneInfo("Asia/Taipei")).isoformat()
+    os.makedirs(out_dir, exist_ok=True)
+
+    def to_lots(value) -> int:
+        return int(round(float(value) / 1000.0))
+
+    def to_records(sorted_df: pd.DataFrame) -> list[dict]:
+        records = []
+        for rank, (_, row) in enumerate(sorted_df.iterrows(), start=1):
+            records.append(
+                {
+                    "rank": rank,
+                    "code": row["code"],
+                    "name": row.get("name", "") or "",
+                    "market": row.get("market", "") or "",
+                    "foreign": to_lots(row["foreign"]),
+                    "trust": to_lots(row["trust"]),
+                    "dealer": to_lots(row["dealer"]),
+                    "total": to_lots(row["total"]),
+                }
+            )
+        return records
+
+    for w in windows:
+        win_dates = all_dates[-w:]  # 最近 w 個交易日
+        sub = df[df["date"].isin(set(win_dates))]
+        if sub.empty:
+            continue
+        agg = (
+            sub.groupby("code")
+            .agg(
+                foreign=("foreign_net", "sum"),
+                trust=("trust_net", "sum"),
+                dealer=("dealer_net", "sum"),
+            )
+            .reset_index()
+        )
+        agg["total"] = agg["foreign"] + agg["trust"] + agg["dealer"]
+        agg = agg.merge(meta, on="code", how="left")
+
+        # 穩定排序：以合計為主鍵，code 為次鍵，避免同值列在不同 pandas 版本間飄動。
+        up = agg.sort_values(["total", "code"], ascending=[False, True]).head(top_n)
+        down = agg.sort_values(["total", "code"], ascending=[True, True]).head(top_n)
+
+        for side, ranked in (("up", up), ("down", down)):
+            payload = {
+                "updated": updated,
+                "metric": "net_buy_sell",
+                "window": w,
+                "unit": "張",
+                "side": side,
+                "trading_days": len(win_dates),
+                "date_range": {
+                    "start": win_dates[0].strftime("%Y-%m-%d"),
+                    "end": latest_date.strftime("%Y-%m-%d"),
+                },
+                "data": to_records(ranked),
+            }
+            path = os.path.join(out_dir, f"top_three_inst_netbuy_{w}_{side}.json")
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(payload, f, ensure_ascii=False, indent=2)
+
 
 def clean_float(val, default: float = 0.0) -> float:
     """把 NaN / inf / 非數字 清成 safe float，避免寫出非法 JSON。"""
@@ -1004,8 +1230,14 @@ def main():
         [df for df in (twse_flows_all, tpex_flows_all) if not df.empty],
         ignore_index=True,
     )
+
+    # 三大法人 N 日買賣超排行：純官方日買賣超加總，不依賴外資持股，
+    # 即使外資持股當日抓取失敗也照樣產出，並可對照富邦驗證。
+    export_netbuy_rankings(flows_all, windows=WINDOWS, out_dir=DOCS_DIR)
+    print("[INFO] exported three-inst net buy/sell rankings:", WINDOWS)
+
     if twse_foreign_all.empty and tpex_foreign_all.empty:
-        print("[WARN] no foreign holdings history available, aborting model/export.")
+        print("[WARN] no foreign holdings history available, aborting holdings model/export.")
         return
 
     foreign_master = build_foreign_master(twse_foreign_all, tpex_foreign_all)

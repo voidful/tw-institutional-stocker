@@ -16,7 +16,26 @@ from datetime import date, datetime, timedelta
 from typing import Optional, Dict, List
 import requests
 import pandas as pd
+import numpy as np
 from io import StringIO
+
+
+class MonthFetchError(Exception):
+    """單月價格抓取因暫時性錯誤（網路/5xx/429）而失敗，需與「該月無交易」區分 (FSP-05)。"""
+
+
+def _parse_price_or_nan(s) -> float:
+    """解析價格；'--'/空白/'---' 等無交易標記回傳 NaN（不是 0.0），
+
+    避免 pct_change 產生假的 -100%/inf 污染相關性 (FSP-03)。
+    """
+    s = str(s).strip().replace(",", "")
+    if s in ("--", "", "---", "----"):
+        return float("nan")
+    try:
+        return float(s)
+    except ValueError:
+        return float("nan")
 
 # Constants
 TWSE_STOCK_PRICE_URL = "https://www.twse.com.tw/exchangeReport/STOCK_DAY"
@@ -51,59 +70,59 @@ def fetch_twse_stock_price(stock_code: str, year: int, month: int) -> pd.DataFra
         "stockNo": stock_code,
     }
 
-    try:
-        resp = requests.get(TWSE_STOCK_PRICE_URL, params=params, timeout=20)
-        resp.raise_for_status()
-        data = resp.json()
+    # 對暫時性錯誤重試（最多 3 次，指數退避），最終仍失敗則 raise MonthFetchError，
+    # 與「該月無交易」(stat!=OK) 區分，避免靜默漏掉整個月 (FSP-05)
+    last_err = None
+    for attempt in range(3):
+        try:
+            resp = requests.get(TWSE_STOCK_PRICE_URL, params=params, timeout=20)
+            resp.raise_for_status()
+            data = resp.json()
+            break
+        except Exception as e:
+            last_err = e
+            print(f"Error fetching TWSE price for {stock_code} {year}-{month:02d} (attempt {attempt+1}/3): {e}")
+            time.sleep(1.0 * (2 ** attempt))
+    else:
+        raise MonthFetchError(f"TWSE {stock_code} {year}-{month:02d}: {last_err}")
 
-        if data.get("stat") != "OK":
-            return pd.DataFrame()
-
-        # Parse data
-        records = []
-        for row in data.get("data", []):
-            if len(row) < 7:
-                continue
-
-            # row format: [日期, 成交股數, 成交金額, 開盤價, 最高價, 最低價, 收盤價, 漲跌價差, 成交筆數]
-            date_str = row[0].strip().replace("/", "-")
-            # Convert ROC date to Western date
-            parts = date_str.split("-")
-            if len(parts) == 3:
-                year_roc = int(parts[0]) + 1911
-                date_str = f"{year_roc}-{parts[1]}-{parts[2]}"
-
-            # Parse prices (handle '--' for no trading)
-            def parse_price(s):
-                s = str(s).strip().replace(",", "")
-                if s in ("--", "", "---"):
-                    return 0.0
-                try:
-                    return float(s)
-                except:
-                    return 0.0
-
-            volume = parse_price(row[1])
-            open_price = parse_price(row[3])
-            high = parse_price(row[4])
-            low = parse_price(row[5])
-            close = parse_price(row[6])
-
-            records.append({
-                "date": date_str,
-                "code": stock_code,
-                "open": open_price,
-                "high": high,
-                "low": low,
-                "close": close,
-                "volume": volume / 1000  # Convert to 張 (1張 = 1000股)
-            })
-
-        return pd.DataFrame(records)
-
-    except Exception as e:
-        print(f"Error fetching TWSE price for {stock_code}: {e}")
+    # 該月無交易（非錯誤）：合法回傳空表
+    if data.get("stat") != "OK":
         return pd.DataFrame()
+
+    # Parse data
+    records = []
+    for row in data.get("data", []):
+        if len(row) < 7:
+            continue
+
+        # row format: [日期, 成交股數, 成交金額, 開盤價, 最高價, 最低價, 收盤價, 漲跌價差, 成交筆數]
+        date_str = row[0].strip().replace("/", "-")
+        # Convert ROC date to Western date
+        parts = date_str.split("-")
+        if len(parts) == 3:
+            year_roc = int(parts[0]) + 1911
+            date_str = f"{year_roc}-{parts[1]}-{parts[2]}"
+
+        # 價格用 NaN 標記無交易（FSP-03）；成交量另外解析，合法的 0 量不應變 NaN
+        volume_raw = _parse_price_or_nan(row[1])
+        volume = 0.0 if np.isnan(volume_raw) else volume_raw
+        open_price = _parse_price_or_nan(row[3])
+        high = _parse_price_or_nan(row[4])
+        low = _parse_price_or_nan(row[5])
+        close = _parse_price_or_nan(row[6])
+
+        records.append({
+            "date": date_str,
+            "code": stock_code,
+            "open": open_price,
+            "high": high,
+            "low": low,
+            "close": close,
+            "volume": volume / 1000  # Convert to 張 (1張 = 1000股)
+        })
+
+    return pd.DataFrame(records)
 
 
 def fetch_tpex_stock_price(stock_code: str, year: int, month: int) -> pd.DataFrame:
@@ -127,59 +146,58 @@ def fetch_tpex_stock_price(stock_code: str, year: int, month: int) -> pd.DataFra
         "stkno": stock_code,
     }
 
-    try:
-        resp = requests.get(TPEX_STOCK_PRICE_URL, params=params, timeout=20)
-        resp.raise_for_status()
-        data = resp.json()
+    # 暫時性錯誤重試，最終失敗 raise MonthFetchError，與「該月無交易」區分 (FSP-05)
+    last_err = None
+    for attempt in range(3):
+        try:
+            resp = requests.get(TPEX_STOCK_PRICE_URL, params=params, timeout=20)
+            resp.raise_for_status()
+            data = resp.json()
+            break
+        except Exception as e:
+            last_err = e
+            print(f"Error fetching TPEX price for {stock_code} {year}-{month:02d} (attempt {attempt+1}/3): {e}")
+            time.sleep(1.0 * (2 ** attempt))
+    else:
+        raise MonthFetchError(f"TPEX {stock_code} {year}-{month:02d}: {last_err}")
 
-        if data.get("aaData") is None or len(data.get("aaData", [])) == 0:
-            return pd.DataFrame()
-
-        # Parse data
-        records = []
-        for row in data["aaData"]:
-            if len(row) < 7:
-                continue
-
-            # row format: [日期, 成交千股, 成交千元, 開盤, 最高, 最低, 收盤, ...]
-            date_str = row[0].strip().replace("/", "-")
-            # Convert ROC date to Western date
-            parts = date_str.split("-")
-            if len(parts) == 3:
-                year_western = int(parts[0]) + 1911
-                date_str = f"{year_western}-{parts[1]}-{parts[2]}"
-
-            # Parse prices
-            def parse_price(s):
-                s = str(s).strip().replace(",", "")
-                if s in ("--", "", "---", "----"):
-                    return 0.0
-                try:
-                    return float(s)
-                except:
-                    return 0.0
-
-            volume = parse_price(row[1])
-            open_price = parse_price(row[3])
-            high = parse_price(row[4])
-            low = parse_price(row[5])
-            close = parse_price(row[6])
-
-            records.append({
-                "date": date_str,
-                "code": stock_code,
-                "open": open_price,
-                "high": high,
-                "low": low,
-                "close": close,
-                "volume": volume  # Already in 張
-            })
-
-        return pd.DataFrame(records)
-
-    except Exception as e:
-        print(f"Error fetching TPEX price for {stock_code}: {e}")
+    # 該月無交易（非錯誤）：合法回傳空表
+    if data.get("aaData") is None or len(data.get("aaData", [])) == 0:
         return pd.DataFrame()
+
+    # Parse data
+    records = []
+    for row in data["aaData"]:
+        if len(row) < 7:
+            continue
+
+        # row format: [日期, 成交千股, 成交千元, 開盤, 最高, 最低, 收盤, ...]
+        date_str = row[0].strip().replace("/", "-")
+        # Convert ROC date to Western date
+        parts = date_str.split("-")
+        if len(parts) == 3:
+            year_western = int(parts[0]) + 1911
+            date_str = f"{year_western}-{parts[1]}-{parts[2]}"
+
+        # 價格用 NaN 標記無交易（FSP-03）；成交量合法 0 不變 NaN
+        volume_raw = _parse_price_or_nan(row[1])
+        volume = 0.0 if np.isnan(volume_raw) else volume_raw
+        open_price = _parse_price_or_nan(row[3])
+        high = _parse_price_or_nan(row[4])
+        low = _parse_price_or_nan(row[5])
+        close = _parse_price_or_nan(row[6])
+
+        records.append({
+            "date": date_str,
+            "code": stock_code,
+            "open": open_price,
+            "high": high,
+            "low": low,
+            "close": close,
+            "volume": volume  # Already in 張
+        })
+
+    return pd.DataFrame(records)
 
 
 def get_stock_market(stock_code: str) -> Optional[str]:
@@ -243,10 +261,15 @@ def fetch_stock_price_range(
         year = current.year
         month = current.month
 
-        if market == "TWSE":
-            df = fetch_twse_stock_price(stock_code, year, month)
-        else:
-            df = fetch_tpex_stock_price(stock_code, year, month)
+        # 月份抓取失敗（暫時性錯誤）視為致命：直接中止並回傳空表，避免儲存有缺口的序列 (FSP-05)
+        try:
+            if market == "TWSE":
+                df = fetch_twse_stock_price(stock_code, year, month)
+            else:
+                df = fetch_tpex_stock_price(stock_code, year, month)
+        except MonthFetchError as e:
+            print(f"[ERROR] Aborting price range for {stock_code}: {e}")
+            return pd.DataFrame()
 
         if not df.empty:
             all_data.append(df)
@@ -276,9 +299,14 @@ def calculate_price_changes(prices_df: pd.DataFrame, windows: List[int] = [15, 3
     """
     計算收盤價的漲跌幅
 
+    注意：pct_change(periods=window) 的 window 是「交易日列數」位移，而非曆日；
+    序列若有缺口（停牌/上市日不足），change_pct_{window} 代表的是 window 個「交易列」前的
+    變化，並非剛好 window 個曆日 (FSP-02)。下游相關性已改為直接在價格序列上計算未來報酬，
+    此處的 change_pct_{window} 僅作參考輸出。
+
     Args:
         prices_df: DataFrame with columns: date, close
-        windows: 要計算的時間窗口列表（天數）
+        windows: 要計算的時間窗口列表（交易日列數）
 
     Returns:
         DataFrame with additional columns: change_pct_{window} for each window
@@ -288,14 +316,23 @@ def calculate_price_changes(prices_df: pd.DataFrame, windows: List[int] = [15, 3
 
     df = prices_df.copy()
     df["date"] = pd.to_datetime(df["date"])
-    df = df.sort_values("date").reset_index(drop=True)
+    # 先排序、去重，確保位移正確且不重複日期
+    df = df.sort_values("date").drop_duplicates("date").reset_index(drop=True)
 
-    # Calculate price change percentage for each window
+    # 收盤價守衛：非正值（含 0、無交易遺留）轉 NaN，避免 pct_change 產生 -100%/inf (FSP-03)
+    df["close"] = pd.to_numeric(df["close"], errors="coerce")
+    df.loc[df["close"] <= 0, "close"] = np.nan
+
+    # Calculate price change percentage for each window（window 為交易日列數位移）
     for window in windows:
-        df[f"change_pct_{window}"] = df["close"].pct_change(periods=window) * 100
+        col = f"change_pct_{window}"
+        df[col] = df["close"].pct_change(periods=window) * 100
+        df[col] = df[col].replace([np.inf, -np.inf], np.nan)
 
     # Also calculate daily change
-    df["daily_change_pct"] = df["close"].pct_change(periods=1) * 100
+    df["daily_change_pct"] = (df["close"].pct_change(periods=1) * 100).replace(
+        [np.inf, -np.inf], np.nan
+    )
 
     df["date"] = df["date"].dt.strftime("%Y-%m-%d")
 
@@ -317,29 +354,53 @@ def save_stock_prices(stock_code: str, prices_df: pd.DataFrame):
     print(f"Saved prices for {stock_code} to {csv_path}")
 
 
-def load_stock_prices(stock_code: str) -> pd.DataFrame:
+def load_stock_prices(
+    stock_code: str,
+    start_date: Optional[date] = None,
+    end_date: Optional[date] = None,
+) -> pd.DataFrame:
     """
     載入已儲存的股票價格數據
 
+    若指定了 start_date/end_date，會檢查快取是否「涵蓋」整個請求區間；
+    未涵蓋（過舊/過短）時回傳空表，避免靜默回傳過時快取而把分析視窗永遠凍結 (FSP-01)。
+
     Args:
         stock_code: 股票代碼
+        start_date: 請求區間起日（None 表示不檢查）
+        end_date: 請求區間迄日（None 表示不檢查）
 
     Returns:
-        DataFrame or empty DataFrame if not found
+        DataFrame or empty DataFrame if not found / 快取未涵蓋請求區間
     """
     csv_path = os.path.join(PRICE_DATA_DIR, f"{stock_code}.csv")
 
-    if os.path.exists(csv_path):
-        return pd.read_csv(csv_path)
+    if not os.path.exists(csv_path):
+        return pd.DataFrame()
 
-    return pd.DataFrame()
+    df = pd.read_csv(csv_path)
+
+    # 涵蓋性檢查：快取需 min(date) <= start_date 且 max(date) >= end_date 才算足夠
+    if (start_date is not None or end_date is not None) and "date" in df.columns and not df.empty:
+        dates = pd.to_datetime(df["date"], errors="coerce")
+        cmin, cmax = dates.min(), dates.max()
+        if pd.isna(cmin) or pd.isna(cmax):
+            return pd.DataFrame()
+        if start_date is not None and cmin.date() > start_date:
+            return pd.DataFrame()
+        if end_date is not None and cmax.date() < end_date:
+            return pd.DataFrame()
+
+    return df
 
 
 if __name__ == "__main__":
     # Test fetching prices for TSMC (2330)
     print("Testing fetch_stock_price_range for 2330...")
 
-    end_date = date.today()
+    # 可用環境變數 PRICE_END_DATE=YYYY-MM-DD 固定結束日，使 smoke test 具確定性 (FSP-04)
+    _end_env = os.environ.get("PRICE_END_DATE")
+    end_date = datetime.strptime(_end_env, "%Y-%m-%d").date() if _end_env else date.today()
     start_date = end_date - timedelta(days=90)
 
     prices = fetch_stock_price_range("2330", start_date, end_date)

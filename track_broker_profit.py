@@ -44,33 +44,36 @@ def ensure_dirs():
 def load_stock_prices(stock_code: str) -> pd.DataFrame:
     """
     Load stock price data for calculating next-day returns.
-    
-    This function tries to load from existing timeseries data.
-    Falls back to fetching from API if not available.
-    
+
+    價格來源是 fetch_stock_prices.save_stock_prices 產生的 data/prices/{code}.csv
+    （含 date, close, daily_change_pct 等欄位）。
+    注意：docs/data/timeseries/{code}.json 是「三大法人持股比例」時間序列，
+    為頂層 list 且沒有 close/change_pct 欄位，不能當價格來源用 (TBP-01)。
+
     Args:
         stock_code: Stock code (e.g., "2330")
-    
+
     Returns:
-        DataFrame with columns: date, close, change_pct
+        DataFrame with columns: date, close, change_pct (空表表示無資料)
     """
-    timeseries_path = os.path.join(DOCS_DIR, "timeseries", f"{stock_code}.json")
-    
-    if os.path.exists(timeseries_path):
-        with open(timeseries_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        
-        # Convert to DataFrame
-        records = []
-        for item in data.get("data", []):
-            records.append({
-                "date": item.get("date"),
-                "close": item.get("close", 0),
-                "change_pct": item.get("change_pct", 0),
-            })
-        return pd.DataFrame(records)
-    
-    return pd.DataFrame()
+    from fetch_stock_prices import load_stock_prices as load_price_csv
+
+    df = load_price_csv(str(stock_code))
+    if df.empty or "date" not in df.columns or "close" not in df.columns:
+        return pd.DataFrame()
+
+    # 將 fetch_stock_prices 的日漲跌幅欄位正規化成 change_pct
+    change_col = None
+    for cand in ("change_pct", "daily_change_pct"):
+        if cand in df.columns:
+            change_col = cand
+            break
+    out = pd.DataFrame({
+        "date": df["date"],
+        "close": df["close"],
+        "change_pct": df[change_col] if change_col else 0.0,
+    })
+    return out
 
 
 def calculate_next_day_profit(
@@ -102,53 +105,65 @@ def calculate_next_day_profit(
     """
     if broker_trades.empty:
         return pd.DataFrame()
-    
+
     results = []
-    
+
+    def _to_trade_dt(trade, fallback_text):
+        """將分點交易日轉成真實 Timestamp：優先用 trade_date 欄；否則由無年份 'M/D' + scrape
+        full_date 反推年份（交易月份大於 scrape 月份 → 前一年），以利與 ISO 價格日期精確比對 (TBP-02)。
+        """
+        td = trade.get("trade_date") if hasattr(trade, "get") else None
+        if td is not None and pd.notna(td) and str(td).strip():
+            return pd.to_datetime(td, errors="coerce")
+        ref = pd.to_datetime(trade.get("full_date"), errors="coerce") if hasattr(trade, "get") else pd.NaT
+        if pd.isna(ref):
+            ref = pd.Timestamp(datetime.now().date())
+        m = pd.Series(str(fallback_text)).str.extract(r"(\d{1,2})/(\d{1,2})").iloc[0]
+        if pd.isna(m[0]):
+            return pd.NaT
+        month, day = int(m[0]), int(m[1])
+        year = ref.year - 1 if month > ref.month else ref.year
+        try:
+            return pd.Timestamp(year=year, month=month, day=day)
+        except ValueError:
+            return pd.NaT
+
     # Group by stock code
     for stock_code, stock_df in broker_trades.groupby("stock_code"):
         # Load prices if not provided
         if prices is None or prices.empty:
             stock_prices = load_stock_prices(stock_code)
+        elif "stock_code" in prices.columns:
+            stock_prices = prices[prices["stock_code"] == stock_code]
         else:
-            stock_prices = prices[prices.get("stock_code", "") == stock_code]
-        
+            # 已是單一股票的價格表（沒有 stock_code 欄位），直接使用 (TBP-08)
+            stock_prices = prices
+
         if stock_prices.empty:
             continue
-        
-        # Create price lookup by date
-        price_lookup = {}
-        prev_date = None
-        for _, row in stock_prices.iterrows():
-            d = row["date"]
-            price_lookup[d] = {
-                "close": row.get("close", 0),
-                "change_pct": row.get("change_pct", 0),
-                "prev_date": prev_date
-            }
-            prev_date = d
-        
+
+        # 以「真實日期」為鍵建立價格序列（排序、可索引下一交易日）
+        sp = stock_prices.copy()
+        sp["_dt"] = pd.to_datetime(sp["date"], errors="coerce")
+        sp = sp.dropna(subset=["_dt"]).sort_values("_dt").reset_index(drop=True)
+        dts = sp["_dt"].tolist()
+
         # Process each broker trade
         for _, trade in stock_df.iterrows():
             trade_date = trade["date"]
             broker_name = trade["broker_name"]
             net_vol = trade["net_vol"]
-            
-            # Find next trading day's change
-            # Since our date format might be "12/12", we need to handle this carefully
+
+            # 以正規化後的真實日期精確比對，取「嚴格下一個交易列」的漲跌幅 (TBP-02)
             next_day_change = 0.0
             close_price = 0.0
-            
-            # Try to find the next day's data
-            dates_list = sorted(price_lookup.keys())
-            for i, d in enumerate(dates_list):
-                if trade_date in d or d in trade_date:  # Fuzzy match
-                    if i + 1 < len(dates_list):
-                        next_d = dates_list[i + 1]
-                        next_day_change = price_lookup[next_d].get("change_pct", 0)
-                        close_price = price_lookup[d].get("close", 0)
-                    break
-            
+            tdt = _to_trade_dt(trade, trade_date)
+            if pd.notna(tdt):
+                idx = next((i for i, x in enumerate(dts) if x == tdt), None)
+                if idx is not None and idx + 1 < len(dts):
+                    close_price = sp.iloc[idx].get("close", 0)
+                    next_day_change = sp.iloc[idx + 1].get("change_pct", 0)
+
             # Calculate direction match
             direction_match = False
             if net_vol > 0 and next_day_change > 0:

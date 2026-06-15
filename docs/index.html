@@ -49,9 +49,23 @@
           <label for="windowFilter">視窗：</label>
           <select id="windowFilter">
             <option value="5">5 日</option>
+            <option value="10">10 日</option>
             <option value="20" selected>20 日</option>
-            <option value="60">60 日</option>
-            <option value="120">120 日</option>
+            <option value="30">30 日</option>
+          </select>
+        </div>
+        <div class="control-block">
+          <label for="metricFilter">排序依據：</label>
+          <select id="metricFilter">
+            <option value="netbuy" selected>三大法人買賣超（張）</option>
+            <option value="change">持股比重變化</option>
+          </select>
+        </div>
+        <div class="control-block">
+          <label for="sideFilter">方向：</label>
+          <select id="sideFilter">
+            <option value="up" selected>買超 / 增加</option>
+            <option value="down">賣超 / 減少</option>
           </select>
         </div>
         <div class="control-block">
@@ -76,20 +90,13 @@
       </div>
       <div class="col table-col">
         <div class="card">
-          <h3>📈 三大法人持股變化排名</h3>
-          <p class="subtitle">
-            按選定視窗之三大法人合計持股比重變化排序
+          <h3 id="rankTitle">📈 三大法人買賣超排名</h3>
+          <p class="subtitle" id="rankSubtitle">
+            最近 N 個交易日三大法人累計買賣超（張），可對照富邦驗證
           </p>
           <div class="table-container">
             <table id="rankTable">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>股票</th>
-                  <th>市場</th>
-                  <th>持股%</th>
-                  <th>ΔChange</th>
-                </tr>
+              <thead id="rankHead">
               </thead>
               <tbody>
               </tbody>

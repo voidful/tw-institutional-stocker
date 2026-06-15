@@ -13,7 +13,11 @@ import os
 import json
 from datetime import datetime, timedelta
 from typing import Dict, List, Tuple
+from zoneinfo import ZoneInfo
 import pandas as pd
+
+# 台灣時區（CI 在 UTC 執行，輸出時間戳記用台北時間）
+TPE = ZoneInfo("Asia/Taipei")
 
 # Constants
 DATA_DIR = "data"
@@ -46,10 +50,40 @@ def load_broker_history(days: int = 60) -> pd.DataFrame:
 
     df = pd.read_csv(history_path)
 
-    # Filter to recent days
-    if "full_date" in df.columns:
+    # 建立真實 ISO 交易日 trade_date：新檔已含此欄；舊檔則由無年份的 'date' + scrape 日
+    # 'full_date' 反推（含 12 月→1 月跨年），確保視窗/聚合以真實交易日為準 (ABS-001/002)
+    if "trade_date" not in df.columns and {"date", "full_date"}.issubset(df.columns):
+        fd = pd.to_datetime(df["full_date"], errors="coerce")
+        mm = df["date"].astype(str).str.extract(r"(\d{1,2})/(\d{1,2})")
+        month = pd.to_numeric(mm[0], errors="coerce")
+        day = pd.to_numeric(mm[1], errors="coerce")
+        yr = fd.dt.year - (month > fd.dt.month).astype("Int64")
+        df["trade_date"] = pd.to_datetime(
+            dict(year=yr, month=month, day=day), errors="coerce"
+        ).dt.strftime("%Y-%m-%d")
+
+    # 防禦性去重：即使讀到已污染的舊檔，也讓聚合正確（同股票/分點/交易日/方向僅留一筆）(ABS-002)
+    if {"stock_code", "broker_id", "trade_date", "side"}.issubset(df.columns):
+        sort_col = "full_date" if "full_date" in df.columns else "trade_date"
+        df = df.sort_values(sort_col).drop_duplicates(
+            subset=["stock_code", "broker_id", "trade_date", "side"], keep="last"
+        )
+
+    # 視窗以「資料中的真實交易日」為錨點（非系統時鐘），取最近 N 個交易日，
+    # 確保同一份資料不論哪天執行都得到相同排名 (ABS-001/004)
+    if "trade_date" in df.columns:
+        td = pd.to_datetime(df["trade_date"], errors="coerce")
+        valid_days = sorted(td.dropna().unique())
+        if valid_days:
+            keep_days = set(valid_days[-days:])
+            df = df[td.isin(keep_days)].copy()
+        if "full_date" in df.columns:
+            df["full_date"] = pd.to_datetime(df["full_date"])
+        df = df.sort_values("trade_date").reset_index(drop=True)
+    elif "full_date" in df.columns:
+        # 後備：無 trade_date 時，以資料最新 full_date 為錨點（避免時鐘相依）
         df["full_date"] = pd.to_datetime(df["full_date"])
-        cutoff = datetime.now() - timedelta(days=days)
+        cutoff = df["full_date"].max() - timedelta(days=days)
         df = df[df["full_date"] >= cutoff].copy()
         df = df.sort_values("full_date").reset_index(drop=True)
 
@@ -70,9 +104,11 @@ def get_active_brokers(broker_history: pd.DataFrame, min_trades: int = 20) -> pd
     if broker_history.empty:
         return pd.DataFrame()
 
+    # total_trades 以真實交易日去重後的筆數計（避免重抓 scrape 日造成的重複計算）(ABS-002)
+    count_col = "trade_date" if "trade_date" in broker_history.columns else "full_date"
     broker_stats = broker_history.groupby(["broker_id", "broker_name"]).agg({
         "stock_code": "nunique",
-        "full_date": "count",
+        count_col: "count",
         "net_vol": "sum"
     }).reset_index()
 
@@ -81,7 +117,10 @@ def get_active_brokers(broker_history: pd.DataFrame, min_trades: int = 20) -> pd
 
     # Filter by minimum trades
     broker_stats = broker_stats[broker_stats["total_trades"] >= min_trades]
-    broker_stats = broker_stats.sort_values("total_trades", ascending=False)
+    # 加上 broker_id 次要排序鍵，使 head(N) 在 total_trades 相同時仍為確定性結果 (ABS-004)
+    broker_stats = broker_stats.sort_values(
+        ["total_trades", "broker_id"], ascending=[False, True]
+    )
 
     return broker_stats
 
@@ -115,16 +154,21 @@ def get_broker_top_stocks(
     if broker_df.empty:
         return pd.DataFrame(), pd.DataFrame()
 
-    # Aggregate by stock
+    # Aggregate by stock；trading_days 以真實交易日 trade_date 計（非 scrape 日）(ABS-002)
+    days_col = "trade_date" if "trade_date" in broker_df.columns else "full_date"
     stock_stats = broker_df.groupby("stock_code").agg({
         "net_vol": ["sum", "mean"],
         "buy_vol": "sum",
         "sell_vol": "sum",
-        "full_date": "nunique"
+        days_col: "nunique"
     }).reset_index()
 
     stock_stats.columns = ["stock_code", "total_net_vol", "avg_net_vol",
                            "total_buy_vol", "total_sell_vol", "trading_days"]
+    # 正規化 stock_code 為乾淨字串（去掉 int64 -> 2303 而非 2303.0），讓名稱查找與 JSON 輸出正確 (ABS-003)
+    stock_stats["stock_code"] = stock_stats["stock_code"].apply(
+        lambda x: str(int(float(x))) if str(x).replace(".", "").isdigit() else str(x).strip()
+    )
 
     # Filter by minimum trading days
     stock_stats = stock_stats[stock_stats["trading_days"] >= min_days]
@@ -140,28 +184,33 @@ def get_broker_top_stocks(
     return buy_stocks, sell_stocks
 
 
-def get_stock_name(stock_code: str) -> str:
+def get_stock_name(stock_code) -> str:
     """
     從現有的 flows CSV 中取得股票名稱
 
     Args:
-        stock_code: 股票代碼
+        stock_code: 股票代碼（可能為 int64/float/str）
 
     Returns:
         股票名稱，找不到則返回空字串
     """
+    # 正規化：2303.0 / int64 / '2303' 一律轉成 '2303'；保留含字母/前導零的代碼（如 '00679B'）(ABS-003)
+    try:
+        code = str(int(float(stock_code)))
+    except (TypeError, ValueError):
+        code = str(stock_code).strip()
+
     for csv_file in ["twse_flows.csv", "tpex_flows.csv"]:
         csv_path = os.path.join(DATA_DIR, csv_file)
         if os.path.exists(csv_path):
             try:
-                df = pd.read_csv(csv_path)
+                df = pd.read_csv(csv_path, dtype={"code": str})  # 保留前導零/字母
                 if "code" in df.columns and "name" in df.columns:
-                    df["code"] = df["code"].astype(str)
-                    match = df[df["code"] == stock_code]
+                    match = df[df["code"].str.strip() == code]
                     if not match.empty:
                         return match.iloc[0]["name"]
-            except:
-                pass
+            except Exception as e:
+                print(f"[WARN] get_stock_name failed for {csv_file}: {e}")
 
     return ""
 
@@ -255,7 +304,7 @@ def main():
     """主程式"""
     print("=" * 60)
     print("Broker Trading Statistics Analysis")
-    print(f"Time: {datetime.now().isoformat()}")
+    print(f"Time: {datetime.now(TPE).isoformat()}")
     print("=" * 60)
 
     ensure_dirs()
@@ -271,7 +320,8 @@ def main():
         return
 
     print(f"載入 {len(broker_history)} 筆交易記錄")
-    print(f"日期範圍: {broker_history['full_date'].min()} 到 {broker_history['full_date'].max()}")
+    _range_col = "trade_date" if "trade_date" in broker_history.columns else "full_date"
+    print(f"交易日範圍: {broker_history[_range_col].min()} 到 {broker_history[_range_col].max()}")
 
     # Get active brokers
     print("\n獲取活躍券商分點...")
@@ -314,14 +364,16 @@ def main():
             traceback.print_exc()
             continue
 
-    # Export results
+    # Export results；日期範圍以真實交易日 trade_date 為準（資料錨定，與執行日無關）
     output_path = os.path.join(DOCS_DIR, "broker_stats.json")
+    range_col = "trade_date" if "trade_date" in broker_history.columns else "full_date"
+    range_series = pd.to_datetime(broker_history[range_col])
     output_data = {
-        "updated": datetime.now().isoformat(),
+        "updated": datetime.now(TPE).isoformat(),
         "analysis_days": analysis_days,
         "date_range": {
-            "start": broker_history["full_date"].min().isoformat(),
-            "end": broker_history["full_date"].max().isoformat()
+            "start": range_series.min().isoformat(),
+            "end": range_series.max().isoformat()
         },
         "brokers_analyzed": len(all_results),
         "total_active_brokers": len(active_brokers),

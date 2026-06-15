@@ -30,7 +30,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.43,
-    "three_inst_ratio_change_20": 0.0
+    "three_inst_ratio_change_20": 0.43
   },
   {
     "date": "2025-11-19",
@@ -41,7 +41,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.42,
-    "three_inst_ratio_change_20": 0.0
+    "three_inst_ratio_change_20": 0.42
   },
   {
     "date": "2026-01-22",
@@ -74,7 +74,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0,
     "three_inst_ratio": 0.41,
-    "three_inst_ratio_change_20": 0.0
+    "three_inst_ratio_change_20": -0.010000000000000009
   },
   {
     "date": "2026-03-11",
@@ -94,9 +94,9 @@
     "market": "TWSE",
     "foreign_ratio": 0.42,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.42,
-    "three_inst_ratio_change_20": 0.0
+    "dealer_ratio": -0.01,
+    "three_inst_ratio": 0.41,
+    "three_inst_ratio_change_20": -0.010000000000000009
   },
   {
     "date": "2026-04-13",
@@ -105,9 +105,9 @@
     "market": "TWSE",
     "foreign_ratio": 0.42,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.42,
-    "three_inst_ratio_change_20": 0.0
+    "dealer_ratio": -0.016666666666666666,
+    "three_inst_ratio": 0.4033333333333333,
+    "three_inst_ratio_change_20": -0.016666666666666663
   },
   {
     "date": "2026-04-14",
@@ -116,9 +116,9 @@
     "market": "TWSE",
     "foreign_ratio": 0.42,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.42,
-    "three_inst_ratio_change_20": 0.0
+    "dealer_ratio": -0.02666666666666667,
+    "three_inst_ratio": 0.3933333333333333,
+    "three_inst_ratio_change_20": -0.026666666666666672
   },
   {
     "date": "2026-04-17",
@@ -127,8 +127,107 @@
     "market": "TWSE",
     "foreign_ratio": 0.42,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.42,
+    "dealer_ratio": -0.03666666666666667,
+    "three_inst_ratio": 0.3833333333333333,
+    "three_inst_ratio_change_20": -0.03666666666666668
+  },
+  {
+    "date": "2026-04-21",
+    "code": "2348A",
+    "name": "海悅甲特",
+    "market": "TWSE",
+    "foreign_ratio": 0.42,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.06,
+    "three_inst_ratio": 0.36,
+    "three_inst_ratio_change_20": -0.06
+  },
+  {
+    "date": "2026-04-22",
+    "code": "2348A",
+    "name": "海悅甲特",
+    "market": "TWSE",
+    "foreign_ratio": 0.42,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.07333333333333333,
+    "three_inst_ratio": 0.3466666666666667,
+    "three_inst_ratio_change_20": -0.0733333333333333
+  },
+  {
+    "date": "2026-04-23",
+    "code": "2348A",
+    "name": "海悅甲特",
+    "market": "TWSE",
+    "foreign_ratio": 0.42,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.08666666666666667,
+    "three_inst_ratio": 0.3333333333333333,
+    "three_inst_ratio_change_20": -0.08666666666666667
+  },
+  {
+    "date": "2026-04-24",
+    "code": "2348A",
+    "name": "海悅甲特",
+    "market": "TWSE",
+    "foreign_ratio": 0.42,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.10333333333333333,
+    "three_inst_ratio": 0.31666666666666665,
+    "three_inst_ratio_change_20": -0.10333333333333333
+  },
+  {
+    "date": "2026-04-27",
+    "code": "2348A",
+    "name": "海悅甲特",
+    "market": "TWSE",
+    "foreign_ratio": 0.42,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.11333333333333334,
+    "three_inst_ratio": 0.30666666666666664,
+    "three_inst_ratio_change_20": -0.11333333333333334
+  },
+  {
+    "date": "2026-04-30",
+    "code": "2348A",
+    "name": "海悅甲特",
+    "market": "TWSE",
+    "foreign_ratio": 0.42,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.12333333333333332,
+    "three_inst_ratio": 0.29666666666666663,
+    "three_inst_ratio_change_20": -0.12333333333333335
+  },
+  {
+    "date": "2026-05-04",
+    "code": "2348A",
+    "name": "海悅甲特",
+    "market": "TWSE",
+    "foreign_ratio": 0.42,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.13666666666666666,
+    "three_inst_ratio": 0.2833333333333333,
+    "three_inst_ratio_change_20": -0.13666666666666666
+  },
+  {
+    "date": "2026-06-03",
+    "code": "2348A",
+    "name": "海悅甲特",
+    "market": "TWSE",
+    "foreign_ratio": 0.41,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.13666666666666666,
+    "three_inst_ratio": 0.2733333333333333,
+    "three_inst_ratio_change_20": -0.010000000000000009
+  },
+  {
+    "date": "2026-06-08",
+    "code": "2348A",
+    "name": "海悅甲特",
+    "market": "TWSE",
+    "foreign_ratio": 0.42,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.13666666666666666,
+    "three_inst_ratio": 0.2833333333333333,
     "three_inst_ratio_change_20": 0.0
   }
 ]

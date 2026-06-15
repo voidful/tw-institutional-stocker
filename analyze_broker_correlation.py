@@ -13,8 +13,12 @@ import os
 import json
 from datetime import date, datetime, timedelta
 from typing import Dict, List, Optional, Tuple
+from zoneinfo import ZoneInfo
 import pandas as pd
 import numpy as np
+
+# 台灣時區（CI 在 UTC 執行，輸出時間戳記用台北時間）
+TPE = ZoneInfo("Asia/Taipei")
 
 from fetch_stock_prices import (
     fetch_stock_price_range,
@@ -33,6 +37,17 @@ CORRELATION_WINDOWS = [15, 30, 45, 60]
 
 # 最少交易天數要求（避免樣本數太少導致相關性不準確）
 MIN_TRADING_DAYS = 10
+
+
+def _norm_code(stock_code) -> str:
+    """正規化股票代碼為乾淨字串（2303.0/int64 -> '2303'；保留含字母/前導零的代碼），
+
+    確保寫入 JSON 時可序列化（避免 numpy int64 not JSON serializable）。
+    """
+    try:
+        return str(int(float(stock_code)))
+    except (TypeError, ValueError):
+        return str(stock_code).strip()
 
 
 def ensure_dirs():
@@ -59,10 +74,40 @@ def load_broker_history(days: int = 60) -> pd.DataFrame:
 
     df = pd.read_csv(history_path)
 
-    # Filter to recent days
-    if "full_date" in df.columns:
+    # 建立真實 ISO 交易日 trade_date：新檔已含；舊檔由無年份的 'date' + scrape 日 'full_date'
+    # 反推（含 12 月→1 月跨年），確保視窗與相關性對齊以真實交易日為準 (ABC-01/02)
+    if "trade_date" not in df.columns and {"date", "full_date"}.issubset(df.columns):
+        fd = pd.to_datetime(df["full_date"], errors="coerce")
+        mm = df["date"].astype(str).str.extract(r"(\d{1,2})/(\d{1,2})")
+        month = pd.to_numeric(mm[0], errors="coerce")
+        day = pd.to_numeric(mm[1], errors="coerce")
+        yr = fd.dt.year - (month > fd.dt.month).astype("Int64")
+        df["trade_date"] = pd.to_datetime(
+            dict(year=yr, month=month, day=day), errors="coerce"
+        ).dt.strftime("%Y-%m-%d")
+
+    # 防禦性去重：同股票/分點/交易日/方向僅留一筆，避免重抓 scrape 日造成重複計算 (ABC-03)
+    if {"stock_code", "broker_id", "trade_date", "side"}.issubset(df.columns):
+        sort_col = "full_date" if "full_date" in df.columns else "trade_date"
+        df = df.sort_values(sort_col).drop_duplicates(
+            subset=["stock_code", "broker_id", "trade_date", "side"], keep="last"
+        )
+
+    # 視窗以資料中的真實交易日為錨點（非系統時鐘），取最近 N 個交易日，
+    # 確保同一份資料不論哪天執行都得到相同結果 (ABC-01)
+    if "trade_date" in df.columns:
+        td = pd.to_datetime(df["trade_date"], errors="coerce")
+        valid_days = sorted(td.dropna().unique())
+        if valid_days:
+            keep_days = set(valid_days[-days:])
+            df = df[td.isin(keep_days)].copy()
+        if "full_date" in df.columns:
+            df["full_date"] = pd.to_datetime(df["full_date"])
+        df = df.sort_values("trade_date").reset_index(drop=True)
+    elif "full_date" in df.columns:
+        # 後備：無 trade_date 時，以資料最新 full_date 為錨點（避免時鐘相依）
         df["full_date"] = pd.to_datetime(df["full_date"])
-        cutoff = datetime.now() - timedelta(days=days)
+        cutoff = df["full_date"].max() - timedelta(days=days)
         df = df[df["full_date"] >= cutoff].copy()
         df = df.sort_values("full_date").reset_index(drop=True)
 
@@ -97,12 +142,13 @@ def get_broker_top_stocks(
     if broker_df.empty:
         return pd.DataFrame(), pd.DataFrame()
 
-    # Aggregate by stock
+    # Aggregate by stock；trading_days 以真實交易日 trade_date 計（非 scrape 日）(ABC-03)
+    days_col = "trade_date" if "trade_date" in broker_df.columns else "full_date"
     stock_stats = broker_df.groupby("stock_code").agg({
         "net_vol": "sum",
         "buy_vol": "sum",
         "sell_vol": "sum",
-        "full_date": "nunique"
+        days_col: "nunique"
     }).reset_index()
 
     stock_stats.columns = ["stock_code", "total_net_vol", "total_buy_vol",
@@ -133,14 +179,17 @@ def calculate_broker_stock_correlation(
     window: int = 30
 ) -> Optional[float]:
     """
-    計算分點對特定股票的交易量與股價漲跌幅的相關性
+    計算分點當天買賣超 net_vol(t) 與「未來 window 個交易日報酬」的相關性。
+
+    對齊以真實交易日為準；未來報酬定義為 close(t+window)/close(t) - 1，
+    在連續價格序列上 shift（跨的是真實交易列，而非曆日）。
 
     Args:
         broker_history: 券商歷史交易數據
         broker_id: 分點代碼
         stock_code: 股票代碼
-        stock_prices: 股票價格數據（需包含 date, close, change_pct_X 欄位）
-        window: 計算相關性的時間窗口（天數）
+        stock_prices: 股票價格數據（需包含 date, close 欄位）
+        window: 未來報酬的交易日視窗（價格序列上的列數）
 
     Returns:
         相關係數，範圍 [-1, 1]，None 表示無法計算
@@ -154,64 +203,58 @@ def calculate_broker_stock_correlation(
     if broker_stock.empty or stock_prices.empty:
         return None
 
-    # Merge broker trades with stock prices
-    broker_stock["date"] = pd.to_datetime(broker_stock["full_date"]).dt.strftime("%Y-%m-%d")
+    # 以「真實交易日」作為對齊鍵（非 scrape 日 full_date），讓 net_vol 對到該股當天的價格 (ABC-02)
+    if "trade_date" in broker_stock.columns:
+        broker_stock["date"] = pd.to_datetime(
+            broker_stock["trade_date"], errors="coerce"
+        ).dt.strftime("%Y-%m-%d")
+    else:
+        broker_stock["date"] = pd.to_datetime(
+            broker_stock["full_date"], errors="coerce"
+        ).dt.strftime("%Y-%m-%d")
+
+    # 同一交易日僅留一筆，避免重複 (ABC-03)
+    broker_stock = broker_stock.drop_duplicates(subset=["date"], keep="last")
+
     stock_prices = stock_prices.copy()
-
-    if "date" not in stock_prices.columns:
+    if "date" not in stock_prices.columns or "close" not in stock_prices.columns:
         return None
 
-    # Ensure date format consistency
-    stock_prices["date"] = pd.to_datetime(stock_prices["date"]).dt.strftime("%Y-%m-%d")
+    # 在「連續價格序列」上計算未來 window 個交易日的報酬（以列為交易日；先去重排序避免缺口錯位）(ABC-04)
+    stock_prices["date"] = pd.to_datetime(stock_prices["date"], errors="coerce")
+    stock_prices = (
+        stock_prices.dropna(subset=["date"])
+        .sort_values("date")
+        .drop_duplicates("date")
+        .reset_index(drop=True)
+    )
+    # 未來報酬：close(t+window)/close(t) - 1（在價格序列上 shift，跨的是真實交易列而非曆日）
+    stock_prices["fwd_return"] = (
+        stock_prices["close"].shift(-window) / stock_prices["close"] - 1.0
+    )
+    stock_prices["date"] = stock_prices["date"].dt.strftime("%Y-%m-%d")
 
-    # Merge
-    merged = broker_stock.merge(stock_prices, on="date", how="inner")
+    # Merge：把當天 net_vol 接到對應交易日的未來報酬上
+    merged = broker_stock.merge(
+        stock_prices[["date", "fwd_return"]], on="date", how="inner"
+    )
 
-    if len(merged) < MIN_TRADING_DAYS:
-        return None
+    # 單一定義：不論序列長短都用同一套（移除原本 rows<=window 時悄悄改用 lookback 的分支）(ABC-04)
+    pair = merged[["net_vol", "fwd_return"]].copy()
+    pair["net_vol"] = pd.to_numeric(pair["net_vol"], errors="coerce")
+    # 同時排除 NaN 與 ±inf
+    pair = pair.replace([np.inf, -np.inf], np.nan).dropna()
 
-    # Get price change column for the window
-    price_change_col = f"change_pct_{window}"
-    if price_change_col not in merged.columns:
-        # Use daily change as fallback
-        if "daily_change_pct" in merged.columns:
-            price_change_col = "daily_change_pct"
-        else:
-            return None
-
-    # Calculate correlation between net_vol and price change
-    # 注意：這裡計算的是當天交易量與未來N天價格變化的相關性
-    # 因此需要將 net_vol 與之後的價格變化對齊
-    merged = merged.sort_values("date").reset_index(drop=True)
-
-    # For correlation, we want to see if today's broker activity
-    # correlates with future price movement
-    net_vols = merged["net_vol"].values[:-window] if len(merged) > window else merged["net_vol"].values
-    price_changes = merged[price_change_col].values[window:] if len(merged) > window else merged[price_change_col].values
-
-    if len(net_vols) < MIN_TRADING_DAYS or len(price_changes) < MIN_TRADING_DAYS:
-        return None
-
-    # Ensure equal length
-    min_len = min(len(net_vols), len(price_changes))
-    net_vols = net_vols[:min_len]
-    price_changes = price_changes[:min_len]
-
-    # Remove NaN values
-    valid_mask = ~(np.isnan(net_vols) | np.isnan(price_changes))
-    net_vols = net_vols[valid_mask]
-    price_changes = price_changes[valid_mask]
-
-    if len(net_vols) < MIN_TRADING_DAYS:
+    if len(pair) < MIN_TRADING_DAYS:
         return None
 
     # Calculate Pearson correlation
     try:
-        correlation = np.corrcoef(net_vols, price_changes)[0, 1]
+        correlation = np.corrcoef(pair["net_vol"].values, pair["fwd_return"].values)[0, 1]
         if np.isnan(correlation):
             return None
         return float(correlation)
-    except:
+    except Exception:
         return None
 
 
@@ -220,7 +263,9 @@ def analyze_broker_correlations(
     broker_name: str,
     broker_history: pd.DataFrame,
     days: int = 60,
-    top_n: int = 10
+    top_n: int = 10,
+    as_of_date: Optional[date] = None,
+    allow_fetch: bool = True
 ) -> Dict:
     """
     分析單個分點的完整相關性報告
@@ -231,6 +276,8 @@ def analyze_broker_correlations(
         broker_history: 券商歷史交易數據
         days: 分析天數
         top_n: 買超/賣超前N名
+        as_of_date: 價格抓取的結束日（None 時由資料的最新交易日推算，避免 date.today() 造成不確定性）(ABC-07/FSP-04)
+        allow_fetch: 是否允許在缺少本地快取時上網抓價（離線/CI 純本地測試可設 False，缺資料則優雅跳過）
 
     Returns:
         分析結果字典
@@ -252,7 +299,7 @@ def analyze_broker_correlations(
     # Process top buy stocks
     print(f"  買超前{top_n}名股票:")
     for _, row in top_buy.iterrows():
-        stock_code = row["stock_code"]
+        stock_code = _norm_code(row["stock_code"])
         net_vol = int(row["total_net_vol"])
         trading_days = int(row["trading_days"])
 
@@ -269,7 +316,7 @@ def analyze_broker_correlations(
     # Process top sell stocks
     print(f"  賣超前{top_n}名股票:")
     for _, row in top_sell.iterrows():
-        stock_code = row["stock_code"]
+        stock_code = _norm_code(row["stock_code"])
         net_vol = int(row["total_net_vol"])
         abs_vol = int(row["abs_net_vol"])
         trading_days = int(row["trading_days"])
@@ -286,17 +333,28 @@ def analyze_broker_correlations(
         print(f"    {stock_code}: {net_vol:+,} 張 ({trading_days} 天)")
 
     # Calculate correlations for all traded stocks
-    all_stocks = set(top_buy["stock_code"].tolist() + top_sell["stock_code"].tolist())
+    # 用 dict.fromkeys 保序去重（先買超再賣超，皆已依 net_vol 排序），取代 set() 避免迭代順序不定 (ABC-05)
+    all_stocks = list(dict.fromkeys(
+        top_buy["stock_code"].tolist() + top_sell["stock_code"].tolist()
+    ))
+
+    # 抓價視窗錨定於資料（而非 date.today()），確保跨日/跨機一致 (ABC-07/FSP-04)。
+    # 60 列交易日約等於 84 個曆日，需額外緩衝以確保視窗夠長。
+    if as_of_date is not None:
+        end_date = as_of_date
+    elif "trade_date" in broker_history.columns and not broker_history.empty:
+        end_date = pd.to_datetime(broker_history["trade_date"]).max().date()
+    else:
+        end_date = date.today()
+    start_date = end_date - timedelta(days=days + max(CORRELATION_WINDOWS) + 90)
 
     print(f"  計算相關性係數...")
     for stock_code in all_stocks:
-        # Load or fetch stock prices
-        stock_prices = load_stock_prices(stock_code)
+        # Load cached stock prices；以請求範圍判斷快取是否涵蓋，避免回傳過舊/過短而凍結視窗 (FSP-01)
+        stock_prices = load_stock_prices(stock_code, start_date=start_date, end_date=end_date)
 
-        if stock_prices.empty:
-            # Fetch fresh data
-            end_date = date.today()
-            start_date = end_date - timedelta(days=days + 70)  # Extra days for calculation
+        if stock_prices.empty and allow_fetch:
+            # Fetch fresh data（僅在允許上網且本地快取不足時）
             stock_prices = fetch_stock_price_range(stock_code, start_date, end_date)
 
             if not stock_prices.empty:
@@ -304,6 +362,8 @@ def analyze_broker_correlations(
                 save_stock_prices(stock_code, stock_prices)
 
         if stock_prices.empty:
+            # 缺價格資料時優雅跳過並記錄，使輸出集合對「暫時性網路失敗」具確定性 (ABC-07)
+            result["correlations"].append({"stock_code": _norm_code(stock_code), "status": "no_price_data"})
             continue
 
         # Calculate correlation for each window
@@ -317,7 +377,7 @@ def analyze_broker_correlations(
 
         if correlations:
             corr_info = {
-                "stock_code": stock_code,
+                "stock_code": _norm_code(stock_code),
                 **correlations
             }
             result["correlations"].append(corr_info)
@@ -326,12 +386,13 @@ def analyze_broker_correlations(
             corr_str = ", ".join([f"{k}: {v:+.3f}" for k, v in correlations.items()])
             print(f"    {stock_code}: {corr_str}")
 
-    # Sort correlations by absolute value of longest window correlation
+    # Sort correlations by absolute value of longest window correlation；
+    # 加上 stock_code 次要排序鍵，使插入順序不影響結果（ABC-05）
     if result["correlations"]:
         longest_window = max(CORRELATION_WINDOWS)
         corr_key = f"corr_{longest_window}d"
         result["correlations"].sort(
-            key=lambda x: abs(x.get(corr_key, 0)), reverse=True
+            key=lambda x: (-abs(x.get(corr_key, 0)), str(x["stock_code"]))
         )
 
     return result
@@ -351,16 +412,20 @@ def get_active_brokers(broker_history: pd.DataFrame, min_trades: int = 20) -> pd
     if broker_history.empty:
         return pd.DataFrame()
 
+    # total_trades 以真實交易日去重後的筆數計（避免重抓 scrape 日造成的重複計算）(ABC-03)
+    count_col = "trade_date" if "trade_date" in broker_history.columns else "full_date"
     broker_stats = broker_history.groupby(["broker_id", "broker_name"]).agg({
         "stock_code": "nunique",
-        "full_date": "count"
+        count_col: "count"
     }).reset_index()
 
     broker_stats.columns = ["broker_id", "broker_name", "stocks_traded", "total_trades"]
 
-    # Filter by minimum trades
+    # Filter by minimum trades；加上 broker_id 次要排序鍵確保確定性
     broker_stats = broker_stats[broker_stats["total_trades"] >= min_trades]
-    broker_stats = broker_stats.sort_values("total_trades", ascending=False)
+    broker_stats = broker_stats.sort_values(
+        ["total_trades", "broker_id"], ascending=[False, True]
+    )
 
     return broker_stats
 
@@ -369,10 +434,13 @@ def main():
     """主程式"""
     print("=" * 60)
     print("Broker-Stock Correlation Analysis")
-    print(f"Time: {datetime.now().isoformat()}")
+    print(f"Time: {datetime.now(TPE).isoformat()}")
     print("=" * 60)
 
     ensure_dirs()
+
+    # 離線模式：設環境變數 BROKER_CORR_OFFLINE=1 時不上網抓價，缺資料則優雅跳過（純本地測試用）
+    allow_fetch = os.environ.get("BROKER_CORR_OFFLINE", "") not in ("1", "true", "True")
 
     # Load broker history
     analysis_days = 60
@@ -385,6 +453,10 @@ def main():
         return
 
     print(f"載入 {len(broker_history)} 筆交易記錄")
+    # 抓價結束日錨定資料最新交易日（非 date.today()），確保跨日一致 (ABC-07/FSP-04)
+    as_of_date = None
+    if "trade_date" in broker_history.columns and not broker_history.empty:
+        as_of_date = pd.to_datetime(broker_history["trade_date"]).max().date()
 
     # Get active brokers
     print("\n獲取活躍券商分點...")
@@ -418,7 +490,9 @@ def main():
                 broker_name=broker_name,
                 broker_history=broker_history,
                 days=analysis_days,
-                top_n=10
+                top_n=10,
+                as_of_date=as_of_date,
+                allow_fetch=allow_fetch
             )
             all_results.append(result)
         except Exception as e:
@@ -428,7 +502,7 @@ def main():
     # Export results
     output_path = os.path.join(DOCS_DIR, "broker_correlations.json")
     output_data = {
-        "updated": datetime.now().isoformat(),
+        "updated": datetime.now(TPE).isoformat(),
         "analysis_days": analysis_days,
         "correlation_windows": CORRELATION_WINDOWS,
         "brokers_analyzed": len(all_results),

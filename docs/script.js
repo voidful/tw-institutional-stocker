@@ -2,6 +2,8 @@ let ratioChart = null;
 let useLogScale = false;
 let marketFilter = "ALL";
 let currentWindow = 20;
+let currentMetric = "netbuy"; // "netbuy" | "change"
+let currentSide = "up";       // "up" | "down"
 
 async function fetchJson(url) {
   const resp = await fetch(url);
@@ -19,6 +21,17 @@ function formatPct(x) {
 function formatNumber(x) {
   const v = Number.isFinite(x) ? x : 0;
   return v.toLocaleString();
+}
+
+function signedNumber(x) {
+  const v = Number.isFinite(x) ? x : 0;
+  return (v > 0 ? "+" : "") + v.toLocaleString();
+}
+
+function netClass(x) {
+  if (x > 0) return "net-positive";
+  if (x < 0) return "net-negative";
+  return "";
 }
 
 // ========== Stock Chart ==========
@@ -142,19 +155,100 @@ async function loadStock(code) {
 
 // ========== Institutional Ranking ==========
 
+function applyMarketFilter(rows) {
+  return rows.filter((row) => marketFilter === "ALL" || row.market === marketFilter);
+}
+
+function bindRowClick(tr, code) {
+  tr.addEventListener("click", () => {
+    document.getElementById("stockInput").value = code;
+    loadStock(code);
+  });
+}
+
 async function loadRanking() {
+  if (currentMetric === "netbuy") {
+    await loadNetbuyRanking();
+  } else {
+    await loadChangeRanking();
+  }
+}
+
+// 三大法人 N 日買賣超排行（官方日買賣超加總，單位：張，可對照富邦驗證）
+async function loadNetbuyRanking() {
+  const head = document.getElementById("rankHead");
   const tbody = document.querySelector("#rankTable tbody");
+  const title = document.getElementById("rankTitle");
+  const subtitle = document.getElementById("rankSubtitle");
+
+  title.textContent = currentSide === "up" ? "📈 三大法人買超排名" : "📉 三大法人賣超排名";
+  head.innerHTML =
+    "<tr><th>#</th><th>股票</th><th>市場</th><th>外資</th><th>投信</th><th>自營</th><th>合計(張)</th></tr>";
+  tbody.innerHTML = "<tr><td colspan='7'>載入中...</td></tr>";
+
+  try {
+    const payload = await fetchJson(
+      `data/top_three_inst_netbuy_${currentWindow}_${currentSide}.json`
+    );
+    const rows = payload.data || [];
+    const range = payload.date_range
+      ? `${payload.date_range.start} ~ ${payload.date_range.end}`
+      : "";
+    subtitle.textContent =
+      `最近 ${payload.trading_days || currentWindow} 個交易日三大法人累計買賣超（張）` +
+      (range ? `｜${range}` : "") +
+      "｜5/10/30 日可對照富邦驗證";
+
+    const filtered = applyMarketFilter(rows);
+    tbody.innerHTML = "";
+    if (!filtered.length) {
+      tbody.innerHTML = "<tr><td colspan='7'>無資料</td></tr>";
+      return;
+    }
+    filtered.slice(0, 50).forEach((row, idx) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${idx + 1}</td>
+        <td><span class="badge">${row.code}</span>${row.name || ""}</td>
+        <td>${row.market || ""}</td>
+        <td class="${netClass(row.foreign)}">${signedNumber(row.foreign)}</td>
+        <td class="${netClass(row.trust)}">${signedNumber(row.trust)}</td>
+        <td class="${netClass(row.dealer)}">${signedNumber(row.dealer)}</td>
+        <td class="${netClass(row.total)}"><strong>${signedNumber(row.total)}</strong></td>
+      `;
+      bindRowClick(tr, row.code);
+      tbody.appendChild(tr);
+    });
+  } catch (err) {
+    console.error(err);
+    tbody.innerHTML = `<tr><td colspan='7'>載入失敗：${err.message}</td></tr>`;
+  }
+}
+
+// 三大法人持股比重變化排行（投信/自營為模型估計值，僅供研究）
+async function loadChangeRanking() {
+  const head = document.getElementById("rankHead");
+  const tbody = document.querySelector("#rankTable tbody");
+  const title = document.getElementById("rankTitle");
+  const subtitle = document.getElementById("rankSubtitle");
+
+  title.textContent = "📊 三大法人持股比重變化排名";
+  head.innerHTML =
+    "<tr><th>#</th><th>股票</th><th>市場</th><th>持股%</th><th>ΔChange</th></tr>";
+  subtitle.textContent =
+    "按選定視窗之三大法人合計持股比重變化排序（投信／自營為模型估計值，僅供研究）";
   tbody.innerHTML = "<tr><td colspan='5'>載入中...</td></tr>";
 
   try {
-    const up = await fetchJson(`data/top_three_inst_change_${currentWindow}_up.json`);
+    const list = await fetchJson(
+      `data/top_three_inst_change_${currentWindow}_${currentSide}.json`
+    );
+    const filtered = applyMarketFilter(list);
     tbody.innerHTML = "";
-
-    const filtered = up.filter((row) => {
-      if (marketFilter === "ALL") return true;
-      return row.market === marketFilter;
-    });
-
+    if (!filtered.length) {
+      tbody.innerHTML = "<tr><td colspan='5'>無資料</td></tr>";
+      return;
+    }
     filtered.slice(0, 50).forEach((row, idx) => {
       const tr = document.createElement("tr");
       tr.innerHTML = `
@@ -162,12 +256,9 @@ async function loadRanking() {
         <td><span class="badge">${row.code}</span>${row.name || ""}</td>
         <td>${row.market || ""}</td>
         <td>${formatPct(row.three_inst_ratio)}</td>
-        <td class="${row.change >= 0 ? 'net-positive' : 'net-negative'}">${row.change >= 0 ? '+' : ''}${formatPct(row.change)}</td>
+        <td class="${netClass(row.change)}">${row.change >= 0 ? "+" : ""}${formatPct(row.change)}</td>
       `;
-      tr.addEventListener("click", () => {
-        document.getElementById("stockInput").value = row.code;
-        loadStock(row.code);
-      });
+      bindRowClick(tr, row.code);
       tbody.appendChild(tr);
     });
   } catch (err) {
@@ -468,6 +559,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("loadBtn");
   const marketSel = document.getElementById("marketFilter");
   const windowSel = document.getElementById("windowFilter");
+  const metricSel = document.getElementById("metricFilter");
+  const sideSel = document.getElementById("sideFilter");
   const logCb = document.getElementById("logScaleCheckbox");
   const showForeign = document.getElementById("showForeign");
   const showTrust = document.getElementById("showTrust");
@@ -486,6 +579,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   windowSel.addEventListener("change", () => {
     currentWindow = parseInt(windowSel.value, 10);
+    loadRanking();
+  });
+
+  metricSel.addEventListener("change", () => {
+    currentMetric = metricSel.value;
+    loadRanking();
+  });
+
+  sideSel.addEventListener("change", () => {
+    currentSide = sideSel.value;
     loadRanking();
   });
 
