@@ -1097,7 +1097,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": -0.0006449068143715213,
     "three_inst_ratio": -0.0006449068143715213,
-    "three_inst_ratio_change_20": -0.0016690370019826345
+    "three_inst_ratio_change_20": 1.1353993210766206e-05
   },
   {
     "date": "2026-03-02",
@@ -1647,7 +1647,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": -0.0003428905949651398,
     "three_inst_ratio": -0.0003428905949651398,
-    "three_inst_ratio_change_20": -0.0007084891763518121
+    "three_inst_ratio_change_20": 0.00043145174200911644
   },
   {
     "date": "2026-05-18",
@@ -1658,7 +1658,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0005972200428863031,
     "three_inst_ratio": 0.0005972200428863031,
-    "three_inst_ratio_change_20": 0.0013715623798605595
+    "three_inst_ratio_change_20": -0.00012716472396058173
   },
   {
     "date": "2026-05-19",
@@ -1868,5 +1868,16 @@
     "dealer_ratio": 0.0003315366017543736,
     "three_inst_ratio": 0.0003315366017543736,
     "three_inst_ratio_change_20": -0.0002656834411319295
+  },
+  {
+    "date": "2026-06-16",
+    "code": "8906",
+    "name": "花王",
+    "market": "TPEX",
+    "foreign_ratio": 0.0,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.0004246393460826566,
+    "three_inst_ratio": 0.0004246393460826566,
+    "three_inst_ratio_change_20": -0.0001725806968036465
   }
 ]
