@@ -642,11 +642,11 @@
     "code": "6655",
     "name": "科定",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
+    "foreign_ratio": 0.45,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -0.4662056438419404
+    "dealer_ratio": 0.019849372392830612,
+    "three_inst_ratio": 0.46984937239283064,
+    "three_inst_ratio_change_20": 0.003643728550890235
   },
   {
     "date": "2025-12-26",
@@ -822,7 +822,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.02357275869799486,
     "three_inst_ratio": 0.45357275869799485,
-    "three_inst_ratio_change_20": 0.45357275869799485
+    "three_inst_ratio_change_20": -0.016276613694835795
   },
   {
     "date": "2026-01-23",
@@ -1445,11 +1445,11 @@
     "code": "6655",
     "name": "科定",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
+    "foreign_ratio": 0.49,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -0.4458738114345864
+    "dealer_ratio": 0.024607860090830522,
+    "three_inst_ratio": 0.5146078600908305,
+    "three_inst_ratio_change_20": 0.0687340486562441
   },
   {
     "date": "2026-05-04",
@@ -1669,7 +1669,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.02043890855781495,
     "three_inst_ratio": 0.5204389085578149,
-    "three_inst_ratio_change_20": 0.5204389085578149
+    "three_inst_ratio_change_20": 0.0058310484669844564
   },
   {
     "date": "2026-06-01",
@@ -1879,5 +1879,27 @@
     "dealer_ratio": 0.020421532755057516,
     "three_inst_ratio": 0.5404215327550576,
     "three_inst_ratio_change_20": -1.7375802757402248e-05
+  },
+  {
+    "date": "2026-07-02",
+    "code": "6655",
+    "name": "科定",
+    "market": "TWSE",
+    "foreign_ratio": 0.52,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.020421532755057516,
+    "three_inst_ratio": 0.5404215327550576,
+    "three_inst_ratio_change_20": -0.0005994651951314323
+  },
+  {
+    "date": "2026-07-03",
+    "code": "6655",
+    "name": "科定",
+    "market": "TWSE",
+    "foreign_ratio": 0.52,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.020421532755057516,
+    "three_inst_ratio": 0.5404215327550576,
+    "three_inst_ratio_change_20": 0.0
   }
 ]

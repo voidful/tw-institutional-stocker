@@ -785,11 +785,11 @@
     "code": "3652",
     "name": "精聯",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
+    "foreign_ratio": 0.8,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -0.8572549019607844
+    "dealer_ratio": -0.01741868903758447,
+    "three_inst_ratio": 0.7825813109624156,
+    "three_inst_ratio_change_20": -0.07467359099836879
   },
   {
     "date": "2025-12-26",
@@ -840,11 +840,11 @@
     "code": "3652",
     "name": "精聯",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
+    "foreign_ratio": 0.81,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -0.8745916974599688
+    "dealer_ratio": -0.01741868903758447,
+    "three_inst_ratio": 0.7925813109624156,
+    "three_inst_ratio_change_20": -0.08201038649755321
   },
   {
     "date": "2026-01-02",
@@ -1009,7 +1009,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": -0.012648889776623724,
     "three_inst_ratio": 0.7673511102233763,
-    "three_inst_ratio_change_20": 0.7673511102233763
+    "three_inst_ratio_change_20": -0.015230200739039246
   },
   {
     "date": "2026-01-23",
@@ -1064,7 +1064,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": -0.012648889776623724,
     "three_inst_ratio": 0.7773511102233763,
-    "three_inst_ratio_change_20": 0.7773511102233763
+    "three_inst_ratio_change_20": -0.015230200739039246
   },
   {
     "date": "2026-01-30",
@@ -1676,11 +1676,11 @@
     "code": "3652",
     "name": "精聯",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
+    "foreign_ratio": 0.6,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -0.6453407237258231
+    "dealer_ratio": -0.02796364725856387,
+    "three_inst_ratio": 0.5720363527414362,
+    "three_inst_ratio_change_20": -0.07330437098438691
   },
   {
     "date": "2026-05-04",
@@ -1900,7 +1900,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": -0.013316022504078031,
     "three_inst_ratio": 0.776683977495922,
-    "three_inst_ratio_change_20": 0.776683977495922
+    "three_inst_ratio_change_20": 0.20464762475448584
   },
   {
     "date": "2026-06-01",
@@ -2061,11 +2061,11 @@
     "code": "3652",
     "name": "精聯",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
+    "foreign_ratio": 1.57,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -0.6520363527414362
+    "dealer_ratio": -0.029412430507007557,
+    "three_inst_ratio": 1.5405875694929925,
+    "three_inst_ratio_change_20": 0.8885512167515562
   },
   {
     "date": "2026-06-22",
@@ -2154,5 +2154,27 @@
     "dealer_ratio": -0.0233616298811545,
     "three_inst_ratio": 2.2766383701188455,
     "three_inst_ratio_change_20": 1.3879440061253703
+  },
+  {
+    "date": "2026-07-02",
+    "code": "3652",
+    "name": "精聯",
+    "market": "TWSE",
+    "foreign_ratio": 2.31,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.0233616298811545,
+    "three_inst_ratio": 2.2866383701188457,
+    "three_inst_ratio_change_20": 1.3579440061253707
+  },
+  {
+    "date": "2026-07-03",
+    "code": "3652",
+    "name": "精聯",
+    "market": "TWSE",
+    "foreign_ratio": 2.31,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -0.0233616298811545,
+    "three_inst_ratio": 2.2866383701188457,
+    "three_inst_ratio_change_20": 1.315280801624555
   }
 ]

@@ -127,9 +127,9 @@
     "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": 2.1021021021021022
+    "dealer_ratio": -2.1021021021021022,
+    "three_inst_ratio": -2.1021021021021022,
+    "three_inst_ratio_change_20": 0.0
   },
   {
     "date": "2026-01-05",
@@ -182,9 +182,9 @@
     "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": 1.8018018018018018
+    "dealer_ratio": -1.8018018018018018,
+    "three_inst_ratio": -1.8018018018018018,
+    "three_inst_ratio_change_20": 0.0
   },
   {
     "date": "2026-02-20",
@@ -193,9 +193,9 @@
     "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": 1.8018018018018018
+    "dealer_ratio": -1.8018018018018018,
+    "three_inst_ratio": -1.8018018018018018,
+    "three_inst_ratio_change_20": 0.0
   },
   {
     "date": "2026-02-24",
@@ -228,7 +228,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": -2.1021021021021022,
     "three_inst_ratio": -2.1021021021021022,
-    "three_inst_ratio_change_20": -2.1021021021021022
+    "three_inst_ratio_change_20": -0.3003003003003004
   },
   {
     "date": "2026-03-24",
@@ -239,7 +239,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": -2.4024024024024024,
     "three_inst_ratio": -2.4024024024024024,
-    "three_inst_ratio_change_20": -2.4024024024024024
+    "three_inst_ratio_change_20": -0.6006006006006006
   },
   {
     "date": "2026-03-25",
@@ -441,6 +441,17 @@
   },
   {
     "date": "2026-06-30",
+    "code": "00625K",
+    "name": "富邦上証+R",
+    "market": "TWSE",
+    "foreign_ratio": 0.0,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 18.01801801801802,
+    "three_inst_ratio": 18.01801801801802,
+    "three_inst_ratio_change_20": 0.0
+  },
+  {
+    "date": "2026-07-02",
     "code": "00625K",
     "name": "富邦上証+R",
     "market": "TWSE",

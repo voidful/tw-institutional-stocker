@@ -28,8 +28,8 @@
     "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
+    "dealer_ratio": -12.299580219581834,
+    "three_inst_ratio": -12.299580219581834,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -250,7 +250,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": -23.688131994593896,
     "three_inst_ratio": -22.518131994593894,
-    "three_inst_ratio_change_20": -22.518131994593894
+    "three_inst_ratio_change_20": -10.21855177501206
   },
   {
     "date": "2026-01-30",
@@ -862,11 +862,11 @@
     "code": "00992A",
     "name": "主動群益科技創新",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
-    "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": 41.178921974160495
+    "foreign_ratio": 4.75,
+    "trust_ratio": 0.10693305886020506,
+    "dealer_ratio": -58.02080238108922,
+    "three_inst_ratio": -53.16386932222901,
+    "three_inst_ratio_change_20": -11.984947348068516
   },
   {
     "date": "2026-05-04",
@@ -1086,7 +1086,7 @@
     "trust_ratio": -0.026179371730940613,
     "dealer_ratio": -57.559581416949534,
     "three_inst_ratio": -49.155760788680475,
-    "three_inst_ratio_change_20": -49.155760788680475
+    "three_inst_ratio_change_20": 4.008108533548537
   },
   {
     "date": "2026-06-01",
@@ -1247,11 +1247,11 @@
     "code": "00992A",
     "name": "主動群益科技創新",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
-    "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": 54.865074489365725
+    "foreign_ratio": 8.24,
+    "trust_ratio": -0.029603135499228495,
+    "dealer_ratio": -55.8885516159054,
+    "three_inst_ratio": -47.67815475140463,
+    "three_inst_ratio_change_20": 7.186919737961098
   },
   {
     "date": "2026-06-22",
@@ -1340,5 +1340,27 @@
     "dealer_ratio": -57.203565572976224,
     "three_inst_ratio": -51.125246161101316,
     "three_inst_ratio_change_20": -0.5023466935559142
+  },
+  {
+    "date": "2026-07-02",
+    "code": "00992A",
+    "name": "主動群益科技創新",
+    "market": "TWSE",
+    "foreign_ratio": 5.22,
+    "trust_ratio": -0.0517251412204116,
+    "dealer_ratio": -57.08537872501837,
+    "three_inst_ratio": -51.91710386623878,
+    "three_inst_ratio_change_20": -1.7166377438835525
+  },
+  {
+    "date": "2026-07-03",
+    "code": "00992A",
+    "name": "主動群益科技創新",
+    "market": "TWSE",
+    "foreign_ratio": 5.22,
+    "trust_ratio": -0.0517251412204116,
+    "dealer_ratio": -57.04203853091978,
+    "three_inst_ratio": -51.87376367214019,
+    "three_inst_ratio_change_20": 1.0306012178502044
   }
 ]

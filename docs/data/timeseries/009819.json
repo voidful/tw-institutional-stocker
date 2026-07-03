@@ -70,10 +70,10 @@
     "code": "009819",
     "name": "中信數據及電力",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
+    "foreign_ratio": 0.07,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
+    "dealer_ratio": -42.61161694859062,
+    "three_inst_ratio": -42.54161694859062,
     "three_inst_ratio_change_20": 0.0
   },
   {
@@ -294,7 +294,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": -41.55692504750982,
     "three_inst_ratio": -41.48692504750982,
-    "three_inst_ratio_change_20": -41.48692504750982
+    "three_inst_ratio_change_20": 1.0546919010808011
   },
   {
     "date": "2026-06-01",
@@ -455,11 +455,11 @@
     "code": "009819",
     "name": "中信數據及電力",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
+    "foreign_ratio": 1.51,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": 46.78612095957448
+    "dealer_ratio": -50.078704813127864,
+    "three_inst_ratio": -48.568704813127866,
+    "three_inst_ratio_change_20": -1.7825838535533833
   },
   {
     "date": "2026-06-22",
@@ -548,5 +548,27 @@
     "dealer_ratio": -49.86135295520748,
     "three_inst_ratio": -48.30135295520748,
     "three_inst_ratio_change_20": -6.227302943325441
+  },
+  {
+    "date": "2026-07-02",
+    "code": "009819",
+    "name": "中信數據及電力",
+    "market": "TWSE",
+    "foreign_ratio": 1.56,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -49.94708271771328,
+    "three_inst_ratio": -48.38708271771328,
+    "three_inst_ratio_change_20": -3.915243740175832
+  },
+  {
+    "date": "2026-07-03",
+    "code": "009819",
+    "name": "中信數據及電力",
+    "market": "TWSE",
+    "foreign_ratio": 1.56,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -50.063511953239306,
+    "three_inst_ratio": -48.503511953239304,
+    "three_inst_ratio_change_20": -3.7745652939258036
   }
 ]

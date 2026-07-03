@@ -787,9 +787,9 @@
     "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -1.7097222726203676
+    "dealer_ratio": 5.13541692811119,
+    "three_inst_ratio": 5.13541692811119,
+    "three_inst_ratio_change_20": 3.4256946554908225
   },
   {
     "date": "2025-12-26",
@@ -842,9 +842,9 @@
     "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -4.236424285186305
+    "dealer_ratio": 4.20408271767365,
+    "three_inst_ratio": 4.20408271767365,
+    "three_inst_ratio_change_20": -0.03234156751265527
   },
   {
     "date": "2026-01-02",
@@ -1009,7 +1009,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.7781673919643761,
     "three_inst_ratio": 0.7781673919643761,
-    "three_inst_ratio_change_20": 0.7781673919643761
+    "three_inst_ratio_change_20": -4.3572495361468135
   },
   {
     "date": "2026-01-23",
@@ -1064,7 +1064,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.8142409337786325,
     "three_inst_ratio": 0.8142409337786325,
-    "three_inst_ratio_change_20": 0.8142409337786325
+    "three_inst_ratio_change_20": -3.3898417838950174
   },
   {
     "date": "2026-01-30",
@@ -1172,9 +1172,9 @@
     "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -2.3980907465506194
+    "dealer_ratio": 1.704904249906726,
+    "three_inst_ratio": 1.704904249906726,
+    "three_inst_ratio_change_20": -0.6931864966438934
   },
   {
     "date": "2026-02-20",
@@ -1183,9 +1183,9 @@
     "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -1.8885454238774753
+    "dealer_ratio": 1.704904249906726,
+    "three_inst_ratio": 1.704904249906726,
+    "three_inst_ratio_change_20": -0.1836411739707493
   },
   {
     "date": "2026-02-23",
@@ -1394,7 +1394,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": -1.2812402688049866,
     "three_inst_ratio": -1.2812402688049866,
-    "three_inst_ratio_change_20": -1.2812402688049866
+    "three_inst_ratio_change_20": -2.9861445187117126
   },
   {
     "date": "2026-03-23",
@@ -1405,7 +1405,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": -0.7117882024478136,
     "three_inst_ratio": -0.7117882024478136,
-    "three_inst_ratio_change_20": -0.7117882024478136
+    "three_inst_ratio_change_20": -2.4166924523545394
   },
   {
     "date": "2026-03-24",
@@ -1700,9 +1700,9 @@
     "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": 1.3280418024062186
+    "dealer_ratio": -3.214741206585975,
+    "three_inst_ratio": -3.214741206585975,
+    "three_inst_ratio_change_20": -1.8866994041797565
   },
   {
     "date": "2026-05-04",
@@ -1922,7 +1922,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": -2.5698974506605254,
     "three_inst_ratio": -2.5698974506605254,
-    "three_inst_ratio_change_20": -2.5698974506605254
+    "three_inst_ratio_change_20": 0.6448437559254496
   },
   {
     "date": "2026-06-01",
@@ -2085,9 +2085,9 @@
     "market": "TWSE",
     "foreign_ratio": 0.0,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": 1.7323527025721919
+    "dealer_ratio": -2.2866721563245433,
+    "three_inst_ratio": -2.2866721563245433,
+    "three_inst_ratio_change_20": -0.5543194537523515
   },
   {
     "date": "2026-06-22",
@@ -2176,5 +2176,27 @@
     "dealer_ratio": -3.983692581866786,
     "three_inst_ratio": -3.883692581866786,
     "three_inst_ratio_change_20": -0.3130141440968979
+  },
+  {
+    "date": "2026-07-02",
+    "code": "00664R",
+    "name": "國泰臺灣加權反1",
+    "market": "TWSE",
+    "foreign_ratio": 0.06,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -4.0095335263978615,
+    "three_inst_ratio": -3.9495335263978615,
+    "three_inst_ratio_change_20": 0.05493834130517383
+  },
+  {
+    "date": "2026-07-03",
+    "code": "00664R",
+    "name": "國泰臺灣加權反1",
+    "market": "TWSE",
+    "foreign_ratio": 0.06,
+    "trust_ratio": 0.0,
+    "dealer_ratio": -3.5930175985742925,
+    "three_inst_ratio": -3.5330175985742924,
+    "three_inst_ratio_change_20": -0.523417109875453
   }
 ]

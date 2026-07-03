@@ -64,7 +64,13 @@ def _get_browser() -> "Browser":
     
     if _browser is None:
         _playwright = sync_playwright().start()
-        _browser = _playwright.chromium.launch(headless=True)
+        try:
+            _browser = _playwright.chromium.launch(headless=True)
+        except Exception:
+            _playwright.stop()
+            _playwright = None
+            _browser = None
+            raise
     
     return _browser
 

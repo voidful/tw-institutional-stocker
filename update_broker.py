@@ -468,8 +468,7 @@ def main():
     all_trades = fetch_all_broker_data(stock_codes, delay=args.delay)
     
     if all_trades.empty:
-        print("[WARN] No broker trades fetched, aborting.")
-        return
+        raise SystemExit("[ERROR] No broker trades fetched; failing update to avoid silent stale data.")
     
     print(f"\nTotal records fetched: {len(all_trades)}")
     
@@ -529,4 +528,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
