@@ -1137,11 +1137,11 @@
     "code": "1441",
     "name": "大東",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
+    "foreign_ratio": 1.29,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -1.2
+    "dealer_ratio": 0.0027876745256740433,
+    "three_inst_ratio": 1.2927876745256741,
+    "three_inst_ratio_change_20": 0.09278767452567416
   },
   {
     "date": "2026-05-04",
@@ -1361,7 +1361,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0027876745256740433,
     "three_inst_ratio": 1.3627876745256742,
-    "three_inst_ratio_change_20": 1.3627876745256742
+    "three_inst_ratio_change_20": 0.07000000000000006
   },
   {
     "date": "2026-06-01",
@@ -1593,5 +1593,27 @@
     "dealer_ratio": 0.0013938372628370217,
     "three_inst_ratio": 1.381393837262837,
     "three_inst_ratio_change_20": -0.011393837262837048
+  },
+  {
+    "date": "2026-07-02",
+    "code": "1441",
+    "name": "大東",
+    "market": "TWSE",
+    "foreign_ratio": 1.41,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.0013938372628370217,
+    "three_inst_ratio": 1.411393837262837,
+    "three_inst_ratio_change_20": 0.01860616273716298
+  },
+  {
+    "date": "2026-07-03",
+    "code": "1441",
+    "name": "大東",
+    "market": "TWSE",
+    "foreign_ratio": 1.41,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 0.004181511788511065,
+    "three_inst_ratio": 1.414181511788511,
+    "three_inst_ratio_change_20": 0.021393837262837057
   }
 ]

@@ -785,11 +785,11 @@
     "code": "2704",
     "name": "國賓",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
+    "foreign_ratio": 10.22,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -10.340373284672706
+    "dealer_ratio": 0.0032663498326406556,
+    "three_inst_ratio": 10.223266349832642,
+    "three_inst_ratio_change_20": -0.11710693484006462
   },
   {
     "date": "2025-12-26",
@@ -840,11 +840,11 @@
     "code": "2704",
     "name": "國賓",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
+    "foreign_ratio": 10.2,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -10.33609655096269
+    "dealer_ratio": 0.0019036673826445544,
+    "three_inst_ratio": 10.201903667382643,
+    "three_inst_ratio_change_20": -0.134192883580047
   },
   {
     "date": "2026-01-02",
@@ -1009,7 +1009,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0022437929221635813,
     "three_inst_ratio": 10.002243792922163,
-    "three_inst_ratio_change_20": 10.002243792922163
+    "three_inst_ratio_change_20": -0.22102255691047823
   },
   {
     "date": "2026-01-23",
@@ -1064,7 +1064,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.001971256432164361,
     "three_inst_ratio": 9.991971256432164,
-    "three_inst_ratio_change_20": 9.991971256432164
+    "three_inst_ratio_change_20": -0.2099324109504792
   },
   {
     "date": "2026-01-30",
@@ -1170,22 +1170,22 @@
     "code": "2704",
     "name": "國賓",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
+    "foreign_ratio": 9.94,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -10.027081860692629
+    "dealer_ratio": -0.001571717937825504,
+    "three_inst_ratio": 9.938428282062175,
+    "three_inst_ratio_change_20": -0.08865357863045453
   },
   {
     "date": "2026-02-20",
     "code": "2704",
     "name": "國賓",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
+    "foreign_ratio": 9.94,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -10.034226768423398
+    "dealer_ratio": -0.001571717937825504,
+    "three_inst_ratio": 9.938428282062175,
+    "three_inst_ratio_change_20": -0.09579848636122357
   },
   {
     "date": "2026-02-23",
@@ -1394,7 +1394,7 @@
     "trust_ratio": -0.019895163769943085,
     "dealer_ratio": -0.02026445071389203,
     "three_inst_ratio": 9.869840385516165,
-    "three_inst_ratio_change_20": 9.869840385516165
+    "three_inst_ratio_change_20": -0.06858789654600983
   },
   {
     "date": "2026-03-23",
@@ -1405,7 +1405,7 @@
     "trust_ratio": -0.019895163769943085,
     "dealer_ratio": -0.02108206018388969,
     "three_inst_ratio": 9.859022776046167,
-    "three_inst_ratio_change_20": 9.859022776046167
+    "three_inst_ratio_change_20": -0.07940550601600727
   },
   {
     "date": "2026-03-24",
@@ -1698,11 +1698,11 @@
     "code": "2704",
     "name": "國賓",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
-    "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -9.872838286906156
+    "foreign_ratio": 9.91,
+    "trust_ratio": -0.019895163769943085,
+    "dealer_ratio": -0.018084158793898266,
+    "three_inst_ratio": 9.872020677436158,
+    "three_inst_ratio_change_20": -0.0008176094699976488
   },
   {
     "date": "2026-05-04",
@@ -1922,7 +1922,7 @@
     "trust_ratio": -0.019895163769943085,
     "dealer_ratio": -0.016994012833901385,
     "three_inst_ratio": 9.753110823396154,
-    "three_inst_ratio_change_20": 9.753110823396154
+    "three_inst_ratio_change_20": -0.11890985404000354
   },
   {
     "date": "2026-06-01",
@@ -2083,11 +2083,11 @@
     "code": "2704",
     "name": "國賓",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
-    "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -9.783110823396155
+    "foreign_ratio": 9.87,
+    "trust_ratio": -0.019895163769943085,
+    "dealer_ratio": -0.017539085813899825,
+    "three_inst_ratio": 9.832565750416157,
+    "three_inst_ratio_change_20": 0.049454927020001094
   },
   {
     "date": "2026-06-22",
@@ -2176,5 +2176,27 @@
     "dealer_ratio": -0.015358793893906063,
     "three_inst_ratio": 9.72474604233615,
     "three_inst_ratio_change_20": -0.018364781060004276
+  },
+  {
+    "date": "2026-07-02",
+    "code": "2704",
+    "name": "國賓",
+    "market": "TWSE",
+    "foreign_ratio": 9.76,
+    "trust_ratio": -0.019895163769943085,
+    "dealer_ratio": -0.015358793893906063,
+    "three_inst_ratio": 9.72474604233615,
+    "three_inst_ratio_change_20": -0.0567295621200099
+  },
+  {
+    "date": "2026-07-03",
+    "code": "2704",
+    "name": "國賓",
+    "market": "TWSE",
+    "foreign_ratio": 9.76,
+    "trust_ratio": -0.019895163769943085,
+    "dealer_ratio": -0.014813720913907624,
+    "three_inst_ratio": 9.725291115316148,
+    "three_inst_ratio_change_20": -0.05618448914001206
   }
 ]

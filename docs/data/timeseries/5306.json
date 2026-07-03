@@ -785,11 +785,11 @@
     "code": "5306",
     "name": "桂盟",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
+    "foreign_ratio": 12.33,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -12.49067814409899
+    "dealer_ratio": -0.17900445879807783,
+    "three_inst_ratio": 12.150995541201922,
+    "three_inst_ratio_change_20": -0.3396826028970672
   },
   {
     "date": "2025-12-26",
@@ -840,11 +840,11 @@
     "code": "5306",
     "name": "桂盟",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
+    "foreign_ratio": 12.43,
     "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -12.45226543596098
+    "dealer_ratio": -0.1837663343840465,
+    "three_inst_ratio": 12.246233665615954,
+    "three_inst_ratio_change_20": -0.2060317703450263
   },
   {
     "date": "2026-01-02",
@@ -1009,7 +1009,7 @@
     "trust_ratio": -0.005555521516963404,
     "dealer_ratio": -0.20598842045190008,
     "three_inst_ratio": 12.398456058031135,
-    "three_inst_ratio_change_20": 12.398456058031135
+    "three_inst_ratio_change_20": 0.24746051682921255
   },
   {
     "date": "2026-01-23",
@@ -1064,7 +1064,7 @@
     "trust_ratio": -0.005555521516963404,
     "dealer_ratio": -0.20725825394149172,
     "three_inst_ratio": 12.357186224541545,
-    "three_inst_ratio_change_20": 12.357186224541545
+    "three_inst_ratio_change_20": 0.1109525589255913
   },
   {
     "date": "2026-01-30",
@@ -1676,11 +1676,11 @@
     "code": "5306",
     "name": "桂盟",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
-    "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -12.015793621010513
+    "foreign_ratio": 12.24,
+    "trust_ratio": -0.037301358756754284,
+    "dealer_ratio": -0.19865116381985343,
+    "three_inst_ratio": 12.004047477423393,
+    "three_inst_ratio_change_20": -0.011746143587119562
   },
   {
     "date": "2026-05-04",
@@ -1900,7 +1900,7 @@
     "trust_ratio": -0.037301358756754284,
     "dealer_ratio": -0.1948583299156294,
     "three_inst_ratio": 12.337840311327618,
-    "three_inst_ratio_change_20": 12.337840311327618
+    "three_inst_ratio_change_20": 0.33379283390422465
   },
   {
     "date": "2026-06-01",
@@ -2061,11 +2061,11 @@
     "code": "5306",
     "name": "桂盟",
     "market": "TWSE",
-    "foreign_ratio": 0.0,
-    "trust_ratio": 0.0,
-    "dealer_ratio": 0.0,
-    "three_inst_ratio": 0.0,
-    "three_inst_ratio_change_20": -12.26831656015568
+    "foreign_ratio": 12.63,
+    "trust_ratio": -0.037301358756754284,
+    "dealer_ratio": -0.20366938704153337,
+    "three_inst_ratio": 12.389029254201715,
+    "three_inst_ratio_change_20": 0.12071269404603413
   },
   {
     "date": "2026-06-22",
@@ -2154,5 +2154,27 @@
     "dealer_ratio": -0.1941456358695961,
     "three_inst_ratio": 12.51855300537365,
     "three_inst_ratio_change_20": 0.12991904811504007
+  },
+  {
+    "date": "2026-07-02",
+    "code": "5306",
+    "name": "桂盟",
+    "market": "TWSE",
+    "foreign_ratio": 12.73,
+    "trust_ratio": -0.037301358756754284,
+    "dealer_ratio": -0.19493928180059086,
+    "three_inst_ratio": 12.497759359442655,
+    "three_inst_ratio_change_20": 0.10912540218404487
+  },
+  {
+    "date": "2026-07-03",
+    "code": "5306",
+    "name": "桂盟",
+    "market": "TWSE",
+    "foreign_ratio": 12.73,
+    "trust_ratio": -0.037301358756754284,
+    "dealer_ratio": -0.19652657366258042,
+    "three_inst_ratio": 12.496172067580666,
+    "three_inst_ratio_change_20": 0.07596748502461459
   }
 ]

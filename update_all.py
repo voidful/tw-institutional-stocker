@@ -32,6 +32,9 @@ INST_BASELINE_PATH = os.path.join(DATA_DIR, "inst_baseline.csv")
 WINDOWS = [5, 10, 20, 30]
 FLOW_COLUMNS = ["date", "code", "name", "foreign_net", "trust_net", "dealer_net", "market"]
 FOREIGN_COLUMNS = ["date", "code", "name", "market", "total_shares", "foreign_shares", "foreign_ratio"]
+FLOW_NUMERIC_COLUMNS = ["foreign_net", "trust_net", "dealer_net"]
+FOREIGN_NUMERIC_COLUMNS = ["total_shares", "foreign_shares", "foreign_ratio"]
+FLOW_MIN_ROWS_BY_MARKET = {"TWSE": 1000, "TPEX": 700}
 INIT_FETCH_DAYS = 60
 BACKFILL_LOOKBACK_DAYS = 120
 
@@ -85,9 +88,12 @@ def is_weekend(d: date) -> bool:
 
 
 def get_target_trade_date() -> date:
-    """用台北時間的「昨天」，週末往前推到最近一個平日。"""
-    today = get_taipei_today()
-    target = today - timedelta(days=1)
+    """用台北時間的「今天」，週末往前推到最近一個平日。
+
+    GitHub Actions 在台北晚間執行，TWSE/TPEX 當日三大法人買賣超此時已發布；
+    若仍抓昨天，資料會天然落後一天，且連續空回應時不容易被注意到。
+    """
+    target = get_taipei_today()
     while is_weekend(target):
         target -= timedelta(days=1)
     return target
@@ -152,6 +158,47 @@ def ensure_columns(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
         if col not in out.columns:
             out[col] = pd.NA
     return out
+
+
+def normalize_table(
+    df: pd.DataFrame,
+    columns: list[str],
+    numeric_columns: list[str],
+) -> pd.DataFrame:
+    """Return a CSV/JSON-safe table with stable columns and no numeric NA."""
+    out = restore_column_from_index(df.copy(), "code")
+    out = ensure_columns(out, columns)
+    out = out[columns].copy()
+
+    if "date" in out.columns:
+        out["date"] = pd.to_datetime(out["date"], errors="coerce").dt.date
+    if "code" in out.columns:
+        out["code"] = out["code"].astype(str).str.strip()
+        out.loc[out["code"].isin(["", "nan", "None", "<NA>"]), "code"] = pd.NA
+        valid_code = out["code"].astype(str).str.match(r"^\d{4,6}[A-Z]*$")
+        not_dummy_code = ~out["code"].astype(str).str.fullmatch(r"0+")
+        out = out[valid_code & not_dummy_code].copy()
+    for col in ("name", "market"):
+        if col in out.columns:
+            out[col] = out[col].fillna("").astype(str).str.strip()
+    if {"code", "name"}.issubset(out.columns):
+        missing_name = out["name"].isin(["", "nan", "None", "<NA>"])
+        out.loc[missing_name, "name"] = out.loc[missing_name, "code"]
+
+    for col in numeric_columns:
+        if col in out.columns:
+            out[col] = pd.to_numeric(out[col], errors="coerce").fillna(0)
+
+    out = out.dropna(subset=[c for c in ("date", "code") if c in out.columns])
+    return out
+
+
+def normalize_flow_table(df: pd.DataFrame) -> pd.DataFrame:
+    return normalize_table(df, FLOW_COLUMNS, FLOW_NUMERIC_COLUMNS)
+
+
+def normalize_foreign_table(df: pd.DataFrame) -> pd.DataFrame:
+    return normalize_table(df, FOREIGN_COLUMNS, FOREIGN_NUMERIC_COLUMNS)
 
 
 def restore_column_from_index(df: pd.DataFrame, col: str) -> pd.DataFrame:
@@ -627,22 +674,24 @@ def fetch_tpex_qfii(trade_date: date) -> pd.DataFrame:
 
 # ---------- history append helpers ----------
 
-def append_history(df_new: pd.DataFrame, path: str, key_cols: list[str]) -> pd.DataFrame:
+def append_history(
+    df_new: pd.DataFrame,
+    path: str,
+    key_cols: list[str],
+    columns: Optional[list[str]] = None,
+    numeric_columns: Optional[list[str]] = None,
+) -> pd.DataFrame:
+    columns = columns or key_cols
+    numeric_columns = numeric_columns or []
     if df_new.empty:
         if os.path.exists(path):
-            return pd.read_csv(path)
-        return df_new.copy()
+            return normalize_table(pd.read_csv(path), columns, numeric_columns)
+        return normalize_table(df_new.copy(), columns, numeric_columns)
 
-    df_new = ensure_columns(df_new, key_cols)
-    df_new = df_new.copy()
-    df_new["date"] = pd.to_datetime(df_new["date"], errors="coerce").dt.date
-    df_new = df_new.dropna(subset=["date"])
+    df_new = normalize_table(df_new, columns, numeric_columns)
 
     if os.path.exists(path):
-        df_old = pd.read_csv(path)
-        df_old = ensure_columns(df_old, key_cols)
-        df_old["date"] = pd.to_datetime(df_old["date"], errors="coerce").dt.date
-        df_old = df_old.dropna(subset=["date"])
+        df_old = normalize_table(pd.read_csv(path), columns, numeric_columns)
         df_all = pd.concat([df_old, df_new], ignore_index=True)
     else:
         df_all = df_new
@@ -651,6 +700,7 @@ def append_history(df_new: pd.DataFrame, path: str, key_cols: list[str]) -> pd.D
     # 以便修正過去抓錯的資料（例如 dealer_net 欄位解析錯誤）。日常更新不會重抓
     # 既有日期，因此此設定對日常流程無影響。
     df_all = df_all.drop_duplicates(subset=key_cols, keep="last").sort_values(["date", "code"])
+    df_all = normalize_table(df_all, columns, numeric_columns)
     df_all.to_csv(path, index=False, date_format="%Y-%m-%d")
     return df_all
 
@@ -756,12 +806,16 @@ def build_estimated_holdings(
         return merged
 
     merged["code"] = merged["code"].astype(str).str.strip()
-    merged = merged.sort_values(["code", "date"]).reset_index(drop=True)
+    merged = merged.sort_values(["code", "market", "date"]).reset_index(drop=True)
+
+    # 外資持股資料有時比買賣超晚發布；若同一股票/市場當日缺持股，沿用最近有效值，
+    # 避免最新交易日的 foreign_ratio / total_shares 被空值清成 0 造成 ranking 失真。
+    for col in ("total_shares", "foreign_ratio"):
+        merged[col] = pd.to_numeric(merged[col], errors="coerce")
+        merged[col] = merged.groupby(["code", "market"])[col].ffill()
 
     # total_shares 先轉 float，避免後面 replace/where 中 extension array 爆炸
-    merged["total_shares"] = pd.to_numeric(
-        merged["total_shares"], errors="coerce"
-    ).fillna(0.0)
+    merged["total_shares"] = merged["total_shares"].fillna(0.0)
     merged["trust_net"] = pd.to_numeric(merged["trust_net"], errors="coerce").fillna(0.0)
     merged["dealer_net"] = pd.to_numeric(merged["dealer_net"], errors="coerce").fillna(0.0)
 
@@ -1079,6 +1133,94 @@ def export_timeseries_by_code(
             json.dump(records, f, ensure_ascii=False, indent=2)
 
 
+# ---------- validation ----------
+
+def validate_no_nulls(df: pd.DataFrame, columns: list[str], label: str):
+    missing_cols = [col for col in columns if col not in df.columns]
+    if missing_cols:
+        raise RuntimeError(f"{label}: missing columns {missing_cols}")
+
+    null_counts = df[columns].isna().sum()
+    bad = {col: int(count) for col, count in null_counts.items() if int(count) > 0}
+    if bad:
+        raise RuntimeError(f"{label}: null values found {bad}")
+
+
+def validate_flow_history(df: pd.DataFrame, market: str, target_date: date):
+    label = f"{market} flows"
+    df = normalize_flow_table(df)
+    if df.empty:
+        raise RuntimeError(f"{label}: empty history")
+
+    validate_no_nulls(df, FLOW_COLUMNS, label)
+    latest = pd.to_datetime(df["date"], errors="coerce").dt.date.max()
+    if latest != target_date:
+        raise RuntimeError(f"{label}: latest date {latest} != target date {target_date}")
+
+    today_rows = df[df["date"] == target_date]
+    min_rows = FLOW_MIN_ROWS_BY_MARKET.get(market, 1)
+    if len(today_rows) < min_rows:
+        raise RuntimeError(
+            f"{label}: only {len(today_rows)} rows for {target_date}, expected >= {min_rows}"
+        )
+
+
+def validate_foreign_history(df: pd.DataFrame, market: str):
+    label = f"{market} foreign holdings"
+    df = normalize_foreign_table(df)
+    if df.empty:
+        raise RuntimeError(f"{label}: empty history")
+    validate_no_nulls(df, FOREIGN_COLUMNS, label)
+
+
+def validate_json_file(path: str):
+    with open(path, "r", encoding="utf-8") as f:
+        text = f.read()
+    if "NaN" in text or "Infinity" in text or "-Infinity" in text:
+        raise RuntimeError(f"{path}: invalid JSON numeric token")
+    json.loads(text)
+
+
+def validate_exports(out_dir: str, windows: list[int]):
+    required = []
+    for w in windows:
+        required.extend(
+            [
+                os.path.join(out_dir, f"top_three_inst_netbuy_{w}_up.json"),
+                os.path.join(out_dir, f"top_three_inst_netbuy_{w}_down.json"),
+                os.path.join(out_dir, f"top_three_inst_change_{w}_up.json"),
+                os.path.join(out_dir, f"top_three_inst_change_{w}_down.json"),
+            ]
+        )
+
+    missing = [path for path in required if not os.path.exists(path)]
+    if missing:
+        raise RuntimeError(f"missing export files: {missing}")
+
+    for path in required:
+        validate_json_file(path)
+
+
+def validate_daily_update(
+    twse_flows_all: pd.DataFrame,
+    tpex_flows_all: pd.DataFrame,
+    twse_foreign_all: pd.DataFrame,
+    tpex_foreign_all: pd.DataFrame,
+    target_date: date,
+):
+    validate_flow_history(twse_flows_all, "TWSE", target_date)
+    validate_flow_history(tpex_flows_all, "TPEX", target_date)
+    validate_foreign_history(twse_foreign_all, "TWSE")
+    validate_foreign_history(tpex_foreign_all, "TPEX")
+    validate_exports(DOCS_DIR, WINDOWS)
+
+
+def write_history_table(df: pd.DataFrame, path: str, columns: list[str]):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    df = df[columns].copy()
+    df.to_csv(path, index=False, date_format="%Y-%m-%d")
+
+
 # ---------- main orchestration ----------
 
 def main():
@@ -1149,27 +1291,35 @@ def main():
 
         if not twse_new.empty:
             twse_flows_all = append_history(
-                twse_new, twse_flows_path, ["date", "code", "market"]
+                twse_new,
+                twse_flows_path,
+                ["date", "code", "market"],
+                FLOW_COLUMNS,
+                FLOW_NUMERIC_COLUMNS,
             )
         else:
-            twse_flows_all = (
+            twse_flows_all = normalize_flow_table(
                 pd.read_csv(twse_flows_path) if os.path.exists(twse_flows_path) else empty_flows_df()
             )
 
         if not tpex_new.empty:
             tpex_flows_all = append_history(
-                tpex_new, tpex_flows_path, ["date", "code", "market"]
+                tpex_new,
+                tpex_flows_path,
+                ["date", "code", "market"],
+                FLOW_COLUMNS,
+                FLOW_NUMERIC_COLUMNS,
             )
         else:
-            tpex_flows_all = (
+            tpex_flows_all = normalize_flow_table(
                 pd.read_csv(tpex_flows_path) if os.path.exists(tpex_flows_path) else empty_flows_df()
             )
     else:
         print("[INFO] no new flows fetched.")
-        twse_flows_all = (
+        twse_flows_all = normalize_flow_table(
             pd.read_csv(twse_flows_path) if os.path.exists(twse_flows_path) else empty_flows_df()
         )
-        tpex_flows_all = (
+        tpex_flows_all = normalize_flow_table(
             pd.read_csv(tpex_flows_path) if os.path.exists(tpex_flows_path) else empty_flows_df()
         )
 
@@ -1200,27 +1350,40 @@ def main():
     if foreign_new_list_twse:
         twse_foreign_new = pd.concat(foreign_new_list_twse, ignore_index=True)
         twse_foreign_all = append_history(
-            twse_foreign_new, twse_foreign_path, ["date", "code", "market"]
+            twse_foreign_new,
+            twse_foreign_path,
+            ["date", "code", "market"],
+            FOREIGN_COLUMNS,
+            FOREIGN_NUMERIC_COLUMNS,
         )
     else:
-        twse_foreign_all = (
+        twse_foreign_all = normalize_foreign_table(
             pd.read_csv(twse_foreign_path) if os.path.exists(twse_foreign_path) else empty_foreign_df()
         )
 
     if foreign_new_list_tpex:
         tpex_foreign_new = pd.concat(foreign_new_list_tpex, ignore_index=True)
         tpex_foreign_all = append_history(
-            tpex_foreign_new, tpex_foreign_path, ["date", "code", "market"]
+            tpex_foreign_new,
+            tpex_foreign_path,
+            ["date", "code", "market"],
+            FOREIGN_COLUMNS,
+            FOREIGN_NUMERIC_COLUMNS,
         )
     else:
-        tpex_foreign_all = (
+        tpex_foreign_all = normalize_foreign_table(
             pd.read_csv(tpex_foreign_path) if os.path.exists(tpex_foreign_path) else empty_foreign_df()
         )
 
-    twse_flows_all = ensure_columns(restore_column_from_index(twse_flows_all, "code"), FLOW_COLUMNS)
-    tpex_flows_all = ensure_columns(restore_column_from_index(tpex_flows_all, "code"), FLOW_COLUMNS)
-    twse_foreign_all = ensure_columns(restore_column_from_index(twse_foreign_all, "code"), FOREIGN_COLUMNS)
-    tpex_foreign_all = ensure_columns(restore_column_from_index(tpex_foreign_all, "code"), FOREIGN_COLUMNS)
+    twse_flows_all = normalize_flow_table(twse_flows_all)
+    tpex_flows_all = normalize_flow_table(tpex_flows_all)
+    twse_foreign_all = normalize_foreign_table(twse_foreign_all)
+    tpex_foreign_all = normalize_foreign_table(tpex_foreign_all)
+
+    write_history_table(twse_flows_all, twse_flows_path, FLOW_COLUMNS)
+    write_history_table(tpex_flows_all, tpex_flows_path, FLOW_COLUMNS)
+    write_history_table(twse_foreign_all, twse_foreign_path, FOREIGN_COLUMNS)
+    write_history_table(tpex_foreign_all, tpex_foreign_path, FOREIGN_COLUMNS)
 
     if twse_flows_all.empty and tpex_flows_all.empty:
         print("[WARN] no flows history available, aborting model/export.")
@@ -1258,6 +1421,13 @@ def main():
 
     export_change_rankings(merged, windows=WINDOWS, out_dir=DOCS_DIR)
     export_timeseries_by_code(merged, out_root=TIMESERIES_DIR, primary_window=20)
+    validate_daily_update(
+        twse_flows_all,
+        tpex_flows_all,
+        twse_foreign_all,
+        tpex_foreign_all,
+        target_date,
+    )
 
     print("[INFO] update_all.py completed successfully.")
 
