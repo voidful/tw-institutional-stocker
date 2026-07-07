@@ -1,13 +1,13 @@
 {
-  "updated": "2026-07-06T22:37:37.811313+08:00",
+  "updated": "2026-07-07T21:26:59.487148+08:00",
   "metric": "net_buy_sell",
   "window": 30,
   "unit": "張",
   "side": "down",
   "trading_days": 30,
   "date_range": {
-    "start": "2026-05-26",
-    "end": "2026-07-06"
+    "start": "2026-05-27",
+    "end": "2026-07-07"
   },
   "data": [
     {
@@ -15,1473 +15,1543 @@
       "code": "00631L",
       "name": "元大台灣50正2",
       "market": "TWSE",
-      "foreign": -45052,
-      "trust": -730,
-      "dealer": -1840948,
-      "total": -1886731
+      "foreign": -53910,
+      "trust": 0,
+      "dealer": -1855229,
+      "total": -1909139
     },
     {
       "rank": 2,
       "code": "009816",
       "name": "凱基台灣TOP50",
       "market": "TWSE",
-      "foreign": -63382,
+      "foreign": -74318,
       "trust": 400,
-      "dealer": -1689685,
-      "total": -1752667
+      "dealer": -1686637,
+      "total": -1760555
     },
     {
       "rank": 3,
       "code": "00407A",
       "name": "主動凱基台灣",
       "market": "TWSE",
-      "foreign": -2510,
+      "foreign": -17117,
       "trust": 0,
-      "dealer": -1515249,
-      "total": -1517759
+      "dealer": -1626281,
+      "total": -1643399
     },
     {
       "rank": 4,
       "code": "00405A",
       "name": "主動富邦台灣龍耀",
       "market": "TWSE",
-      "foreign": -28987,
+      "foreign": -76560,
       "trust": 0,
-      "dealer": -1302775,
-      "total": -1331762
+      "dealer": -1494016,
+      "total": -1570577
     },
     {
       "rank": 5,
       "code": "0050",
       "name": "元大台灣50",
       "market": "TWSE",
-      "foreign": -770002,
-      "trust": 92998,
-      "dealer": -540386,
-      "total": -1217390
+      "foreign": -795679,
+      "trust": 91837,
+      "dealer": -544617,
+      "total": -1248459
     },
     {
       "rank": 6,
-      "code": "00991A",
-      "name": "主動復華未來50",
+      "code": "00685L",
+      "name": "群益臺灣加權正2",
       "market": "TWSE",
-      "foreign": -183751,
-      "trust": 27122,
-      "dealer": -794225,
-      "total": -950854
+      "foreign": 303,
+      "trust": 0,
+      "dealer": -1104916,
+      "total": -1104613
     },
     {
       "rank": 7,
-      "code": "00988A",
-      "name": "主動統一全球創新",
+      "code": "00991A",
+      "name": "主動復華未來50",
       "market": "TWSE",
-      "foreign": -268835,
-      "trust": 36441,
-      "dealer": -653118,
-      "total": -885512
+      "foreign": -243138,
+      "trust": 26798,
+      "dealer": -871840,
+      "total": -1088180
     },
     {
       "rank": 8,
-      "code": "3481",
-      "name": "群創",
+      "code": "00988A",
+      "name": "主動統一全球創新",
       "market": "TWSE",
-      "foreign": -675360,
-      "trust": 111932,
-      "dealer": -54476,
-      "total": -617904
+      "foreign": -311736,
+      "trust": 6566,
+      "dealer": -660268,
+      "total": -965438
     },
     {
       "rank": 9,
-      "code": "00919",
-      "name": "群益台灣精選高息",
+      "code": "3481",
+      "name": "群創",
       "market": "TWSE",
-      "foreign": 26219,
-      "trust": 0,
-      "dealer": -505235,
-      "total": -479016
+      "foreign": -586411,
+      "trust": 114825,
+      "dealer": -53631,
+      "total": -525217
     },
     {
       "rank": 10,
-      "code": "009821",
-      "name": "野村稀土關鍵資源",
+      "code": "00919",
+      "name": "群益台灣精選高息",
       "market": "TWSE",
-      "foreign": -3841,
+      "foreign": 28281,
       "trust": 0,
-      "dealer": -413813,
-      "total": -417654
+      "dealer": -518711,
+      "total": -490430
     },
     {
       "rank": 11,
-      "code": "00918",
-      "name": "大華優利高填息30",
+      "code": "009821",
+      "name": "野村稀土關鍵資源",
       "market": "TWSE",
-      "foreign": 57652,
+      "foreign": -4233,
       "trust": 0,
-      "dealer": -417883,
-      "total": -360231
+      "dealer": -415898,
+      "total": -420132
     },
     {
       "rank": 12,
-      "code": "00990A",
-      "name": "主動元大AI新經濟",
-      "market": "TWSE",
-      "foreign": -40689,
-      "trust": 0,
-      "dealer": -284806,
-      "total": -325495
-    },
-    {
-      "rank": 13,
       "code": "2303",
       "name": "聯電",
       "market": "TWSE",
-      "foreign": 813415,
-      "trust": -1213271,
-      "dealer": 90122,
-      "total": -309735
+      "foreign": 744433,
+      "trust": -1207421,
+      "dealer": 80912,
+      "total": -382076
+    },
+    {
+      "rank": 13,
+      "code": "00918",
+      "name": "大華優利高填息30",
+      "market": "TWSE",
+      "foreign": 59546,
+      "trust": 0,
+      "dealer": -418258,
+      "total": -358713
     },
     {
       "rank": 14,
-      "code": "00712",
-      "name": "復華富時不動產",
+      "code": "00990A",
+      "name": "主動元大AI新經濟",
       "market": "TWSE",
-      "foreign": 50961,
+      "foreign": -55452,
       "trust": 0,
-      "dealer": -357067,
-      "total": -306106
+      "dealer": -298381,
+      "total": -353833
     },
     {
       "rank": 15,
-      "code": "2324",
-      "name": "仁寶",
-      "market": "TWSE",
-      "foreign": -140953,
-      "trust": -156801,
-      "dealer": -1220,
-      "total": -298975
-    },
-    {
-      "rank": 16,
       "code": "00927",
       "name": "群益半導體收益",
       "market": "TWSE",
-      "foreign": -37332,
+      "foreign": -43692,
       "trust": 320,
-      "dealer": -239419,
-      "total": -276431
+      "dealer": -289771,
+      "total": -333143
+    },
+    {
+      "rank": 16,
+      "code": "00400A",
+      "name": "主動國泰動能高息",
+      "market": "TWSE",
+      "foreign": -33018,
+      "trust": 0,
+      "dealer": -247922,
+      "total": -280940
     },
     {
       "rank": 17,
-      "code": "2409",
-      "name": "友達",
+      "code": "2324",
+      "name": "仁寶",
       "market": "TWSE",
-      "foreign": -286721,
-      "trust": -1253,
-      "dealer": 13406,
-      "total": -274568
+      "foreign": -122226,
+      "trust": -133503,
+      "dealer": 907,
+      "total": -254822
     },
     {
       "rank": 18,
       "code": "9904",
       "name": "寶成",
       "market": "TWSE",
-      "foreign": -164768,
-      "trust": -93081,
-      "dealer": 4666,
-      "total": -253183
+      "foreign": -162407,
+      "trust": -92219,
+      "dealer": 5299,
+      "total": -249328
     },
     {
       "rank": 19,
-      "code": "00984D",
-      "name": "主動聯博全球非投",
+      "code": "00712",
+      "name": "復華富時不動產",
       "market": "TWSE",
-      "foreign": -11171,
-      "trust": -37,
-      "dealer": -232223,
-      "total": -243431
+      "foreign": 92241,
+      "trust": 0,
+      "dealer": -336031,
+      "total": -243789
     },
     {
       "rank": 20,
-      "code": "6116",
-      "name": "彩晶",
+      "code": "6770",
+      "name": "力積電",
       "market": "TWSE",
-      "foreign": -210234,
-      "trust": 2323,
-      "dealer": -5365,
-      "total": -213276
+      "foreign": -244709,
+      "trust": 6407,
+      "dealer": 1303,
+      "total": -236999
     },
     {
       "rank": 21,
-      "code": "1101",
-      "name": "台泥",
+      "code": "00984D",
+      "name": "主動聯博全球非投",
       "market": "TWSE",
-      "foreign": -202553,
-      "trust": 2025,
-      "dealer": -1733,
-      "total": -202261
+      "foreign": -11874,
+      "trust": -37,
+      "dealer": -225011,
+      "total": -236922
     },
     {
       "rank": 22,
       "code": "00997A",
       "name": "主動群益美國增長",
       "market": "TWSE",
-      "foreign": -72693,
-      "trust": 20257,
-      "dealer": -137074,
-      "total": -189510
+      "foreign": -43343,
+      "trust": 10257,
+      "dealer": -181628,
+      "total": -214714
     },
     {
       "rank": 23,
-      "code": "00400A",
-      "name": "主動國泰動能高息",
+      "code": "1101",
+      "name": "台泥",
       "market": "TWSE",
-      "foreign": 6823,
-      "trust": 0,
-      "dealer": -193707,
-      "total": -186883
+      "foreign": -193835,
+      "trust": 1984,
+      "dealer": -2323,
+      "total": -194175
     },
     {
       "rank": 24,
-      "code": "6770",
-      "name": "力積電",
+      "code": "2409",
+      "name": "友達",
       "market": "TWSE",
-      "foreign": -194856,
-      "trust": 6723,
-      "dealer": 5111,
-      "total": -183022
+      "foreign": -194548,
+      "trust": -1361,
+      "dealer": 10450,
+      "total": -185459
     },
     {
       "rank": 25,
-      "code": "00632R",
-      "name": "元大台灣50反1",
+      "code": "6116",
+      "name": "彩晶",
       "market": "TWSE",
-      "foreign": -84,
-      "trust": 0,
-      "dealer": -173436,
-      "total": -173520
+      "foreign": -176920,
+      "trust": 2323,
+      "dealer": -2755,
+      "total": -177353
     },
     {
       "rank": 26,
-      "code": "2313",
-      "name": "華通",
+      "code": "00632R",
+      "name": "元大台灣50反1",
       "market": "TWSE",
-      "foreign": -129007,
-      "trust": -20483,
-      "dealer": -8409,
-      "total": -157899
+      "foreign": -4131,
+      "trust": 0,
+      "dealer": -150071,
+      "total": -154202
     },
     {
       "rank": 27,
       "code": "009824",
       "name": "群益美國科技巨頭",
       "market": "TWSE",
-      "foreign": 97,
+      "foreign": 100,
       "trust": 0,
-      "dealer": -151633,
-      "total": -151536
+      "dealer": -150181,
+      "total": -150082
     },
     {
       "rank": 28,
-      "code": "00935",
-      "name": "野村臺灣新科技50",
+      "code": "2313",
+      "name": "華通",
       "market": "TWSE",
-      "foreign": -45343,
-      "trust": 3042,
-      "dealer": -98973,
-      "total": -141274
+      "foreign": -121920,
+      "trust": -17080,
+      "dealer": -9057,
+      "total": -148056
     },
     {
       "rank": 29,
-      "code": "1102",
-      "name": "亞泥",
+      "code": "00935",
+      "name": "野村臺灣新科技50",
       "market": "TWSE",
-      "foreign": -24065,
-      "trust": -112567,
-      "dealer": 10796,
-      "total": -125836
+      "foreign": -46078,
+      "trust": 2951,
+      "dealer": -100491,
+      "total": -143617
     },
     {
       "rank": 30,
       "code": "00961",
       "name": "FT臺灣永續高息",
       "market": "TWSE",
-      "foreign": -7347,
+      "foreign": -6195,
       "trust": 0,
-      "dealer": -107759,
-      "total": -115107
+      "dealer": -126232,
+      "total": -132428
     },
     {
       "rank": 31,
-      "code": "00896",
-      "name": "中信綠能及電動車",
-      "market": "TWSE",
-      "foreign": 3828,
-      "trust": 0,
-      "dealer": -117576,
-      "total": -113748
-    },
-    {
-      "rank": 32,
-      "code": "00665L",
-      "name": "富邦恒生國企正2",
-      "market": "TWSE",
-      "foreign": 1551,
-      "trust": 0,
-      "dealer": -110785,
-      "total": -109234
-    },
-    {
-      "rank": 33,
-      "code": "2330",
-      "name": "台積電",
-      "market": "TWSE",
-      "foreign": -127595,
-      "trust": 6956,
-      "dealer": 12397,
-      "total": -108242
-    },
-    {
-      "rank": 34,
-      "code": "1504",
-      "name": "東元",
-      "market": "TWSE",
-      "foreign": -97473,
-      "trust": -6737,
-      "dealer": 373,
-      "total": -103837
-    },
-    {
-      "rank": 35,
-      "code": "00830",
-      "name": "國泰費城半導體",
-      "market": "TWSE",
-      "foreign": -52378,
-      "trust": 0,
-      "dealer": -45758,
-      "total": -98136
-    },
-    {
-      "rank": 36,
-      "code": "00406A",
-      "name": "主動中信台灣收益",
-      "market": "TWSE",
-      "foreign": -22691,
-      "trust": 0,
-      "dealer": -75411,
-      "total": -98102
-    },
-    {
-      "rank": 37,
       "code": "2317",
       "name": "鴻海",
       "market": "TWSE",
-      "foreign": -109391,
-      "trust": 16843,
-      "dealer": -4918,
-      "total": -97465
+      "foreign": -136604,
+      "trust": 18843,
+      "dealer": -4659,
+      "total": -122420
     },
     {
-      "rank": 38,
-      "code": "0052",
-      "name": "富邦科技",
+      "rank": 32,
+      "code": "00406A",
+      "name": "主動中信台灣收益",
       "market": "TWSE",
-      "foreign": -17657,
-      "trust": -2030,
-      "dealer": -77502,
-      "total": -97189
-    },
-    {
-      "rank": 39,
-      "code": "00402A",
-      "name": "主動安聯美國科技",
-      "market": "TWSE",
-      "foreign": -20573,
+      "foreign": -22390,
       "trust": 0,
-      "dealer": -70433,
-      "total": -91006
+      "dealer": -99035,
+      "total": -121425
     },
     {
-      "rank": 40,
+      "rank": 33,
+      "code": "1102",
+      "name": "亞泥",
+      "market": "TWSE",
+      "foreign": -19871,
+      "trust": -111815,
+      "dealer": 11499,
+      "total": -120188
+    },
+    {
+      "rank": 34,
       "code": "2312",
       "name": "金寶",
       "market": "TWSE",
-      "foreign": -82154,
-      "trust": -2092,
-      "dealer": -4774,
-      "total": -89020
+      "foreign": -114391,
+      "trust": 677,
+      "dealer": -5954,
+      "total": -119668
     },
     {
-      "rank": 41,
-      "code": "00404A",
-      "name": "主動聯博動能50",
-      "market": "TWSE",
-      "foreign": 134,
-      "trust": 0,
-      "dealer": -87103,
-      "total": -86969
-    },
-    {
-      "rank": 42,
-      "code": "00947",
-      "name": "台新臺灣IC設計",
-      "market": "TWSE",
-      "foreign": -13549,
-      "trust": 500,
-      "dealer": -58112,
-      "total": -71161
-    },
-    {
-      "rank": 43,
-      "code": "00685L",
-      "name": "群益臺灣加權正2",
-      "market": "TWSE",
-      "foreign": 111,
-      "trust": 0,
-      "dealer": -70891,
-      "total": -70780
-    },
-    {
-      "rank": 44,
-      "code": "00888",
-      "name": "永豐台灣ESG",
-      "market": "TPEX",
-      "foreign": -5367,
-      "trust": 0,
-      "dealer": -59161,
-      "total": -64528
-    },
-    {
-      "rank": 45,
-      "code": "00984A",
-      "name": "主動安聯台灣高息",
-      "market": "TWSE",
-      "foreign": -2409,
-      "trust": 0,
-      "dealer": -61088,
-      "total": -63497
-    },
-    {
-      "rank": 46,
-      "code": "2002",
-      "name": "中鋼",
-      "market": "TWSE",
-      "foreign": 503588,
-      "trust": -570002,
-      "dealer": 3840,
-      "total": -62573
-    },
-    {
-      "rank": 47,
+      "rank": 35,
       "code": "2344",
       "name": "華邦電",
       "market": "TWSE",
-      "foreign": -245373,
-      "trust": 185220,
-      "dealer": 540,
-      "total": -59614
+      "foreign": -285595,
+      "trust": 175364,
+      "dealer": -6573,
+      "total": -116804
+    },
+    {
+      "rank": 36,
+      "code": "00896",
+      "name": "中信綠能及電動車",
+      "market": "TWSE",
+      "foreign": 4018,
+      "trust": 0,
+      "dealer": -118589,
+      "total": -114571
+    },
+    {
+      "rank": 37,
+      "code": "00665L",
+      "name": "富邦恒生國企正2",
+      "market": "TWSE",
+      "foreign": 1133,
+      "trust": 0,
+      "dealer": -107914,
+      "total": -106781
+    },
+    {
+      "rank": 38,
+      "code": "00830",
+      "name": "國泰費城半導體",
+      "market": "TWSE",
+      "foreign": -57154,
+      "trust": 0,
+      "dealer": -47863,
+      "total": -105018
+    },
+    {
+      "rank": 39,
+      "code": "1504",
+      "name": "東元",
+      "market": "TWSE",
+      "foreign": -97376,
+      "trust": -6652,
+      "dealer": -83,
+      "total": -104110
+    },
+    {
+      "rank": 40,
+      "code": "2330",
+      "name": "台積電",
+      "market": "TWSE",
+      "foreign": -119763,
+      "trust": 8092,
+      "dealer": 12062,
+      "total": -99609
+    },
+    {
+      "rank": 41,
+      "code": "0052",
+      "name": "富邦科技",
+      "market": "TWSE",
+      "foreign": -17409,
+      "trust": -2030,
+      "dealer": -77119,
+      "total": -96558
+    },
+    {
+      "rank": 42,
+      "code": "00404A",
+      "name": "主動聯博動能50",
+      "market": "TWSE",
+      "foreign": 215,
+      "trust": 0,
+      "dealer": -88521,
+      "total": -88306
+    },
+    {
+      "rank": 43,
+      "code": "00402A",
+      "name": "主動安聯美國科技",
+      "market": "TWSE",
+      "foreign": -20726,
+      "trust": 0,
+      "dealer": -65448,
+      "total": -86174
+    },
+    {
+      "rank": 44,
+      "code": "00984A",
+      "name": "主動安聯台灣高息",
+      "market": "TWSE",
+      "foreign": -1404,
+      "trust": 0,
+      "dealer": -82644,
+      "total": -84048
+    },
+    {
+      "rank": 45,
+      "code": "00888",
+      "name": "永豐台灣ESG",
+      "market": "TPEX",
+      "foreign": -11919,
+      "trust": 0,
+      "dealer": -71993,
+      "total": -83912
+    },
+    {
+      "rank": 46,
+      "code": "0056",
+      "name": "元大高股息",
+      "market": "TWSE",
+      "foreign": 35163,
+      "trust": -1310,
+      "dealer": -115080,
+      "total": -81227
+    },
+    {
+      "rank": 47,
+      "code": "00947",
+      "name": "台新臺灣IC設計",
+      "market": "TWSE",
+      "foreign": -15095,
+      "trust": 500,
+      "dealer": -60367,
+      "total": -74962
     },
     {
       "rank": 48,
-      "code": "3231",
-      "name": "緯創",
-      "market": "TWSE",
-      "foreign": -163166,
-      "trust": 105211,
-      "dealer": 990,
-      "total": -56966
-    },
-    {
-      "rank": 49,
-      "code": "00662",
-      "name": "富邦NASDAQ",
-      "market": "TWSE",
-      "foreign": 13715,
-      "trust": -40,
-      "dealer": -68096,
-      "total": -54421
-    },
-    {
-      "rank": 50,
-      "code": "2474",
-      "name": "可成",
-      "market": "TWSE",
-      "foreign": -36051,
-      "trust": -18305,
-      "dealer": 2169,
-      "total": -52187
-    },
-    {
-      "rank": 51,
-      "code": "2885",
-      "name": "元大金",
-      "market": "TWSE",
-      "foreign": 114423,
-      "trust": -169457,
-      "dealer": 3595,
-      "total": -51439
-    },
-    {
-      "rank": 52,
-      "code": "1402",
-      "name": "遠東新",
-      "market": "TWSE",
-      "foreign": -187770,
-      "trust": 137393,
-      "dealer": 991,
-      "total": -49386
-    },
-    {
-      "rank": 53,
-      "code": "00753L",
-      "name": "中信中國50正2",
-      "market": "TWSE",
-      "foreign": 9106,
-      "trust": 0,
-      "dealer": -56934,
-      "total": -47828
-    },
-    {
-      "rank": 54,
-      "code": "4958",
-      "name": "臻鼎-KY",
-      "market": "TWSE",
-      "foreign": -71313,
-      "trust": 26296,
-      "dealer": -467,
-      "total": -45484
-    },
-    {
-      "rank": 55,
-      "code": "009823",
-      "name": "群益S&P500",
-      "market": "TPEX",
-      "foreign": 73,
-      "trust": 0,
-      "dealer": -42556,
-      "total": -42482
-    },
-    {
-      "rank": 56,
-      "code": "00715L",
-      "name": "期街口布蘭特正2",
-      "market": "TWSE",
-      "foreign": -945,
-      "trust": 0,
-      "dealer": -41396,
-      "total": -42341
-    },
-    {
-      "rank": 57,
-      "code": "6016",
-      "name": "康和證",
-      "market": "TPEX",
-      "foreign": -41532,
-      "trust": 0,
-      "dealer": 0,
-      "total": -41532
-    },
-    {
-      "rank": 58,
-      "code": "2633",
-      "name": "台灣高鐵",
-      "market": "TWSE",
-      "foreign": -128989,
-      "trust": 97439,
-      "dealer": -9758,
-      "total": -41308
-    },
-    {
-      "rank": 59,
-      "code": "2412",
-      "name": "中華電",
-      "market": "TWSE",
-      "foreign": -110005,
-      "trust": 58516,
-      "dealer": 10346,
-      "total": -41143
-    },
-    {
-      "rank": 60,
-      "code": "3036",
-      "name": "文曄",
-      "market": "TWSE",
-      "foreign": 58319,
-      "trust": -98638,
-      "dealer": -649,
-      "total": -40969
-    },
-    {
-      "rank": 61,
-      "code": "00998A",
-      "name": "主動復華金融股息",
-      "market": "TPEX",
-      "foreign": 821,
-      "trust": 0,
-      "dealer": -41515,
-      "total": -40694
-    },
-    {
-      "rank": 62,
-      "code": "6005",
-      "name": "群益證",
-      "market": "TWSE",
-      "foreign": 70877,
-      "trust": -111403,
-      "dealer": 0,
-      "total": -40526
-    },
-    {
-      "rank": 63,
       "code": "6282",
       "name": "康舒",
       "market": "TWSE",
-      "foreign": -32357,
-      "trust": 1720,
-      "dealer": -9870,
-      "total": -40507
+      "foreign": -59612,
+      "trust": 2512,
+      "dealer": -9356,
+      "total": -66456
     },
     {
-      "rank": 64,
-      "code": "00916",
-      "name": "國泰全球品牌50",
+      "rank": 49,
+      "code": "3231",
+      "name": "緯創",
       "market": "TWSE",
-      "foreign": 2247,
-      "trust": 0,
-      "dealer": -41255,
-      "total": -39008
+      "foreign": -171002,
+      "trust": 109000,
+      "dealer": 1674,
+      "total": -60327
     },
     {
-      "rank": 65,
-      "code": "2327",
-      "name": "國巨*",
+      "rank": 50,
+      "code": "2002",
+      "name": "中鋼",
       "market": "TWSE",
-      "foreign": -81051,
-      "trust": 39961,
-      "dealer": 2222,
-      "total": -38868
+      "foreign": 510163,
+      "trust": -570184,
+      "dealer": 3505,
+      "total": -56515
     },
     {
-      "rank": 66,
-      "code": "6147",
-      "name": "頎邦",
+      "rank": 51,
+      "code": "00662",
+      "name": "富邦NASDAQ",
+      "market": "TWSE",
+      "foreign": 15247,
+      "trust": -40,
+      "dealer": -68663,
+      "total": -53456
+    },
+    {
+      "rank": 52,
+      "code": "4958",
+      "name": "臻鼎-KY",
+      "market": "TWSE",
+      "foreign": -74735,
+      "trust": 24742,
+      "dealer": -1465,
+      "total": -51458
+    },
+    {
+      "rank": 53,
+      "code": "2474",
+      "name": "可成",
+      "market": "TWSE",
+      "foreign": -37703,
+      "trust": -14901,
+      "dealer": 1945,
+      "total": -50659
+    },
+    {
+      "rank": 54,
+      "code": "009823",
+      "name": "群益S&P500",
       "market": "TPEX",
-      "foreign": -3267,
-      "trust": -30695,
-      "dealer": -4670,
-      "total": -38633
+      "foreign": 78,
+      "trust": 0,
+      "dealer": -45996,
+      "total": -45918
     },
     {
-      "rank": 67,
+      "rank": 55,
       "code": "3673",
       "name": "TPK-KY",
       "market": "TWSE",
-      "foreign": -35066,
+      "foreign": -41648,
       "trust": -9,
-      "dealer": -3154,
-      "total": -38229
+      "dealer": -3780,
+      "total": -45437
+    },
+    {
+      "rank": 56,
+      "code": "2489",
+      "name": "瑞軒",
+      "market": "TWSE",
+      "foreign": -40721,
+      "trust": 688,
+      "dealer": -4419,
+      "total": -44452
+    },
+    {
+      "rank": 57,
+      "code": "6005",
+      "name": "群益證",
+      "market": "TWSE",
+      "foreign": 70531,
+      "trust": -114295,
+      "dealer": 0,
+      "total": -43765
+    },
+    {
+      "rank": 58,
+      "code": "6016",
+      "name": "康和證",
+      "market": "TPEX",
+      "foreign": -43494,
+      "trust": 0,
+      "dealer": 0,
+      "total": -43494
+    },
+    {
+      "rank": 59,
+      "code": "2885",
+      "name": "元大金",
+      "market": "TWSE",
+      "foreign": 109440,
+      "trust": -158048,
+      "dealer": 5210,
+      "total": -43399
+    },
+    {
+      "rank": 60,
+      "code": "6147",
+      "name": "頎邦",
+      "market": "TPEX",
+      "foreign": -4037,
+      "trust": -33494,
+      "dealer": -5621,
+      "total": -43152
+    },
+    {
+      "rank": 61,
+      "code": "3036",
+      "name": "文曄",
+      "market": "TWSE",
+      "foreign": 55744,
+      "trust": -97256,
+      "dealer": -546,
+      "total": -42058
+    },
+    {
+      "rank": 62,
+      "code": "2412",
+      "name": "中華電",
+      "market": "TWSE",
+      "foreign": -112204,
+      "trust": 60011,
+      "dealer": 10210,
+      "total": -41984
+    },
+    {
+      "rank": 63,
+      "code": "009819",
+      "name": "中信數據及電力",
+      "market": "TWSE",
+      "foreign": 21111,
+      "trust": 0,
+      "dealer": -63082,
+      "total": -41971
+    },
+    {
+      "rank": 64,
+      "code": "00998A",
+      "name": "主動復華金融股息",
+      "market": "TPEX",
+      "foreign": 1372,
+      "trust": 0,
+      "dealer": -42934,
+      "total": -41562
+    },
+    {
+      "rank": 65,
+      "code": "00753L",
+      "name": "中信中國50正2",
+      "market": "TWSE",
+      "foreign": 8147,
+      "trust": 0,
+      "dealer": -49637,
+      "total": -41490
+    },
+    {
+      "rank": 66,
+      "code": "6239",
+      "name": "力成",
+      "market": "TWSE",
+      "foreign": 19395,
+      "trust": -54562,
+      "dealer": -3963,
+      "total": -39131
+    },
+    {
+      "rank": 67,
+      "code": "00715L",
+      "name": "期街口布蘭特正2",
+      "market": "TWSE",
+      "foreign": -193,
+      "trust": 0,
+      "dealer": -38294,
+      "total": -38487
     },
     {
       "rank": 68,
       "code": "3576",
       "name": "聯合再生",
       "market": "TWSE",
-      "foreign": -36563,
+      "foreign": -38248,
       "trust": 0,
-      "dealer": 78,
-      "total": -36485
+      "dealer": 136,
+      "total": -38112
     },
     {
       "rank": 69,
-      "code": "009819",
-      "name": "中信數據及電力",
-      "market": "TWSE",
-      "foreign": 20947,
-      "trust": 0,
-      "dealer": -57176,
-      "total": -36229
-    },
-    {
-      "rank": 70,
       "code": "00735",
       "name": "國泰臺韓科技",
       "market": "TWSE",
-      "foreign": -16423,
+      "foreign": -17851,
       "trust": 54,
-      "dealer": -19175,
-      "total": -35544
+      "dealer": -19559,
+      "total": -37357
+    },
+    {
+      "rank": 70,
+      "code": "00916",
+      "name": "國泰全球品牌50",
+      "market": "TWSE",
+      "foreign": 3214,
+      "trust": 0,
+      "dealer": -40144,
+      "total": -36930
     },
     {
       "rank": 71,
-      "code": "6239",
-      "name": "力成",
+      "code": "2308",
+      "name": "台達電",
       "market": "TWSE",
-      "foreign": 19801,
-      "trust": -52683,
-      "dealer": -2056,
-      "total": -34938
+      "foreign": -23189,
+      "trust": -10592,
+      "dealer": -2159,
+      "total": -35939
     },
     {
       "rank": 72,
-      "code": "2371",
-      "name": "大同",
-      "market": "TWSE",
-      "foreign": -32544,
-      "trust": -423,
-      "dealer": -1879,
-      "total": -34846
+      "code": "3105",
+      "name": "穩懋",
+      "market": "TPEX",
+      "foreign": -22408,
+      "trust": -10725,
+      "dealer": -2299,
+      "total": -35432
     },
     {
       "rank": 73,
-      "code": "2489",
-      "name": "瑞軒",
+      "code": "3037",
+      "name": "欣興",
       "market": "TWSE",
-      "foreign": -31215,
-      "trust": 1163,
-      "dealer": -4286,
-      "total": -34339
+      "foreign": -38050,
+      "trust": 4271,
+      "dealer": -1621,
+      "total": -35399
     },
     {
       "rank": 74,
-      "code": "9945",
-      "name": "潤泰新",
+      "code": "2633",
+      "name": "台灣高鐵",
       "market": "TWSE",
-      "foreign": -38411,
-      "trust": 4169,
-      "dealer": 770,
-      "total": -33472
+      "foreign": -122766,
+      "trust": 98087,
+      "dealer": -9681,
+      "total": -34360
     },
     {
       "rank": 75,
       "code": "3711",
       "name": "日月光投控",
       "market": "TWSE",
-      "foreign": 37055,
-      "trust": -75026,
-      "dealer": 4565,
-      "total": -33407
+      "foreign": 35391,
+      "trust": -73651,
+      "dealer": 4173,
+      "total": -34086
     },
     {
       "rank": 76,
-      "code": "2308",
-      "name": "台達電",
+      "code": "9945",
+      "name": "潤泰新",
       "market": "TWSE",
-      "foreign": -19596,
-      "trust": -10543,
-      "dealer": -2103,
-      "total": -32242
+      "foreign": -38209,
+      "trust": 4078,
+      "dealer": 710,
+      "total": -33420
     },
     {
       "rank": 77,
-      "code": "009803",
-      "name": "玉山市值動能50",
-      "market": "TWSE",
-      "foreign": -1550,
-      "trust": 1600,
-      "dealer": -31996,
-      "total": -31945
-    },
-    {
-      "rank": 78,
-      "code": "9907",
-      "name": "統一實",
-      "market": "TWSE",
-      "foreign": 401,
-      "trust": -31426,
-      "dealer": -760,
-      "total": -31785
-    },
-    {
-      "rank": 79,
-      "code": "00663L",
-      "name": "國泰臺灣加權正2",
-      "market": "TWSE",
-      "foreign": 3952,
-      "trust": 0,
-      "dealer": -35551,
-      "total": -31598
-    },
-    {
-      "rank": 80,
-      "code": "00910",
-      "name": "第一金太空衛星",
-      "market": "TWSE",
-      "foreign": -7317,
-      "trust": 0,
-      "dealer": -23773,
-      "total": -31089
-    },
-    {
-      "rank": 81,
-      "code": "2353",
-      "name": "宏碁",
-      "market": "TWSE",
-      "foreign": 32939,
-      "trust": -55090,
-      "dealer": -8134,
-      "total": -30286
-    },
-    {
-      "rank": 82,
-      "code": "3105",
-      "name": "穩懋",
-      "market": "TPEX",
-      "foreign": -18001,
-      "trust": -10656,
-      "dealer": -1320,
-      "total": -29977
-    },
-    {
-      "rank": 83,
-      "code": "2367",
-      "name": "燿華",
-      "market": "TWSE",
-      "foreign": -25180,
-      "trust": 0,
-      "dealer": -4281,
-      "total": -29461
-    },
-    {
-      "rank": 84,
-      "code": "00922",
-      "name": "國泰台灣領袖50",
-      "market": "TWSE",
-      "foreign": -10786,
-      "trust": 1988,
-      "dealer": -20625,
-      "total": -29423
-    },
-    {
-      "rank": 85,
-      "code": "9105",
-      "name": "泰金寶-DR",
-      "market": "TWSE",
-      "foreign": -26253,
-      "trust": 0,
-      "dealer": -3025,
-      "total": -29278
-    },
-    {
-      "rank": 86,
-      "code": "8422",
-      "name": "可寧衛*",
-      "market": "TWSE",
-      "foreign": -11261,
-      "trust": -18032,
-      "dealer": 222,
-      "total": -29070
-    },
-    {
-      "rank": 87,
       "code": "00664R",
       "name": "國泰臺灣加權反1",
       "market": "TWSE",
       "foreign": -261,
       "trust": 0,
-      "dealer": -28213,
-      "total": -28474
+      "dealer": -32951,
+      "total": -33212
     },
     {
-      "rank": 88,
+      "rank": 78,
+      "code": "009803",
+      "name": "玉山市值動能50",
+      "market": "TWSE",
+      "foreign": -1946,
+      "trust": 1250,
+      "dealer": -32111,
+      "total": -32807
+    },
+    {
+      "rank": 79,
+      "code": "1402",
+      "name": "遠東新",
+      "market": "TWSE",
+      "foreign": -186162,
+      "trust": 152517,
+      "dealer": 1326,
+      "total": -32320
+    },
+    {
+      "rank": 80,
+      "code": "9105",
+      "name": "泰金寶-DR",
+      "market": "TWSE",
+      "foreign": -26382,
+      "trust": 0,
+      "dealer": -5647,
+      "total": -32030
+    },
+    {
+      "rank": 81,
+      "code": "2327",
+      "name": "國巨*",
+      "market": "TWSE",
+      "foreign": -70013,
+      "trust": 39247,
+      "dealer": -1068,
+      "total": -31834
+    },
+    {
+      "rank": 82,
+      "code": "2371",
+      "name": "大同",
+      "market": "TWSE",
+      "foreign": -29575,
+      "trust": -394,
+      "dealer": -1844,
+      "total": -31813
+    },
+    {
+      "rank": 83,
+      "code": "00922",
+      "name": "國泰台灣領袖50",
+      "market": "TWSE",
+      "foreign": -11318,
+      "trust": 1988,
+      "dealer": -21888,
+      "total": -31218
+    },
+    {
+      "rank": 84,
+      "code": "00663L",
+      "name": "國泰臺灣加權正2",
+      "market": "TWSE",
+      "foreign": 4549,
+      "trust": 0,
+      "dealer": -35054,
+      "total": -30505
+    },
+    {
+      "rank": 85,
+      "code": "4927",
+      "name": "泰鼎-KY",
+      "market": "TWSE",
+      "foreign": -30486,
+      "trust": 0,
+      "dealer": -15,
+      "total": -30501
+    },
+    {
+      "rank": 86,
       "code": "4919",
       "name": "新唐",
       "market": "TWSE",
-      "foreign": -20767,
-      "trust": -5769,
-      "dealer": -1080,
-      "total": -27616
+      "foreign": -23231,
+      "trust": -5803,
+      "dealer": -942,
+      "total": -29976
+    },
+    {
+      "rank": 87,
+      "code": "9907",
+      "name": "統一實",
+      "market": "TWSE",
+      "foreign": 3384,
+      "trust": -31680,
+      "dealer": -746,
+      "total": -29042
+    },
+    {
+      "rank": 88,
+      "code": "00910",
+      "name": "第一金太空衛星",
+      "market": "TWSE",
+      "foreign": -6930,
+      "trust": 0,
+      "dealer": -22047,
+      "total": -28977
     },
     {
       "rank": 89,
-      "code": "3707",
-      "name": "漢磊",
-      "market": "TPEX",
-      "foreign": -26897,
-      "trust": 0,
-      "dealer": -104,
-      "total": -27001
+      "code": "2609",
+      "name": "陽明",
+      "market": "TWSE",
+      "foreign": 208933,
+      "trust": -242452,
+      "dealer": 5647,
+      "total": -27872
     },
     {
       "rank": 90,
-      "code": "00635U",
-      "name": "期元大S&P黃金",
+      "code": "8422",
+      "name": "可寧衛*",
       "market": "TWSE",
-      "foreign": -1593,
-      "trust": 0,
-      "dealer": -24655,
-      "total": -26248
+      "foreign": -12032,
+      "trust": -15516,
+      "dealer": 175,
+      "total": -27373
     },
     {
       "rank": 91,
-      "code": "00650L",
-      "name": "復華香港正2",
+      "code": "00635U",
+      "name": "期元大S&P黃金",
       "market": "TWSE",
-      "foreign": 546,
+      "foreign": -1379,
       "trust": 0,
-      "dealer": -25613,
-      "total": -25067
+      "dealer": -23905,
+      "total": -25284
     },
     {
       "rank": 92,
       "code": "4915",
       "name": "致伸",
       "market": "TWSE",
-      "foreign": -39131,
-      "trust": 14119,
-      "dealer": 554,
-      "total": -24458
+      "foreign": -40033,
+      "trust": 14519,
+      "dealer": 547,
+      "total": -24967
     },
     {
       "rank": 93,
-      "code": "2451",
-      "name": "創見",
-      "market": "TWSE",
-      "foreign": -4848,
-      "trust": -19142,
-      "dealer": -260,
-      "total": -24251
+      "code": "3707",
+      "name": "漢磊",
+      "market": "TPEX",
+      "foreign": -24760,
+      "trust": 0,
+      "dealer": -121,
+      "total": -24881
     },
     {
       "rank": 94,
       "code": "00913",
       "name": "兆豐台灣晶圓製造",
       "market": "TWSE",
-      "foreign": -2515,
+      "foreign": -2575,
       "trust": 0,
-      "dealer": -21136,
-      "total": -23651
+      "dealer": -21909,
+      "total": -24484
     },
     {
       "rank": 95,
-      "code": "2855",
-      "name": "統一證",
-      "market": "TWSE",
-      "foreign": -97599,
-      "trust": 74502,
-      "dealer": 0,
-      "total": -23097
-    },
-    {
-      "rank": 96,
       "code": "2605",
       "name": "新興",
       "market": "TWSE",
-      "foreign": -22295,
+      "foreign": -23536,
       "trust": -7,
-      "dealer": -549,
-      "total": -22851
+      "dealer": -784,
+      "total": -24326
+    },
+    {
+      "rank": 96,
+      "code": "2451",
+      "name": "創見",
+      "market": "TWSE",
+      "foreign": -4807,
+      "trust": -19097,
+      "dealer": -331,
+      "total": -24235
     },
     {
       "rank": 97,
-      "code": "3042",
-      "name": "晶技",
+      "code": "1714",
+      "name": "和桐",
       "market": "TWSE",
-      "foreign": -22801,
-      "trust": 3124,
-      "dealer": -2643,
-      "total": -22320
+      "foreign": -27276,
+      "trust": 3,
+      "dealer": 3164,
+      "total": -24109
     },
     {
       "rank": 98,
-      "code": "4927",
-      "name": "泰鼎-KY",
+      "code": "00650L",
+      "name": "復華香港正2",
       "market": "TWSE",
-      "foreign": -21818,
+      "foreign": -481,
       "trust": 0,
-      "dealer": -169,
-      "total": -21987
+      "dealer": -22851,
+      "total": -23332
     },
     {
       "rank": 99,
-      "code": "1409",
-      "name": "新纖",
-      "market": "TWSE",
-      "foreign": -23226,
-      "trust": 1757,
-      "dealer": 207,
-      "total": -21261
-    },
-    {
-      "rank": 100,
       "code": "00981T",
       "name": "平衡凱基雙核收息",
       "market": "TWSE",
-      "foreign": -4,
+      "foreign": 108,
       "trust": 0,
-      "dealer": -21105,
-      "total": -21109
+      "dealer": -23181,
+      "total": -23073
+    },
+    {
+      "rank": 100,
+      "code": "2855",
+      "name": "統一證",
+      "market": "TWSE",
+      "foreign": -96404,
+      "trust": 74786,
+      "dealer": 0,
+      "total": -21618
     },
     {
       "rank": 101,
       "code": "00708L",
       "name": "期元大S&P黃金正2",
       "market": "TWSE",
-      "foreign": -1136,
+      "foreign": -328,
       "trust": 0,
-      "dealer": -19811,
-      "total": -20947
+      "dealer": -19990,
+      "total": -20318
     },
     {
       "rank": 102,
-      "code": "6176",
-      "name": "瑞儀",
+      "code": "2454",
+      "name": "聯發科",
       "market": "TWSE",
-      "foreign": 58288,
-      "trust": -78705,
-      "dealer": -237,
-      "total": -20654
+      "foreign": -1061,
+      "trust": -16510,
+      "dealer": -1826,
+      "total": -19397
     },
     {
       "rank": 103,
-      "code": "1785",
-      "name": "光洋科",
-      "market": "TPEX",
-      "foreign": -19355,
-      "trust": -229,
-      "dealer": -379,
-      "total": -19963
+      "code": "3042",
+      "name": "晶技",
+      "market": "TWSE",
+      "foreign": -11296,
+      "trust": -3938,
+      "dealer": -4086,
+      "total": -19320
     },
     {
       "rank": 104,
-      "code": "2402",
-      "name": "毅嘉",
+      "code": "00892",
+      "name": "富邦台灣半導體",
       "market": "TWSE",
-      "foreign": -14432,
-      "trust": -4625,
-      "dealer": -724,
-      "total": -19781
+      "foreign": -300,
+      "trust": -1207,
+      "dealer": -17721,
+      "total": -19228
     },
     {
       "rank": 105,
-      "code": "4906",
-      "name": "正文",
+      "code": "1409",
+      "name": "新纖",
       "market": "TWSE",
-      "foreign": -17479,
-      "trust": -63,
-      "dealer": -1145,
+      "foreign": -20656,
+      "trust": 1813,
+      "dealer": 157,
       "total": -18686
     },
     {
       "rank": 106,
-      "code": "2208",
-      "name": "台船",
+      "code": "4906",
+      "name": "正文",
       "market": "TWSE",
-      "foreign": -17774,
-      "trust": -546,
-      "dealer": -94,
-      "total": -18414
+      "foreign": -17182,
+      "trust": -68,
+      "dealer": -1261,
+      "total": -18510
     },
     {
       "rank": 107,
-      "code": "2454",
-      "name": "聯發科",
+      "code": "3714",
+      "name": "富采",
       "market": "TWSE",
-      "foreign": 94,
-      "trust": -16944,
-      "dealer": -1080,
-      "total": -17929
+      "foreign": -16097,
+      "trust": -386,
+      "dealer": -1772,
+      "total": -18255
     },
     {
       "rank": 108,
       "code": "3376",
       "name": "新日興",
       "market": "TWSE",
-      "foreign": -17303,
-      "trust": 571,
-      "dealer": -493,
-      "total": -17225
+      "foreign": -17879,
+      "trust": 578,
+      "dealer": -772,
+      "total": -18073
     },
     {
       "rank": 109,
-      "code": "2385",
-      "name": "群光",
+      "code": "6176",
+      "name": "瑞儀",
       "market": "TWSE",
-      "foreign": 2570,
-      "trust": -15810,
-      "dealer": -3619,
-      "total": -16860
+      "foreign": 62031,
+      "trust": -79857,
+      "dealer": -157,
+      "total": -17983
     },
     {
       "rank": 110,
-      "code": "00892",
-      "name": "富邦台灣半導體",
+      "code": "6285",
+      "name": "啟碁",
       "market": "TWSE",
-      "foreign": -742,
-      "trust": -1207,
-      "dealer": -14387,
-      "total": -16337
+      "foreign": -5399,
+      "trust": -10439,
+      "dealer": -1109,
+      "total": -16947
     },
     {
       "rank": 111,
-      "code": "3714",
-      "name": "富采",
+      "code": "009804",
+      "name": "聯邦台精彩50",
       "market": "TWSE",
-      "foreign": -14282,
-      "trust": -386,
-      "dealer": -1595,
-      "total": -16263
+      "foreign": -2257,
+      "trust": 0,
+      "dealer": -14332,
+      "total": -16589
     },
     {
       "rank": 112,
-      "code": "2486",
-      "name": "一詮",
+      "code": "2208",
+      "name": "台船",
       "market": "TWSE",
-      "foreign": -9013,
-      "trust": -4671,
-      "dealer": -1804,
-      "total": -15488
+      "foreign": -15943,
+      "trust": -537,
+      "dealer": -91,
+      "total": -16571
     },
     {
       "rank": 113,
-      "code": "6278",
-      "name": "台表科",
-      "market": "TWSE",
-      "foreign": 1006,
-      "trust": -13707,
-      "dealer": -2274,
-      "total": -14976
-    },
-    {
-      "rank": 114,
       "code": "2355",
       "name": "敬鵬",
       "market": "TWSE",
-      "foreign": -10177,
-      "trust": -824,
-      "dealer": -3200,
-      "total": -14202
+      "foreign": -12351,
+      "trust": -829,
+      "dealer": -3094,
+      "total": -16274
+    },
+    {
+      "rank": 114,
+      "code": "2385",
+      "name": "群光",
+      "market": "TWSE",
+      "foreign": 3523,
+      "trust": -16056,
+      "dealer": -3703,
+      "total": -16235
     },
     {
       "rank": 115,
-      "code": "6412",
-      "name": "群電",
+      "code": "2301",
+      "name": "光寶科",
       "market": "TWSE",
-      "foreign": 5053,
-      "trust": -19625,
-      "dealer": 380,
-      "total": -14192
+      "foreign": 23648,
+      "trust": -40093,
+      "dealer": 570,
+      "total": -15875
     },
     {
       "rank": 116,
-      "code": "6443",
-      "name": "元晶",
+      "code": "2353",
+      "name": "宏碁",
       "market": "TWSE",
-      "foreign": -16959,
-      "trust": 0,
-      "dealer": 2774,
-      "total": -14185
+      "foreign": 50696,
+      "trust": -60308,
+      "dealer": -6253,
+      "total": -15866
     },
     {
       "rank": 117,
-      "code": "4916",
-      "name": "事欣科",
+      "code": "6456",
+      "name": "GIS-KY",
       "market": "TWSE",
-      "foreign": -13031,
-      "trust": 0,
-      "dealer": -1054,
-      "total": -14085
+      "foreign": -15170,
+      "trust": 46,
+      "dealer": -529,
+      "total": -15653
     },
     {
       "rank": 118,
-      "code": "00954",
-      "name": "中信日本半導體",
+      "code": "6412",
+      "name": "群電",
       "market": "TWSE",
-      "foreign": -4503,
-      "trust": 0,
-      "dealer": -9537,
-      "total": -14039
+      "foreign": 3962,
+      "trust": -19609,
+      "dealer": 320,
+      "total": -15327
     },
     {
       "rank": 119,
-      "code": "1215",
-      "name": "卜蜂",
+      "code": "2464",
+      "name": "盟立",
       "market": "TWSE",
-      "foreign": 4135,
-      "trust": -15218,
-      "dealer": -2713,
-      "total": -13795
+      "foreign": -13065,
+      "trust": 405,
+      "dealer": -2553,
+      "total": -15213
     },
     {
       "rank": 120,
       "code": "3048",
       "name": "益登",
       "market": "TWSE",
-      "foreign": -11654,
+      "foreign": -12827,
       "trust": 0,
-      "dealer": -1752,
-      "total": -13406
+      "dealer": -1729,
+      "total": -14556
     },
     {
       "rank": 121,
-      "code": "00865B",
-      "name": "國泰US短期公債",
+      "code": "8070",
+      "name": "長華*",
       "market": "TWSE",
-      "foreign": 5319,
-      "trust": 0,
-      "dealer": -18518,
-      "total": -13199
+      "foreign": 19311,
+      "trust": -33157,
+      "dealer": -693,
+      "total": -14539
     },
     {
       "rank": 122,
-      "code": "2548",
-      "name": "華固",
+      "code": "00905",
+      "name": "FT臺灣Smart",
       "market": "TWSE",
-      "foreign": -9057,
-      "trust": -3713,
-      "dealer": -381,
-      "total": -13151
+      "foreign": -3017,
+      "trust": 0,
+      "dealer": -11359,
+      "total": -14376
     },
     {
       "rank": 123,
-      "code": "00938",
-      "name": "凱基優選30",
+      "code": "6278",
+      "name": "台表科",
       "market": "TWSE",
-      "foreign": -198,
-      "trust": 0,
-      "dealer": -12945,
-      "total": -13143
+      "foreign": 184,
+      "trust": -11805,
+      "dealer": -2551,
+      "total": -14172
     },
     {
       "rank": 124,
-      "code": "6456",
-      "name": "GIS-KY",
+      "code": "4916",
+      "name": "事欣科",
       "market": "TWSE",
-      "foreign": -13074,
-      "trust": 46,
-      "dealer": -93,
-      "total": -13122
+      "foreign": -12953,
+      "trust": 0,
+      "dealer": -1037,
+      "total": -13990
     },
     {
       "rank": 125,
-      "code": "00877",
-      "name": "復華中國5G",
-      "market": "TPEX",
-      "foreign": -270,
+      "code": "00954",
+      "name": "中信日本半導體",
+      "market": "TWSE",
+      "foreign": -5000,
       "trust": 0,
-      "dealer": -12711,
-      "total": -12980
+      "dealer": -8885,
+      "total": -13885
     },
     {
       "rank": 126,
       "code": "00952",
       "name": "凱基台灣AI50",
       "market": "TWSE",
-      "foreign": 2549,
+      "foreign": 1501,
       "trust": 0,
-      "dealer": -15304,
-      "total": -12755
+      "dealer": -15207,
+      "total": -13706
     },
     {
       "rank": 127,
-      "code": "009804",
-      "name": "聯邦台精彩50",
+      "code": "1605",
+      "name": "華新",
       "market": "TWSE",
-      "foreign": -1165,
-      "trust": 0,
-      "dealer": -11495,
-      "total": -12659
+      "foreign": -8681,
+      "trust": -3283,
+      "dealer": -1324,
+      "total": -13287
     },
     {
       "rank": 128,
-      "code": "2609",
-      "name": "陽明",
+      "code": "00938",
+      "name": "凱基優選30",
       "market": "TWSE",
-      "foreign": 223709,
-      "trust": -242513,
-      "dealer": 6323,
-      "total": -12481
+      "foreign": 290,
+      "trust": 0,
+      "dealer": -13575,
+      "total": -13285
     },
     {
       "rank": 129,
-      "code": "00686R",
-      "name": "群益臺灣加權反1",
+      "code": "00882",
+      "name": "中信中國高股息",
       "market": "TWSE",
-      "foreign": 57,
+      "foreign": -5170,
       "trust": 0,
-      "dealer": -12463,
-      "total": -12406
+      "dealer": -8108,
+      "total": -13278
     },
     {
       "rank": 130,
       "code": "6209",
       "name": "今國光",
       "market": "TWSE",
-      "foreign": -10912,
+      "foreign": -12473,
       "trust": 0,
-      "dealer": -1022,
-      "total": -11933
+      "dealer": -801,
+      "total": -13274
     },
     {
       "rank": 131,
-      "code": "00988B",
-      "name": "玉山嚴選非投債",
-      "market": "TPEX",
-      "foreign": -841,
+      "code": "2367",
+      "name": "燿華",
+      "market": "TWSE",
+      "foreign": -9134,
       "trust": 0,
-      "dealer": -10829,
-      "total": -11670
+      "dealer": -4136,
+      "total": -13270
     },
     {
       "rank": 132,
-      "code": "8064",
-      "name": "東捷",
-      "market": "TPEX",
-      "foreign": -11400,
-      "trust": 323,
-      "dealer": -540,
-      "total": -11617
+      "code": "2347",
+      "name": "聯強",
+      "market": "TWSE",
+      "foreign": -98173,
+      "trust": 80334,
+      "dealer": 4844,
+      "total": -12995
     },
     {
       "rank": 133,
-      "code": "1809",
-      "name": "中釉",
+      "code": "2486",
+      "name": "一詮",
       "market": "TWSE",
-      "foreign": -11189,
-      "trust": 0,
-      "dealer": -255,
-      "total": -11444
+      "foreign": -6499,
+      "trust": -4671,
+      "dealer": -1740,
+      "total": -12910
     },
     {
       "rank": 134,
-      "code": "3030",
-      "name": "德律",
-      "market": "TWSE",
-      "foreign": -11633,
-      "trust": 596,
-      "dealer": -391,
-      "total": -11428
-    },
-    {
-      "rank": 135,
-      "code": "3149",
-      "name": "正達",
-      "market": "TWSE",
-      "foreign": -11181,
-      "trust": 0,
-      "dealer": -102,
-      "total": -11284
-    },
-    {
-      "rank": 136,
-      "code": "2301",
-      "name": "光寶科",
-      "market": "TWSE",
-      "foreign": 24423,
-      "trust": -36376,
-      "dealer": 731,
-      "total": -11223
-    },
-    {
-      "rank": 137,
-      "code": "00676R",
-      "name": "富邦臺灣加權反1",
-      "market": "TWSE",
-      "foreign": 438,
-      "trust": 0,
-      "dealer": -11472,
-      "total": -11034
-    },
-    {
-      "rank": 138,
-      "code": "3037",
-      "name": "欣興",
-      "market": "TWSE",
-      "foreign": -17531,
-      "trust": 7698,
-      "dealer": -1143,
-      "total": -10977
-    },
-    {
-      "rank": 139,
-      "code": "00905",
-      "name": "FT臺灣Smart",
-      "market": "TWSE",
-      "foreign": -2727,
-      "trust": 0,
-      "dealer": -8226,
-      "total": -10952
-    },
-    {
-      "rank": 140,
       "code": "8358",
       "name": "金居",
       "market": "TPEX",
-      "foreign": -6879,
-      "trust": -1214,
-      "dealer": -2800,
-      "total": -10894
+      "foreign": -7729,
+      "trust": -1932,
+      "dealer": -3051,
+      "total": -12712
     },
     {
-      "rank": 141,
-      "code": "2328",
-      "name": "廣宇",
+      "rank": 135,
+      "code": "1215",
+      "name": "卜蜂",
       "market": "TWSE",
-      "foreign": -11016,
-      "trust": 53,
-      "dealer": 71,
-      "total": -10893
+      "foreign": 4592,
+      "trust": -14560,
+      "dealer": -2684,
+      "total": -12653
     },
     {
-      "rank": 142,
+      "rank": 136,
       "code": "3062",
       "name": "建漢",
       "market": "TWSE",
-      "foreign": -10110,
+      "foreign": -11656,
       "trust": 31,
-      "dealer": -707,
-      "total": -10786
+      "dealer": -771,
+      "total": -12396
     },
     {
-      "rank": 143,
-      "code": "2374",
-      "name": "佳能",
-      "market": "TWSE",
-      "foreign": -9916,
-      "trust": -4,
-      "dealer": -862,
-      "total": -10782
-    },
-    {
-      "rank": 144,
-      "code": "2439",
-      "name": "美律",
-      "market": "TWSE",
-      "foreign": -6204,
-      "trust": -4604,
-      "dealer": 202,
-      "total": -10606
-    },
-    {
-      "rank": 145,
-      "code": "2464",
-      "name": "盟立",
-      "market": "TWSE",
-      "foreign": -8342,
-      "trust": 405,
-      "dealer": -2632,
-      "total": -10569
-    },
-    {
-      "rank": 146,
-      "code": "6285",
-      "name": "啟碁",
-      "market": "TWSE",
-      "foreign": 622,
-      "trust": -10224,
-      "dealer": -873,
-      "total": -10474
-    },
-    {
-      "rank": 147,
+      "rank": 137,
       "code": "00881",
       "name": "國泰台灣科技龍頭",
       "market": "TWSE",
-      "foreign": 1769,
+      "foreign": 2152,
       "trust": -1730,
-      "dealer": -10489,
-      "total": -10450
+      "dealer": -12772,
+      "total": -12350
+    },
+    {
+      "rank": 138,
+      "code": "8086",
+      "name": "宏捷科",
+      "market": "TPEX",
+      "foreign": -10501,
+      "trust": 1,
+      "dealer": -1774,
+      "total": -12274
+    },
+    {
+      "rank": 139,
+      "code": "00988B",
+      "name": "玉山嚴選非投債",
+      "market": "TPEX",
+      "foreign": -854,
+      "trust": 0,
+      "dealer": -11399,
+      "total": -12253
+    },
+    {
+      "rank": 140,
+      "code": "00865B",
+      "name": "國泰US短期公債",
+      "market": "TWSE",
+      "foreign": 7139,
+      "trust": 0,
+      "dealer": -19257,
+      "total": -12119
+    },
+    {
+      "rank": 141,
+      "code": "2402",
+      "name": "毅嘉",
+      "market": "TWSE",
+      "foreign": -8581,
+      "trust": -2322,
+      "dealer": -952,
+      "total": -11856
+    },
+    {
+      "rank": 142,
+      "code": "2548",
+      "name": "華固",
+      "market": "TWSE",
+      "foreign": -7593,
+      "trust": -3713,
+      "dealer": -431,
+      "total": -11736
+    },
+    {
+      "rank": 143,
+      "code": "00877",
+      "name": "復華中國5G",
+      "market": "TPEX",
+      "foreign": 17,
+      "trust": 0,
+      "dealer": -11663,
+      "total": -11646
+    },
+    {
+      "rank": 144,
+      "code": "6290",
+      "name": "良維",
+      "market": "TPEX",
+      "foreign": -9365,
+      "trust": -425,
+      "dealer": -1572,
+      "total": -11362
+    },
+    {
+      "rank": 145,
+      "code": "6269",
+      "name": "台郡",
+      "market": "TWSE",
+      "foreign": -11244,
+      "trust": -4,
+      "dealer": -86,
+      "total": -11334
+    },
+    {
+      "rank": 146,
+      "code": "8064",
+      "name": "東捷",
+      "market": "TPEX",
+      "foreign": -11069,
+      "trust": 333,
+      "dealer": -481,
+      "total": -11217
+    },
+    {
+      "rank": 147,
+      "code": "3030",
+      "name": "德律",
+      "market": "TWSE",
+      "foreign": -11258,
+      "trust": 596,
+      "dealer": -416,
+      "total": -11078
     },
     {
       "rank": 148,
+      "code": "2439",
+      "name": "美律",
+      "market": "TWSE",
+      "foreign": -6596,
+      "trust": -4109,
+      "dealer": -167,
+      "total": -10872
+    },
+    {
+      "rank": 149,
+      "code": "1809",
+      "name": "中釉",
+      "market": "TWSE",
+      "foreign": -10678,
+      "trust": 0,
+      "dealer": -23,
+      "total": -10701
+    },
+    {
+      "rank": 150,
+      "code": "1785",
+      "name": "光洋科",
+      "market": "TPEX",
+      "foreign": -9995,
+      "trust": -88,
+      "dealer": -603,
+      "total": -10687
+    },
+    {
+      "rank": 151,
+      "code": "5864",
+      "name": "致和證",
+      "market": "TPEX",
+      "foreign": -10671,
+      "trust": 0,
+      "dealer": 0,
+      "total": -10671
+    },
+    {
+      "rank": 152,
+      "code": "3260",
+      "name": "威剛",
+      "market": "TPEX",
+      "foreign": -6348,
+      "trust": -1823,
+      "dealer": -2375,
+      "total": -10546
+    },
+    {
+      "rank": 153,
+      "code": "4540",
+      "name": "全球傳動",
+      "market": "TWSE",
+      "foreign": -10403,
+      "trust": 0,
+      "dealer": -41,
+      "total": -10443
+    },
+    {
+      "rank": 154,
+      "code": "8299",
+      "name": "群聯",
+      "market": "TPEX",
+      "foreign": -3904,
+      "trust": -5036,
+      "dealer": -1361,
+      "total": -10301
+    },
+    {
+      "rank": 155,
       "code": "8444",
       "name": "綠河-KY",
       "market": "TPEX",
@@ -1491,524 +1561,454 @@
       "total": -10070
     },
     {
-      "rank": 149,
-      "code": "3260",
-      "name": "威剛",
-      "market": "TPEX",
-      "foreign": -4940,
-      "trust": -3043,
-      "dealer": -2028,
-      "total": -10011
-    },
-    {
-      "rank": 150,
-      "code": "0056",
-      "name": "元大高股息",
-      "market": "TWSE",
-      "foreign": 45557,
-      "trust": -1550,
-      "dealer": -54001,
-      "total": -9993
-    },
-    {
-      "rank": 151,
-      "code": "8070",
-      "name": "長華*",
-      "market": "TWSE",
-      "foreign": 25139,
-      "trust": -34639,
-      "dealer": -417,
-      "total": -9916
-    },
-    {
-      "rank": 152,
-      "code": "009802",
-      "name": "富邦旗艦50",
-      "market": "TWSE",
-      "foreign": -6953,
-      "trust": 0,
-      "dealer": -2733,
-      "total": -9686
-    },
-    {
-      "rank": 153,
-      "code": "8086",
-      "name": "宏捷科",
-      "market": "TPEX",
-      "foreign": -8230,
-      "trust": 1,
-      "dealer": -1376,
-      "total": -9606
-    },
-    {
-      "rank": 154,
-      "code": "3163",
-      "name": "波若威",
-      "market": "TPEX",
-      "foreign": -2773,
-      "trust": -6510,
-      "dealer": -312,
-      "total": -9596
-    },
-    {
-      "rank": 155,
-      "code": "3312",
-      "name": "弘憶股",
-      "market": "TWSE",
-      "foreign": -9632,
-      "trust": 0,
-      "dealer": 43,
-      "total": -9589
-    },
-    {
       "rank": 156,
-      "code": "6290",
-      "name": "良維",
-      "market": "TPEX",
-      "foreign": -7401,
-      "trust": -425,
-      "dealer": -1581,
-      "total": -9408
+      "code": "2328",
+      "name": "廣宇",
+      "market": "TWSE",
+      "foreign": -10260,
+      "trust": 53,
+      "dealer": 155,
+      "total": -10052
     },
     {
       "rank": 157,
-      "code": "8042",
-      "name": "金山電",
-      "market": "TPEX",
-      "foreign": -8818,
+      "code": "3149",
+      "name": "正達",
+      "market": "TWSE",
+      "foreign": -10012,
       "trust": 0,
-      "dealer": -543,
-      "total": -9361
+      "dealer": -14,
+      "total": -10026
     },
     {
       "rank": 158,
-      "code": "9910",
-      "name": "豐泰",
+      "code": "00676R",
+      "name": "富邦臺灣加權反1",
       "market": "TWSE",
-      "foreign": -38085,
-      "trust": 28688,
-      "dealer": 154,
-      "total": -9243
+      "foreign": -107,
+      "trust": 0,
+      "dealer": -9822,
+      "total": -9929
     },
     {
       "rank": 159,
-      "code": "00887",
-      "name": "永豐中國科技50大",
+      "code": "3163",
+      "name": "波若威",
       "market": "TPEX",
-      "foreign": -5787,
-      "trust": 0,
-      "dealer": -3443,
-      "total": -9231
+      "foreign": -2890,
+      "trust": -6717,
+      "dealer": -234,
+      "total": -9842
     },
     {
       "rank": 160,
-      "code": "8299",
-      "name": "群聯",
-      "market": "TPEX",
-      "foreign": -3071,
-      "trust": -5121,
-      "dealer": -1023,
-      "total": -9216
+      "code": "00686R",
+      "name": "群益臺灣加權反1",
+      "market": "TWSE",
+      "foreign": 64,
+      "trust": 0,
+      "dealer": -9789,
+      "total": -9725
     },
     {
       "rank": 161,
-      "code": "00963",
-      "name": "中信全球高股息",
-      "market": "TWSE",
-      "foreign": 40,
-      "trust": 0,
-      "dealer": -9161,
-      "total": -9121
-    },
-    {
-      "rank": 162,
-      "code": "00882",
-      "name": "中信中國高股息",
-      "market": "TWSE",
-      "foreign": -4782,
-      "trust": 0,
-      "dealer": -3915,
-      "total": -8697
-    },
-    {
-      "rank": 163,
-      "code": "2441",
-      "name": "超豐",
-      "market": "TWSE",
-      "foreign": 10538,
-      "trust": -18114,
-      "dealer": -1112,
-      "total": -8688
-    },
-    {
-      "rank": 164,
-      "code": "2485",
-      "name": "兆赫",
-      "market": "TWSE",
-      "foreign": -6750,
-      "trust": -42,
-      "dealer": -1877,
-      "total": -8669
-    },
-    {
-      "rank": 165,
       "code": "2495",
       "name": "普安",
       "market": "TWSE",
-      "foreign": -8218,
-      "trust": 76,
-      "dealer": -380,
-      "total": -8522
+      "foreign": -9333,
+      "trust": 75,
+      "dealer": -328,
+      "total": -9586
+    },
+    {
+      "rank": 162,
+      "code": "8069",
+      "name": "元太",
+      "market": "TPEX",
+      "foreign": -14176,
+      "trust": 4904,
+      "dealer": -223,
+      "total": -9495
+    },
+    {
+      "rank": 163,
+      "code": "00963",
+      "name": "中信全球高股息",
+      "market": "TWSE",
+      "foreign": 23,
+      "trust": 0,
+      "dealer": -9505,
+      "total": -9482
+    },
+    {
+      "rank": 164,
+      "code": "8042",
+      "name": "金山電",
+      "market": "TPEX",
+      "foreign": -8435,
+      "trust": 0,
+      "dealer": -933,
+      "total": -9369
+    },
+    {
+      "rank": 165,
+      "code": "5309",
+      "name": "系統電",
+      "market": "TPEX",
+      "foreign": -7833,
+      "trust": 217,
+      "dealer": -1501,
+      "total": -9117
     },
     {
       "rank": 166,
-      "code": "4540",
-      "name": "全球傳動",
+      "code": "2374",
+      "name": "佳能",
       "market": "TWSE",
-      "foreign": -8426,
-      "trust": 0,
-      "dealer": -49,
-      "total": -8474
+      "foreign": -8203,
+      "trust": -4,
+      "dealer": -885,
+      "total": -9092
     },
     {
       "rank": 167,
-      "code": "2010",
-      "name": "春源",
-      "market": "TWSE",
-      "foreign": -8362,
-      "trust": 3,
-      "dealer": -100,
-      "total": -8458
-    },
-    {
-      "rank": 168,
-      "code": "6269",
-      "name": "台郡",
-      "market": "TWSE",
-      "foreign": -8803,
-      "trust": -4,
-      "dealer": 374,
-      "total": -8433
-    },
-    {
-      "rank": 169,
-      "code": "4976",
-      "name": "佳凌",
-      "market": "TWSE",
-      "foreign": -8416,
-      "trust": 0,
-      "dealer": 4,
-      "total": -8412
-    },
-    {
-      "rank": 170,
       "code": "5243",
       "name": "乙盛-KY",
       "market": "TWSE",
-      "foreign": -9968,
+      "foreign": -10319,
       "trust": 1935,
-      "dealer": -278,
-      "total": -8311
+      "dealer": -365,
+      "total": -8749
+    },
+    {
+      "rank": 168,
+      "code": "3312",
+      "name": "弘憶股",
+      "market": "TWSE",
+      "foreign": -8750,
+      "trust": 0,
+      "dealer": 37,
+      "total": -8713
+    },
+    {
+      "rank": 169,
+      "code": "8110",
+      "name": "華東",
+      "market": "TWSE",
+      "foreign": -8627,
+      "trust": 0,
+      "dealer": -73,
+      "total": -8700
+    },
+    {
+      "rank": 170,
+      "code": "6706",
+      "name": "惠特",
+      "market": "TWSE",
+      "foreign": -7634,
+      "trust": -539,
+      "dealer": -334,
+      "total": -8507
     },
     {
       "rank": 171,
       "code": "00985D",
       "name": "主動貝萊德優投等",
       "market": "TPEX",
-      "foreign": 118,
+      "foreign": 90,
       "trust": 0,
-      "dealer": -8382,
-      "total": -8264
+      "dealer": -8548,
+      "total": -8458
     },
     {
       "rank": 172,
-      "code": "6919",
-      "name": "康霈*",
-      "market": "TWSE",
-      "foreign": 40625,
-      "trust": -49658,
-      "dealer": 803,
-      "total": -8230
+      "code": "3236",
+      "name": "千如",
+      "market": "TPEX",
+      "foreign": -8200,
+      "trust": -2,
+      "dealer": -247,
+      "total": -8449
     },
     {
       "rank": 173,
-      "code": "6806",
-      "name": "森崴能源",
+      "code": "8039",
+      "name": "台虹",
       "market": "TWSE",
-      "foreign": -8205,
-      "trust": 0,
-      "dealer": -1,
-      "total": -8205
+      "foreign": -6538,
+      "trust": -589,
+      "dealer": -1270,
+      "total": -8397
     },
     {
       "rank": 174,
-      "code": "8069",
-      "name": "元太",
-      "market": "TPEX",
-      "foreign": -13622,
-      "trust": 5712,
-      "dealer": -133,
-      "total": -8042
+      "code": "4976",
+      "name": "佳凌",
+      "market": "TWSE",
+      "foreign": -8303,
+      "trust": 0,
+      "dealer": 2,
+      "total": -8301
     },
     {
       "rank": 175,
-      "code": "5309",
-      "name": "系統電",
-      "market": "TPEX",
-      "foreign": -6646,
-      "trust": 222,
-      "dealer": -1464,
-      "total": -7888
+      "code": "6806",
+      "name": "森崴能源",
+      "market": "TWSE",
+      "foreign": -8210,
+      "trust": 0,
+      "dealer": -1,
+      "total": -8210
     },
     {
       "rank": 176,
-      "code": "2302",
-      "name": "麗正",
-      "market": "TWSE",
-      "foreign": -7740,
-      "trust": 73,
-      "dealer": -143,
-      "total": -7809
-    },
-    {
-      "rank": 177,
-      "code": "1536",
-      "name": "和大",
-      "market": "TWSE",
-      "foreign": -7770,
-      "trust": -140,
-      "dealer": 113,
-      "total": -7797
-    },
-    {
-      "rank": 178,
-      "code": "9958",
-      "name": "世紀鋼",
-      "market": "TWSE",
-      "foreign": -8520,
-      "trust": 387,
-      "dealer": 342,
-      "total": -7791
-    },
-    {
-      "rank": 179,
-      "code": "6265",
-      "name": "方土昶",
-      "market": "TPEX",
-      "foreign": -7737,
-      "trust": 0,
-      "dealer": -31,
-      "total": -7768
-    },
-    {
-      "rank": 180,
       "code": "00738U",
       "name": "期元大道瓊白銀",
       "market": "TWSE",
-      "foreign": -5124,
+      "foreign": -4546,
       "trust": 0,
-      "dealer": -2614,
-      "total": -7738
+      "dealer": -3601,
+      "total": -8147
+    },
+    {
+      "rank": 177,
+      "code": "2302",
+      "name": "麗正",
+      "market": "TWSE",
+      "foreign": -7894,
+      "trust": 73,
+      "dealer": -152,
+      "total": -7973
+    },
+    {
+      "rank": 178,
+      "code": "2010",
+      "name": "春源",
+      "market": "TWSE",
+      "foreign": -7849,
+      "trust": 3,
+      "dealer": -77,
+      "total": -7923
+    },
+    {
+      "rank": 179,
+      "code": "9910",
+      "name": "豐泰",
+      "market": "TWSE",
+      "foreign": -36590,
+      "trust": 28749,
+      "dealer": 163,
+      "total": -7679
+    },
+    {
+      "rank": 180,
+      "code": "6153",
+      "name": "嘉聯益",
+      "market": "TWSE",
+      "foreign": -7716,
+      "trust": 0,
+      "dealer": 80,
+      "total": -7635
     },
     {
       "rank": 181,
-      "code": "2009",
-      "name": "第一銅",
+      "code": "00934",
+      "name": "中信成長高股息",
       "market": "TWSE",
-      "foreign": -7777,
-      "trust": 12,
-      "dealer": 93,
-      "total": -7672
+      "foreign": -1568,
+      "trust": 0,
+      "dealer": -6059,
+      "total": -7627
     },
     {
       "rank": 182,
-      "code": "5388",
-      "name": "中磊",
-      "market": "TWSE",
-      "foreign": -4758,
-      "trust": -2290,
-      "dealer": -495,
-      "total": -7543
+      "code": "6015",
+      "name": "宏遠證",
+      "market": "TPEX",
+      "foreign": -7583,
+      "trust": 0,
+      "dealer": 0,
+      "total": -7583
     },
     {
       "rank": 183,
       "code": "4749",
       "name": "新應材",
       "market": "TPEX",
-      "foreign": -6121,
-      "trust": -1010,
-      "dealer": -311,
-      "total": -7441
+      "foreign": -6156,
+      "trust": -1005,
+      "dealer": -322,
+      "total": -7483
     },
     {
       "rank": 184,
-      "code": "6217",
-      "name": "中探針",
-      "market": "TPEX",
-      "foreign": -7298,
-      "trust": 0,
-      "dealer": -118,
-      "total": -7415
-    },
-    {
-      "rank": 185,
-      "code": "2347",
-      "name": "聯強",
-      "market": "TWSE",
-      "foreign": -87722,
-      "trust": 75876,
-      "dealer": 4463,
-      "total": -7383
-    },
-    {
-      "rank": 186,
-      "code": "00642U",
-      "name": "期元大S&P石油",
-      "market": "TWSE",
-      "foreign": -5745,
-      "trust": 0,
-      "dealer": -1377,
-      "total": -7122
-    },
-    {
-      "rank": 187,
-      "code": "1104",
-      "name": "環泥",
-      "market": "TWSE",
-      "foreign": -7031,
-      "trust": -8,
-      "dealer": 42,
-      "total": -6997
-    },
-    {
-      "rank": 188,
-      "code": "2393",
-      "name": "億光",
-      "market": "TWSE",
-      "foreign": -5577,
-      "trust": -2947,
-      "dealer": 1530,
-      "total": -6994
-    },
-    {
-      "rank": 189,
-      "code": "1519",
-      "name": "華城",
-      "market": "TWSE",
-      "foreign": -5911,
-      "trust": -1007,
-      "dealer": -21,
-      "total": -6939
-    },
-    {
-      "rank": 190,
       "code": "4991",
       "name": "環宇-KY",
       "market": "TPEX",
-      "foreign": -3822,
-      "trust": -3480,
-      "dealer": 388,
-      "total": -6915
+      "foreign": -4379,
+      "trust": -3504,
+      "dealer": 410,
+      "total": -7474
     },
     {
-      "rank": 191,
-      "code": "1708",
-      "name": "東鹼",
-      "market": "TWSE",
-      "foreign": -6755,
-      "trust": 0,
-      "dealer": -95,
-      "total": -6850
-    },
-    {
-      "rank": 192,
-      "code": "00859B",
-      "name": "群益0-1年美債",
+      "rank": 185,
+      "code": "6265",
+      "name": "方土昶",
       "market": "TPEX",
-      "foreign": 1130,
+      "foreign": -7474,
       "trust": 0,
-      "dealer": -7914,
-      "total": -6784
+      "dealer": 13,
+      "total": -7461
     },
     {
-      "rank": 193,
+      "rank": 186,
+      "code": "2399",
+      "name": "映泰",
+      "market": "TWSE",
+      "foreign": -7453,
+      "trust": -27,
+      "dealer": 27,
+      "total": -7453
+    },
+    {
+      "rank": 187,
+      "code": "5425",
+      "name": "台半",
+      "market": "TPEX",
+      "foreign": -7159,
+      "trust": -51,
+      "dealer": -192,
+      "total": -7402
+    },
+    {
+      "rank": 188,
+      "code": "1519",
+      "name": "華城",
+      "market": "TWSE",
+      "foreign": -6236,
+      "trust": -1027,
+      "dealer": -138,
+      "total": -7401
+    },
+    {
+      "rank": 189,
+      "code": "2009",
+      "name": "第一銅",
+      "market": "TWSE",
+      "foreign": -7482,
+      "trust": 12,
+      "dealer": 83,
+      "total": -7388
+    },
+    {
+      "rank": 190,
       "code": "3059",
       "name": "華晶科",
       "market": "TWSE",
-      "foreign": -7807,
-      "trust": 9,
-      "dealer": 1111,
-      "total": -6686
+      "foreign": -8173,
+      "trust": 8,
+      "dealer": 832,
+      "total": -7332
+    },
+    {
+      "rank": 191,
+      "code": "00955",
+      "name": "中信日本商社",
+      "market": "TPEX",
+      "foreign": -2900,
+      "trust": -1144,
+      "dealer": -3232,
+      "total": -7276
+    },
+    {
+      "rank": 192,
+      "code": "9958",
+      "name": "世紀鋼",
+      "market": "TWSE",
+      "foreign": -7953,
+      "trust": 393,
+      "dealer": 333,
+      "total": -7226
+    },
+    {
+      "rank": 193,
+      "code": "00641R",
+      "name": "富邦日本反1",
+      "market": "TWSE",
+      "foreign": 0,
+      "trust": 0,
+      "dealer": -7223,
+      "total": -7223
     },
     {
       "rank": 194,
-      "code": "4979",
-      "name": "華星光",
-      "market": "TPEX",
-      "foreign": -552,
-      "trust": -5983,
-      "dealer": -97,
-      "total": -6631
+      "code": "1536",
+      "name": "和大",
+      "market": "TWSE",
+      "foreign": -7136,
+      "trust": -140,
+      "dealer": 95,
+      "total": -7181
     },
     {
       "rank": 195,
-      "code": "6173",
-      "name": "信昌電",
+      "code": "6217",
+      "name": "中探針",
       "market": "TPEX",
-      "foreign": -6671,
-      "trust": 3449,
-      "dealer": -3379,
-      "total": -6601
+      "foreign": -7022,
+      "trust": 0,
+      "dealer": -157,
+      "total": -7178
     },
     {
       "rank": 196,
-      "code": "3665",
-      "name": "貿聯-KY",
-      "market": "TWSE",
-      "foreign": -10957,
-      "trust": 4188,
-      "dealer": 208,
-      "total": -6561
+      "code": "4979",
+      "name": "華星光",
+      "market": "TPEX",
+      "foreign": -941,
+      "trust": -6100,
+      "dealer": -128,
+      "total": -7168
     },
     {
       "rank": 197,
-      "code": "6180",
-      "name": "橘子",
+      "code": "00887",
+      "name": "永豐中國科技50大",
       "market": "TPEX",
-      "foreign": -6288,
-      "trust": -254,
-      "dealer": 48,
-      "total": -6493
+      "foreign": -5887,
+      "trust": 0,
+      "dealer": -1263,
+      "total": -7151
     },
     {
       "rank": 198,
-      "code": "3016",
-      "name": "嘉晶",
-      "market": "TWSE",
-      "foreign": -6085,
-      "trust": 0,
-      "dealer": -368,
-      "total": -6452
+      "code": "3211",
+      "name": "順達",
+      "market": "TPEX",
+      "foreign": -4808,
+      "trust": -1189,
+      "dealer": -918,
+      "total": -6915
     },
     {
       "rank": 199,
-      "code": "8271",
-      "name": "宇瞻",
-      "market": "TWSE",
-      "foreign": -6763,
-      "trust": 300,
-      "dealer": 17,
-      "total": -6446
+      "code": "00859B",
+      "name": "群益0-1年美債",
+      "market": "TPEX",
+      "foreign": 1095,
+      "trust": 0,
+      "dealer": -8005,
+      "total": -6910
     },
     {
       "rank": 200,
-      "code": "8932",
-      "name": "智通*",
-      "market": "TPEX",
-      "foreign": -5268,
-      "trust": 1,
-      "dealer": -1140,
-      "total": -6407
+      "code": "1104",
+      "name": "環泥",
+      "market": "TWSE",
+      "foreign": -6880,
+      "trust": -9,
+      "dealer": 43,
+      "total": -6846
     }
   ]
 }
