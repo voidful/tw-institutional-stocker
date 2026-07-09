@@ -1218,7 +1218,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0023423245837565195,
     "three_inst_ratio": 0.0023423245837565195,
-    "three_inst_ratio_change_20": 0.0023423245837565195
+    "three_inst_ratio_change_20": 2.3399845991570536e-06
   },
   {
     "date": "2026-04-15",
@@ -1317,7 +1317,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0048929077968380445,
     "three_inst_ratio": 0.0048929077968380445,
-    "three_inst_ratio_change_20": 0.002552923197680682
+    "three_inst_ratio_change_20": 0.0048929077968380445
   },
   {
     "date": "2026-04-28",
@@ -1328,7 +1328,7 @@
     "trust_ratio": 0.0,
     "dealer_ratio": 0.0048929077968380445,
     "three_inst_ratio": 0.0048929077968380445,
-    "three_inst_ratio_change_20": 0.0048929077968380445
+    "three_inst_ratio_change_20": 0.002552923197680682
   },
   {
     "date": "2026-04-30",
@@ -1846,5 +1846,16 @@
     "dealer_ratio": 4.9139676582304605e-05,
     "three_inst_ratio": 4.9139676582304605e-05,
     "three_inst_ratio_change_20": -0.00616585941877965
+  },
+  {
+    "date": "2026-07-09",
+    "code": "3285",
+    "name": "微端",
+    "market": "TPEX",
+    "foreign_ratio": 0.0,
+    "trust_ratio": 0.0,
+    "dealer_ratio": 4.9139676582304605e-05,
+    "three_inst_ratio": 4.9139676582304605e-05,
+    "three_inst_ratio_change_20": -0.49941121307516
   }
 ]
