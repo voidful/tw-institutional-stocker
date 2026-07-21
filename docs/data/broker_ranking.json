@@ -1,560 +1,752 @@
 {
-  "updated": "2026-07-20T21:19:24.949575+08:00",
+  "updated": "2026-07-21T20:47:11.410132+08:00",
   "data": [
     {
       "broker_name": "台灣摩根士丹利",
-      "total_net_vol": -30272,
-      "avg_net_vol": -1513.6,
+      "total_net_vol": 49458,
+      "avg_net_vol": 2472.9,
+      "buy_count": 14,
+      "stocks_traded": 20,
+      "sell_count": 6
+    },
+    {
+      "broker_name": "美商高盛",
+      "total_net_vol": 27254,
+      "avg_net_vol": 1362.7,
+      "buy_count": 12,
+      "stocks_traded": 20,
+      "sell_count": 8
+    },
+    {
+      "broker_name": "摩根大通",
+      "total_net_vol": -11438,
+      "avg_net_vol": -571.9,
       "buy_count": 9,
       "stocks_traded": 20,
       "sell_count": 11
     },
     {
-      "broker_name": "摩根大通",
-      "total_net_vol": 21174,
-      "avg_net_vol": 1114.421052631579,
+      "broker_name": "元大證券",
+      "total_net_vol": 9779,
+      "avg_net_vol": 575.2352941176471,
+      "buy_count": 12,
+      "stocks_traded": 17,
+      "sell_count": 5
+    },
+    {
+      "broker_name": "富邦證券",
+      "total_net_vol": -9481,
+      "avg_net_vol": -526.7222222222222,
+      "buy_count": 9,
+      "stocks_traded": 18,
+      "sell_count": 9
+    },
+    {
+      "broker_name": "港商麥格理",
+      "total_net_vol": 9085,
+      "avg_net_vol": 478.1578947368421,
       "buy_count": 13,
       "stocks_traded": 19,
       "sell_count": 6
     },
     {
-      "broker_name": "元大證券",
-      "total_net_vol": 18097,
-      "avg_net_vol": 904.85,
-      "buy_count": 16,
-      "stocks_traded": 20,
-      "sell_count": 4
-    },
-    {
-      "broker_name": "花旗環球",
-      "total_net_vol": 14736,
-      "avg_net_vol": 775.578947368421,
-      "buy_count": 14,
-      "stocks_traded": 19,
-      "sell_count": 5
-    },
-    {
-      "broker_name": "合庫證券",
-      "total_net_vol": -10840,
-      "avg_net_vol": -3613.3333333333335,
-      "buy_count": 0,
-      "stocks_traded": 3,
-      "sell_count": 3
-    },
-    {
-      "broker_name": "群益金鼎",
-      "total_net_vol": -9736,
-      "avg_net_vol": -885.0909090909091,
-      "buy_count": 3,
-      "stocks_traded": 11,
-      "sell_count": 8
-    },
-    {
-      "broker_name": "美商高盛",
-      "total_net_vol": 8235,
-      "avg_net_vol": 457.5,
-      "buy_count": 8,
-      "stocks_traded": 18,
-      "sell_count": 10
-    },
-    {
-      "broker_name": "華南永昌",
-      "total_net_vol": -8028,
-      "avg_net_vol": -729.8181818181819,
-      "buy_count": 3,
-      "stocks_traded": 11,
-      "sell_count": 8
-    },
-    {
-      "broker_name": "凱基",
-      "total_net_vol": 6819,
-      "avg_net_vol": 401.11764705882354,
+      "broker_name": "港商野村",
+      "total_net_vol": 8841,
+      "avg_net_vol": 465.3157894736842,
       "buy_count": 15,
-      "stocks_traded": 17,
-      "sell_count": 2
-    },
-    {
-      "broker_name": "大和國泰",
-      "total_net_vol": -4804,
-      "avg_net_vol": -960.8,
-      "buy_count": 1,
-      "stocks_traded": 5,
+      "stocks_traded": 19,
       "sell_count": 4
     },
     {
       "broker_name": "美林",
-      "total_net_vol": -4546,
-      "avg_net_vol": -267.4117647058824,
-      "buy_count": 10,
-      "stocks_traded": 17,
-      "sell_count": 7
-    },
-    {
-      "broker_name": "台新-台北",
-      "total_net_vol": -4452,
-      "avg_net_vol": -636.0,
-      "buy_count": 2,
-      "stocks_traded": 7,
-      "sell_count": 5
-    },
-    {
-      "broker_name": "永豐金-匯立",
-      "total_net_vol": 4375,
-      "avg_net_vol": 273.4375,
-      "buy_count": 8,
-      "stocks_traded": 16,
-      "sell_count": 8
-    },
-    {
-      "broker_name": "新加坡商瑞銀",
-      "total_net_vol": -4240,
-      "avg_net_vol": -212.0,
-      "buy_count": 10,
+      "total_net_vol": 7518,
+      "avg_net_vol": 375.9,
+      "buy_count": 17,
       "stocks_traded": 20,
-      "sell_count": 10
-    },
-    {
-      "broker_name": "康和",
-      "total_net_vol": -4198,
-      "avg_net_vol": -839.6,
-      "buy_count": 2,
-      "stocks_traded": 5,
       "sell_count": 3
     },
     {
-      "broker_name": "富邦證券",
-      "total_net_vol": -4145,
-      "avg_net_vol": -230.27777777777777,
-      "buy_count": 9,
-      "stocks_traded": 18,
-      "sell_count": 9
-    },
-    {
-      "broker_name": "凱基-信義",
-      "total_net_vol": 3997,
-      "avg_net_vol": 3997.0,
-      "buy_count": 1,
-      "stocks_traded": 1,
-      "sell_count": 0
-    },
-    {
-      "broker_name": "國票-敦北法人",
-      "total_net_vol": 3882,
-      "avg_net_vol": 647.0,
-      "buy_count": 4,
-      "stocks_traded": 6,
-      "sell_count": 2
-    },
-    {
-      "broker_name": "國泰證券",
-      "total_net_vol": -3851,
-      "avg_net_vol": -350.09090909090907,
-      "buy_count": 5,
-      "stocks_traded": 11,
-      "sell_count": 6
-    },
-    {
-      "broker_name": "台新",
-      "total_net_vol": -3456,
-      "avg_net_vol": -314.1818181818182,
-      "buy_count": 6,
-      "stocks_traded": 11,
+      "broker_name": "合庫證券",
+      "total_net_vol": -6889,
+      "avg_net_vol": -1377.8,
+      "buy_count": 0,
+      "stocks_traded": 5,
       "sell_count": 5
     },
     {
-      "broker_name": "港商野村",
-      "total_net_vol": 3317,
-      "avg_net_vol": 184.27777777777777,
-      "buy_count": 8,
-      "stocks_traded": 18,
-      "sell_count": 10
-    },
-    {
-      "broker_name": "統一",
-      "total_net_vol": -3270,
-      "avg_net_vol": -233.57142857142858,
-      "buy_count": 6,
-      "stocks_traded": 14,
-      "sell_count": 8
-    },
-    {
-      "broker_name": "元大-土城永寧",
-      "total_net_vol": 3083,
-      "avg_net_vol": 3083.0,
-      "buy_count": 1,
-      "stocks_traded": 1,
-      "sell_count": 0
-    },
-    {
-      "broker_name": "土銀",
-      "total_net_vol": -2370,
-      "avg_net_vol": -790.0,
-      "buy_count": 1,
-      "stocks_traded": 3,
-      "sell_count": 2
-    },
-    {
-      "broker_name": "中國信託",
-      "total_net_vol": 2168,
-      "avg_net_vol": 216.8,
-      "buy_count": 9,
-      "stocks_traded": 10,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "港商麥格理",
-      "total_net_vol": 2006,
-      "avg_net_vol": 167.16666666666666,
-      "buy_count": 6,
+      "broker_name": "台新",
+      "total_net_vol": -5792,
+      "avg_net_vol": -482.6666666666667,
+      "buy_count": 5,
       "stocks_traded": 12,
-      "sell_count": 6
+      "sell_count": 7
     },
     {
-      "broker_name": "華南永昌-中正",
-      "total_net_vol": -1837,
-      "avg_net_vol": -612.3333333333334,
-      "buy_count": 1,
-      "stocks_traded": 3,
-      "sell_count": 2
-    },
-    {
-      "broker_name": "兆豐證券",
-      "total_net_vol": -1757,
-      "avg_net_vol": -292.8333333333333,
-      "buy_count": 4,
-      "stocks_traded": 6,
-      "sell_count": 2
-    },
-    {
-      "broker_name": "法銀巴黎",
-      "total_net_vol": -1682,
-      "avg_net_vol": -120.14285714285714,
-      "buy_count": 13,
-      "stocks_traded": 14,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "元大-敦化",
-      "total_net_vol": -1597,
-      "avg_net_vol": -798.5,
-      "buy_count": 0,
-      "stocks_traded": 2,
-      "sell_count": 2
-    },
-    {
-      "broker_name": "第一金",
-      "total_net_vol": 1543,
-      "avg_net_vol": 308.6,
-      "buy_count": 4,
-      "stocks_traded": 5,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "玉山證券",
-      "total_net_vol": -1488,
-      "avg_net_vol": -297.6,
-      "buy_count": 1,
-      "stocks_traded": 5,
-      "sell_count": 4
-    },
-    {
-      "broker_name": "永豐金證券",
-      "total_net_vol": -1344,
-      "avg_net_vol": -67.2,
-      "buy_count": 16,
-      "stocks_traded": 20,
-      "sell_count": 4
-    },
-    {
-      "broker_name": "富邦-新店",
-      "total_net_vol": 1229,
-      "avg_net_vol": 409.6666666666667,
-      "buy_count": 2,
-      "stocks_traded": 3,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "新光-台南",
-      "total_net_vol": -1169,
-      "avg_net_vol": -1169.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "凱基-台北",
-      "total_net_vol": 1148,
-      "avg_net_vol": 60.421052631578945,
+      "broker_name": "花旗環球",
+      "total_net_vol": 4908,
+      "avg_net_vol": 258.3157894736842,
       "buy_count": 13,
       "stocks_traded": 19,
       "sell_count": 6
     },
     {
-      "broker_name": "國票證券",
-      "total_net_vol": -966,
-      "avg_net_vol": -966.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
+      "broker_name": "凱基-台北",
+      "total_net_vol": -4706,
+      "avg_net_vol": -261.44444444444446,
+      "buy_count": 7,
+      "stocks_traded": 18,
+      "sell_count": 11
     },
     {
-      "broker_name": "富邦-建國",
-      "total_net_vol": 755,
-      "avg_net_vol": 377.5,
-      "buy_count": 2,
-      "stocks_traded": 2,
-      "sell_count": 0
-    },
-    {
-      "broker_name": "元大-羅東",
-      "total_net_vol": 705,
-      "avg_net_vol": 352.5,
-      "buy_count": 1,
-      "stocks_traded": 2,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "新光",
-      "total_net_vol": 655,
-      "avg_net_vol": 655.0,
-      "buy_count": 1,
-      "stocks_traded": 1,
-      "sell_count": 0
-    },
-    {
-      "broker_name": "玉山-城中",
-      "total_net_vol": -624,
-      "avg_net_vol": -156.0,
-      "buy_count": 2,
-      "stocks_traded": 4,
-      "sell_count": 2
-    },
-    {
-      "broker_name": "臺銀-臺南",
-      "total_net_vol": 606,
-      "avg_net_vol": 303.0,
-      "buy_count": 2,
-      "stocks_traded": 2,
-      "sell_count": 0
-    },
-    {
-      "broker_name": "群益金鼎-大安",
-      "total_net_vol": -583,
-      "avg_net_vol": -583.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "福邦證券",
-      "total_net_vol": -545,
-      "avg_net_vol": -136.25,
-      "buy_count": 2,
-      "stocks_traded": 4,
-      "sell_count": 2
-    },
-    {
-      "broker_name": "香港上海匯豐",
-      "total_net_vol": -535,
-      "avg_net_vol": -41.15384615384615,
+      "broker_name": "國票-敦北法人",
+      "total_net_vol": 4330,
+      "avg_net_vol": 866.0,
       "buy_count": 4,
-      "stocks_traded": 13,
-      "sell_count": 9
+      "stocks_traded": 5,
+      "sell_count": 1
     },
     {
-      "broker_name": "玉山-左營",
-      "total_net_vol": -504,
-      "avg_net_vol": -504.0,
+      "broker_name": "凱基-信義",
+      "total_net_vol": -4097,
+      "avg_net_vol": -4097.0,
       "buy_count": 0,
       "stocks_traded": 1,
       "sell_count": 1
     },
     {
-      "broker_name": "華南永昌-世貿",
-      "total_net_vol": -477,
-      "avg_net_vol": -477.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
+      "broker_name": "大和國泰",
+      "total_net_vol": -3440,
+      "avg_net_vol": -1720.0,
+      "buy_count": 1,
+      "stocks_traded": 2,
       "sell_count": 1
+    },
+    {
+      "broker_name": "統一",
+      "total_net_vol": 3252,
+      "avg_net_vol": 295.6363636363636,
+      "buy_count": 7,
+      "stocks_traded": 11,
+      "sell_count": 4
+    },
+    {
+      "broker_name": "兆豐證券",
+      "total_net_vol": -3018,
+      "avg_net_vol": -377.25,
+      "buy_count": 5,
+      "stocks_traded": 8,
+      "sell_count": 3
+    },
+    {
+      "broker_name": "中國信託",
+      "total_net_vol": -3011,
+      "avg_net_vol": -215.07142857142858,
+      "buy_count": 7,
+      "stocks_traded": 14,
+      "sell_count": 7
     },
     {
       "broker_name": "國泰-敦南",
-      "total_net_vol": -474,
-      "avg_net_vol": -67.71428571428571,
+      "total_net_vol": -2299,
+      "avg_net_vol": -209.0,
+      "buy_count": 0,
+      "stocks_traded": 11,
+      "sell_count": 11
+    },
+    {
+      "broker_name": "宏遠證券",
+      "total_net_vol": -2175,
+      "avg_net_vol": -310.7142857142857,
       "buy_count": 1,
       "stocks_traded": 7,
       "sell_count": 6
     },
     {
-      "broker_name": "凱基-城中",
-      "total_net_vol": -412,
-      "avg_net_vol": -206.0,
-      "buy_count": 0,
-      "stocks_traded": 2,
-      "sell_count": 2
-    },
-    {
-      "broker_name": "臺銀",
-      "total_net_vol": -385,
-      "avg_net_vol": -96.25,
-      "buy_count": 2,
-      "stocks_traded": 4,
-      "sell_count": 2
-    },
-    {
-      "broker_name": "富邦-台北",
-      "total_net_vol": -338,
-      "avg_net_vol": -112.66666666666667,
-      "buy_count": 1,
-      "stocks_traded": 3,
-      "sell_count": 2
-    },
-    {
-      "broker_name": "中國信託-高雄",
-      "total_net_vol": -308,
-      "avg_net_vol": -154.0,
-      "buy_count": 1,
-      "stocks_traded": 2,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "群益金鼎-高盛",
-      "total_net_vol": -306,
-      "avg_net_vol": -306.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "富邦-公益",
-      "total_net_vol": -289,
-      "avg_net_vol": -289.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "(牛牛牛)亞證券",
-      "total_net_vol": 271,
-      "avg_net_vol": 135.5,
-      "buy_count": 2,
-      "stocks_traded": 2,
-      "sell_count": 0
-    },
-    {
-      "broker_name": "國泰-板橋",
-      "total_net_vol": -236,
-      "avg_net_vol": -78.66666666666667,
-      "buy_count": 0,
-      "stocks_traded": 3,
+      "broker_name": "華南永昌",
+      "total_net_vol": 2050,
+      "avg_net_vol": 205.0,
+      "buy_count": 7,
+      "stocks_traded": 10,
       "sell_count": 3
     },
     {
-      "broker_name": "國票-長城",
-      "total_net_vol": -229,
-      "avg_net_vol": -229.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "凱基-士林",
-      "total_net_vol": 216,
-      "avg_net_vol": 216.0,
+      "broker_name": "新光",
+      "total_net_vol": -1826,
+      "avg_net_vol": -182.6,
       "buy_count": 1,
-      "stocks_traded": 1,
-      "sell_count": 0
+      "stocks_traded": 10,
+      "sell_count": 9
     },
     {
-      "broker_name": "元大-潮州",
-      "total_net_vol": -212,
-      "avg_net_vol": -212.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "群益金鼎-北高雄",
-      "total_net_vol": -206,
-      "avg_net_vol": -206.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "彰銀",
-      "total_net_vol": -200,
-      "avg_net_vol": -200.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "元大-基隆孝二",
-      "total_net_vol": -198,
-      "avg_net_vol": -99.0,
+      "broker_name": "土銀",
+      "total_net_vol": -1797,
+      "avg_net_vol": -898.5,
       "buy_count": 0,
       "stocks_traded": 2,
       "sell_count": 2
     },
     {
-      "broker_name": "元大-府城",
-      "total_net_vol": 183,
-      "avg_net_vol": 183.0,
+      "broker_name": "元大-敦南",
+      "total_net_vol": -1795,
+      "avg_net_vol": -897.5,
+      "buy_count": 0,
+      "stocks_traded": 2,
+      "sell_count": 2
+    },
+    {
+      "broker_name": "群益金鼎",
+      "total_net_vol": 1671,
+      "avg_net_vol": 139.25,
+      "buy_count": 8,
+      "stocks_traded": 12,
+      "sell_count": 4
+    },
+    {
+      "broker_name": "國票-安和",
+      "total_net_vol": 1585,
+      "avg_net_vol": 792.5,
+      "buy_count": 2,
+      "stocks_traded": 2,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "法銀巴黎",
+      "total_net_vol": 1544,
+      "avg_net_vol": 193.0,
+      "buy_count": 7,
+      "stocks_traded": 8,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "凱基",
+      "total_net_vol": 1398,
+      "avg_net_vol": 82.23529411764706,
+      "buy_count": 11,
+      "stocks_traded": 17,
+      "sell_count": 6
+    },
+    {
+      "broker_name": "兆豐-忠孝",
+      "total_net_vol": 1053,
+      "avg_net_vol": 1053.0,
       "buy_count": 1,
       "stocks_traded": 1,
       "sell_count": 0
     },
     {
-      "broker_name": "富邦-板橋",
-      "total_net_vol": -169,
-      "avg_net_vol": -84.5,
+      "broker_name": "香港上海匯豐",
+      "total_net_vol": 1042,
+      "avg_net_vol": 86.83333333333333,
+      "buy_count": 2,
+      "stocks_traded": 12,
+      "sell_count": 10
+    },
+    {
+      "broker_name": "第一金",
+      "total_net_vol": 1020,
+      "avg_net_vol": 510.0,
+      "buy_count": 1,
+      "stocks_traded": 2,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "元大-館前",
+      "total_net_vol": -1008,
+      "avg_net_vol": -504.0,
+      "buy_count": 0,
+      "stocks_traded": 2,
+      "sell_count": 2
+    },
+    {
+      "broker_name": "群益金鼎-大安",
+      "total_net_vol": 980,
+      "avg_net_vol": 980.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "永豐金證券",
+      "total_net_vol": -838,
+      "avg_net_vol": -55.86666666666667,
+      "buy_count": 8,
+      "stocks_traded": 15,
+      "sell_count": 7
+    },
+    {
+      "broker_name": "(牛牛牛)亞證券",
+      "total_net_vol": -826,
+      "avg_net_vol": -826.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "第一金-頭份",
+      "total_net_vol": 776,
+      "avg_net_vol": 776.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "群益金鼎-台北",
+      "total_net_vol": 716,
+      "avg_net_vol": 716.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "富邦-南京",
+      "total_net_vol": -701,
+      "avg_net_vol": -350.5,
       "buy_count": 0,
       "stocks_traded": 2,
       "sell_count": 2
     },
     {
       "broker_name": "台灣企銀",
-      "total_net_vol": -164,
-      "avg_net_vol": -164.0,
+      "total_net_vol": -665,
+      "avg_net_vol": -665.0,
       "buy_count": 0,
       "stocks_traded": 1,
       "sell_count": 1
     },
     {
-      "broker_name": "元大-鳳山",
-      "total_net_vol": -164,
-      "avg_net_vol": -164.0,
+      "broker_name": "元大-北投",
+      "total_net_vol": -630,
+      "avg_net_vol": -630.0,
       "buy_count": 0,
       "stocks_traded": 1,
       "sell_count": 1
     },
     {
-      "broker_name": "永豐金-彰化",
-      "total_net_vol": -160,
-      "avg_net_vol": -160.0,
+      "broker_name": "國泰證券",
+      "total_net_vol": 622,
+      "avg_net_vol": 47.84615384615385,
+      "buy_count": 6,
+      "stocks_traded": 13,
+      "sell_count": 7
+    },
+    {
+      "broker_name": "元大-中崙",
+      "total_net_vol": -566,
+      "avg_net_vol": -566.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "第一金-高雄",
+      "total_net_vol": -555,
+      "avg_net_vol": -138.75,
+      "buy_count": 1,
+      "stocks_traded": 4,
+      "sell_count": 3
+    },
+    {
+      "broker_name": "合庫-自強",
+      "total_net_vol": -531,
+      "avg_net_vol": -531.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "元大-北屯",
+      "total_net_vol": -513,
+      "avg_net_vol": -256.5,
+      "buy_count": 0,
+      "stocks_traded": 2,
+      "sell_count": 2
+    },
+    {
+      "broker_name": "富邦-港都",
+      "total_net_vol": -505,
+      "avg_net_vol": -505.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "第一金-忠孝",
+      "total_net_vol": -498,
+      "avg_net_vol": -498.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "臺銀-臺南",
+      "total_net_vol": 490,
+      "avg_net_vol": 490.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "元大-大同",
+      "total_net_vol": 444,
+      "avg_net_vol": 222.0,
+      "buy_count": 1,
+      "stocks_traded": 2,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "富邦-建國",
+      "total_net_vol": -435,
+      "avg_net_vol": -217.5,
+      "buy_count": 1,
+      "stocks_traded": 2,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "元大-天母",
+      "total_net_vol": -414,
+      "avg_net_vol": -414.0,
       "buy_count": 0,
       "stocks_traded": 1,
       "sell_count": 1
     },
     {
       "broker_name": "富邦-陽明",
-      "total_net_vol": -160,
-      "avg_net_vol": -160.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "富邦-桃園",
-      "total_net_vol": -157,
-      "avg_net_vol": -78.5,
+      "total_net_vol": -395,
+      "avg_net_vol": -197.5,
       "buy_count": 0,
       "stocks_traded": 2,
       "sell_count": 2
     },
     {
-      "broker_name": "元大-中壢",
+      "broker_name": "康和",
+      "total_net_vol": 358,
+      "avg_net_vol": 119.33333333333333,
+      "buy_count": 3,
+      "stocks_traded": 3,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "元大-台北",
+      "total_net_vol": -350,
+      "avg_net_vol": -175.0,
+      "buy_count": 0,
+      "stocks_traded": 2,
+      "sell_count": 2
+    },
+    {
+      "broker_name": "中國信託-新竹",
+      "total_net_vol": -323,
+      "avg_net_vol": -323.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "元大-中和",
+      "total_net_vol": 322,
+      "avg_net_vol": 322.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "永豐金-匯立",
+      "total_net_vol": -322,
+      "avg_net_vol": -40.25,
+      "buy_count": 4,
+      "stocks_traded": 8,
+      "sell_count": 4
+    },
+    {
+      "broker_name": "國票-和平",
+      "total_net_vol": -321,
+      "avg_net_vol": -160.5,
+      "buy_count": 0,
+      "stocks_traded": 2,
+      "sell_count": 2
+    },
+    {
+      "broker_name": "國泰-台中",
+      "total_net_vol": -321,
+      "avg_net_vol": -160.5,
+      "buy_count": 0,
+      "stocks_traded": 2,
+      "sell_count": 2
+    },
+    {
+      "broker_name": "臺銀",
+      "total_net_vol": 317,
+      "avg_net_vol": 63.4,
+      "buy_count": 1,
+      "stocks_traded": 5,
+      "sell_count": 4
+    },
+    {
+      "broker_name": "國泰-館前",
+      "total_net_vol": -293,
+      "avg_net_vol": -293.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "亞東-新竹",
+      "total_net_vol": -271,
+      "avg_net_vol": -271.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "凱基-竹北",
+      "total_net_vol": -263,
+      "avg_net_vol": -263.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "華南永昌-台中",
+      "total_net_vol": -263,
+      "avg_net_vol": -263.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "台新-三民",
+      "total_net_vol": -251,
+      "avg_net_vol": -125.5,
+      "buy_count": 1,
+      "stocks_traded": 2,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "永豐金-萬盛",
+      "total_net_vol": -242,
+      "avg_net_vol": -242.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "元大-忠孝",
+      "total_net_vol": -232,
+      "avg_net_vol": -116.0,
+      "buy_count": 1,
+      "stocks_traded": 2,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "玉山證券",
+      "total_net_vol": -227,
+      "avg_net_vol": -45.4,
+      "buy_count": 3,
+      "stocks_traded": 5,
+      "sell_count": 2
+    },
+    {
+      "broker_name": "凱基-斗六",
+      "total_net_vol": -221,
+      "avg_net_vol": -221.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "中國信託-三重",
+      "total_net_vol": -218,
+      "avg_net_vol": -218.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "安泰",
+      "total_net_vol": -209,
+      "avg_net_vol": -209.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "兆豐-大同",
+      "total_net_vol": 205,
+      "avg_net_vol": 205.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "台中銀-豐原",
+      "total_net_vol": -204,
+      "avg_net_vol": -204.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "合庫-三重",
+      "total_net_vol": -202,
+      "avg_net_vol": -202.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "兆豐-台中",
+      "total_net_vol": -199,
+      "avg_net_vol": -199.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "凱基-中壢",
+      "total_net_vol": 198,
+      "avg_net_vol": 198.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "富邦-新板",
+      "total_net_vol": 197,
+      "avg_net_vol": 197.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "富邦-永和",
+      "total_net_vol": 194,
+      "avg_net_vol": 194.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "第一金-嘉義",
+      "total_net_vol": -194,
+      "avg_net_vol": -194.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "彰銀-台中",
+      "total_net_vol": 185,
+      "avg_net_vol": 185.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "統一-新竹",
+      "total_net_vol": -182,
+      "avg_net_vol": -182.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "臺銀-高雄",
+      "total_net_vol": -179,
+      "avg_net_vol": -179.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "國泰-松江",
+      "total_net_vol": -178,
+      "avg_net_vol": -178.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "台新-高雄",
+      "total_net_vol": -176,
+      "avg_net_vol": -176.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "國泰-板橋",
+      "total_net_vol": -174,
+      "avg_net_vol": -43.5,
+      "buy_count": 1,
+      "stocks_traded": 4,
+      "sell_count": 3
+    },
+    {
+      "broker_name": "國泰-高雄",
+      "total_net_vol": -173,
+      "avg_net_vol": -86.5,
+      "buy_count": 1,
+      "stocks_traded": 2,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "元大-新竹經國",
+      "total_net_vol": -166,
+      "avg_net_vol": -83.0,
+      "buy_count": 0,
+      "stocks_traded": 2,
+      "sell_count": 2
+    },
+    {
+      "broker_name": "永豐金-中和",
+      "total_net_vol": -165,
+      "avg_net_vol": -82.5,
+      "buy_count": 1,
+      "stocks_traded": 2,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "群益金鼎-高盛",
+      "total_net_vol": 165,
+      "avg_net_vol": 165.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "台新-台南",
+      "total_net_vol": -163,
+      "avg_net_vol": -163.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "玉山-台中",
+      "total_net_vol": -163,
+      "avg_net_vol": -163.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "永豐金-南投",
+      "total_net_vol": -158,
+      "avg_net_vol": -158.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "玉山-大里",
+      "total_net_vol": -154,
+      "avg_net_vol": -51.333333333333336,
+      "buy_count": 2,
+      "stocks_traded": 3,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "中國信託-中壢",
       "total_net_vol": -153,
       "avg_net_vol": -153.0,
       "buy_count": 0,
@@ -562,33 +754,9 @@
       "sell_count": 1
     },
     {
-      "broker_name": "宏遠證券",
-      "total_net_vol": -153,
-      "avg_net_vol": -25.5,
-      "buy_count": 4,
-      "stocks_traded": 6,
-      "sell_count": 2
-    },
-    {
-      "broker_name": "元大-大統",
+      "broker_name": "臺銀-臺中",
       "total_net_vol": -152,
       "avg_net_vol": -152.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "永豐金-台中",
-      "total_net_vol": 151,
-      "avg_net_vol": 151.0,
-      "buy_count": 1,
-      "stocks_traded": 1,
-      "sell_count": 0
-    },
-    {
-      "broker_name": "華南永昌-基隆",
-      "total_net_vol": -150,
-      "avg_net_vol": -150.0,
       "buy_count": 0,
       "stocks_traded": 1,
       "sell_count": 1
@@ -602,31 +770,79 @@
       "sell_count": 0
     },
     {
-      "broker_name": "臺銀-高雄",
-      "total_net_vol": 147,
-      "avg_net_vol": 147.0,
-      "buy_count": 1,
-      "stocks_traded": 1,
-      "sell_count": 0
-    },
-    {
-      "broker_name": "元大-花蓮",
-      "total_net_vol": -144,
-      "avg_net_vol": -144.0,
+      "broker_name": "玉山-信義",
+      "total_net_vol": -147,
+      "avg_net_vol": -147.0,
       "buy_count": 0,
       "stocks_traded": 1,
       "sell_count": 1
     },
     {
-      "broker_name": "大昌-新店",
-      "total_net_vol": -130,
-      "avg_net_vol": -65.0,
-      "buy_count": 0,
-      "stocks_traded": 2,
-      "sell_count": 2
+      "broker_name": "華南永昌-古亭",
+      "total_net_vol": 140,
+      "avg_net_vol": 140.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
     },
     {
-      "broker_name": "玉山-台中",
+      "broker_name": "永豐金-中正",
+      "total_net_vol": -134,
+      "avg_net_vol": -67.0,
+      "buy_count": 1,
+      "stocks_traded": 2,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "群益金鼎-南京",
+      "total_net_vol": -132,
+      "avg_net_vol": -132.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "京城",
+      "total_net_vol": -130,
+      "avg_net_vol": -130.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "永豐金-台中",
+      "total_net_vol": -130,
+      "avg_net_vol": -130.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "元大-大天母",
+      "total_net_vol": -126,
+      "avg_net_vol": -126.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "兆豐-民生",
+      "total_net_vol": 126,
+      "avg_net_vol": 126.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "元大-南京",
+      "total_net_vol": 124,
+      "avg_net_vol": 62.0,
+      "buy_count": 2,
+      "stocks_traded": 2,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "永豐金-南京",
       "total_net_vol": -123,
       "avg_net_vol": -123.0,
       "buy_count": 0,
@@ -634,87 +850,63 @@
       "sell_count": 1
     },
     {
-      "broker_name": "日茂",
-      "total_net_vol": -121,
-      "avg_net_vol": -60.5,
-      "buy_count": 0,
-      "stocks_traded": 2,
-      "sell_count": 2
-    },
-    {
-      "broker_name": "統一-桃園",
-      "total_net_vol": -120,
-      "avg_net_vol": -60.0,
-      "buy_count": 0,
-      "stocks_traded": 2,
-      "sell_count": 2
-    },
-    {
-      "broker_name": "兆豐-大安",
-      "total_net_vol": 120,
-      "avg_net_vol": 120.0,
+      "broker_name": "兆豐-松德",
+      "total_net_vol": 122,
+      "avg_net_vol": 122.0,
       "buy_count": 1,
       "stocks_traded": 1,
       "sell_count": 0
     },
     {
-      "broker_name": "凱基-台南",
-      "total_net_vol": -118,
-      "avg_net_vol": -118.0,
+      "broker_name": "福邦證券",
+      "total_net_vol": -110,
+      "avg_net_vol": -110.0,
       "buy_count": 0,
       "stocks_traded": 1,
       "sell_count": 1
     },
     {
-      "broker_name": "兆豐-桃園",
-      "total_net_vol": 116,
-      "avg_net_vol": 116.0,
+      "broker_name": "永豐金-天母",
+      "total_net_vol": -104,
+      "avg_net_vol": -52.0,
       "buy_count": 1,
-      "stocks_traded": 1,
-      "sell_count": 0
-    },
-    {
-      "broker_name": "元大-南京",
-      "total_net_vol": -114,
-      "avg_net_vol": -57.0,
-      "buy_count": 0,
       "stocks_traded": 2,
-      "sell_count": 2
-    },
-    {
-      "broker_name": "富邦-仁愛",
-      "total_net_vol": 113,
-      "avg_net_vol": 37.666666666666664,
-      "buy_count": 2,
-      "stocks_traded": 3,
       "sell_count": 1
     },
     {
-      "broker_name": "元大-嘉義",
-      "total_net_vol": 106,
-      "avg_net_vol": 106.0,
+      "broker_name": "聯邦-雙和",
+      "total_net_vol": 102,
+      "avg_net_vol": 102.0,
       "buy_count": 1,
       "stocks_traded": 1,
       "sell_count": 0
     },
     {
-      "broker_name": "富邦-八德",
-      "total_net_vol": -103,
-      "avg_net_vol": -103.0,
-      "buy_count": 0,
+      "broker_name": "永豐金-敦北",
+      "total_net_vol": 102,
+      "avg_net_vol": 102.0,
+      "buy_count": 1,
       "stocks_traded": 1,
-      "sell_count": 1
+      "sell_count": 0
     },
     {
-      "broker_name": "元大-天母",
-      "total_net_vol": -101,
-      "avg_net_vol": -101.0,
-      "buy_count": 0,
+      "broker_name": "國泰-桃園",
+      "total_net_vol": 101,
+      "avg_net_vol": 101.0,
+      "buy_count": 1,
       "stocks_traded": 1,
-      "sell_count": 1
+      "sell_count": 0
     },
     {
-      "broker_name": "凱基-永和",
+      "broker_name": "大昌",
+      "total_net_vol": 101,
+      "avg_net_vol": 101.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "富邦-新竹",
       "total_net_vol": -100,
       "avg_net_vol": -100.0,
       "buy_count": 0,
@@ -722,39 +914,79 @@
       "sell_count": 1
     },
     {
-      "broker_name": "台新-九如",
-      "total_net_vol": 95,
-      "avg_net_vol": 95.0,
+      "broker_name": "兆豐-員林",
+      "total_net_vol": 100,
+      "avg_net_vol": 100.0,
       "buy_count": 1,
       "stocks_traded": 1,
       "sell_count": 0
     },
     {
-      "broker_name": "兆豐-城中",
-      "total_net_vol": 94,
-      "avg_net_vol": 94.0,
+      "broker_name": "元大-土城永寧",
+      "total_net_vol": 100,
+      "avg_net_vol": 100.0,
       "buy_count": 1,
       "stocks_traded": 1,
       "sell_count": 0
     },
     {
-      "broker_name": "元大-士林",
-      "total_net_vol": -86,
-      "avg_net_vol": -43.0,
-      "buy_count": 1,
-      "stocks_traded": 2,
+      "broker_name": "群益金鼎-館前",
+      "total_net_vol": -100,
+      "avg_net_vol": -100.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
       "sell_count": 1
     },
     {
-      "broker_name": "第一金-桃園",
-      "total_net_vol": 83,
-      "avg_net_vol": 83.0,
+      "broker_name": "富邦-台南",
+      "total_net_vol": 96,
+      "avg_net_vol": 96.0,
       "buy_count": 1,
       "stocks_traded": 1,
       "sell_count": 0
     },
     {
-      "broker_name": "元大-屏東民生",
+      "broker_name": "第一金-華江",
+      "total_net_vol": -94,
+      "avg_net_vol": -94.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "華南永昌-敦南",
+      "total_net_vol": -93,
+      "avg_net_vol": -93.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "群益金鼎-中壢",
+      "total_net_vol": 93,
+      "avg_net_vol": 93.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "兆豐-公益",
+      "total_net_vol": -87,
+      "avg_net_vol": -87.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "元大-內湖民權",
+      "total_net_vol": -86,
+      "avg_net_vol": -86.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "凱基-三重",
       "total_net_vol": -82,
       "avg_net_vol": -82.0,
       "buy_count": 0,
@@ -762,175 +994,111 @@
       "sell_count": 1
     },
     {
-      "broker_name": "玉山-新莊",
-      "total_net_vol": 78,
-      "avg_net_vol": 26.0,
-      "buy_count": 2,
-      "stocks_traded": 3,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "台新-台中",
-      "total_net_vol": -77,
-      "avg_net_vol": -77.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "元大-民生三民",
-      "total_net_vol": 77,
-      "avg_net_vol": 77.0,
+      "broker_name": "元大-竹北",
+      "total_net_vol": 80,
+      "avg_net_vol": 80.0,
       "buy_count": 1,
       "stocks_traded": 1,
       "sell_count": 0
     },
     {
-      "broker_name": "華南永昌-高雄",
-      "total_net_vol": 76,
-      "avg_net_vol": 38.0,
+      "broker_name": "台新-左楠",
+      "total_net_vol": -79,
+      "avg_net_vol": -79.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "中國信託-文心",
+      "total_net_vol": -73,
+      "avg_net_vol": -73.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "統一-仁愛",
+      "total_net_vol": 70,
+      "avg_net_vol": 70.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "凱基-城中",
+      "total_net_vol": 68,
+      "avg_net_vol": 22.666666666666668,
+      "buy_count": 1,
+      "stocks_traded": 3,
+      "sell_count": 2
+    },
+    {
+      "broker_name": "凱基-站前",
+      "total_net_vol": 67,
+      "avg_net_vol": 67.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "統一-城中",
+      "total_net_vol": 66,
+      "avg_net_vol": 66.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "日進",
+      "total_net_vol": 66,
+      "avg_net_vol": 66.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "台新-台北",
+      "total_net_vol": 65,
+      "avg_net_vol": 65.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "陽信-石牌",
+      "total_net_vol": -59,
+      "avg_net_vol": -29.5,
       "buy_count": 1,
       "stocks_traded": 2,
       "sell_count": 1
     },
     {
-      "broker_name": "凱基-和平",
-      "total_net_vol": -75,
-      "avg_net_vol": -75.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "永豐金-萬盛",
-      "total_net_vol": -75,
-      "avg_net_vol": -75.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "群益金鼎-敦南",
-      "total_net_vol": -66,
-      "avg_net_vol": -66.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "玉山-大里",
-      "total_net_vol": -64,
-      "avg_net_vol": -64.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "新光-高雄",
-      "total_net_vol": -64,
-      "avg_net_vol": -64.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "第一金-嘉義",
-      "total_net_vol": -63,
-      "avg_net_vol": -63.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "元大-大同",
-      "total_net_vol": -59,
-      "avg_net_vol": -59.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "國泰-館前",
-      "total_net_vol": 59,
-      "avg_net_vol": 19.666666666666668,
-      "buy_count": 2,
-      "stocks_traded": 3,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "元大-大天母",
-      "total_net_vol": 59,
-      "avg_net_vol": 59.0,
+      "broker_name": "光和",
+      "total_net_vol": 57,
+      "avg_net_vol": 57.0,
       "buy_count": 1,
       "stocks_traded": 1,
       "sell_count": 0
     },
     {
-      "broker_name": "德信",
-      "total_net_vol": -58,
-      "avg_net_vol": -58.0,
+      "broker_name": "群益金鼎-古亭",
+      "total_net_vol": -55,
+      "avg_net_vol": -55.0,
       "buy_count": 0,
       "stocks_traded": 1,
       "sell_count": 1
     },
     {
-      "broker_name": "第一金-中山",
-      "total_net_vol": -57,
-      "avg_net_vol": -57.0,
+      "broker_name": "兆豐-南門",
+      "total_net_vol": -54,
+      "avg_net_vol": -54.0,
       "buy_count": 0,
       "stocks_traded": 1,
       "sell_count": 1
     },
     {
-      "broker_name": "華南永昌-林口",
-      "total_net_vol": 54,
-      "avg_net_vol": 54.0,
-      "buy_count": 1,
-      "stocks_traded": 1,
-      "sell_count": 0
-    },
-    {
-      "broker_name": "玉山-數位",
-      "total_net_vol": -53,
-      "avg_net_vol": -53.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "富邦-新莊",
-      "total_net_vol": -52,
-      "avg_net_vol": -52.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "元大-敦南",
-      "total_net_vol": -51,
-      "avg_net_vol": -51.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "富邦-北港",
-      "total_net_vol": -51,
-      "avg_net_vol": -51.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "富邦-花蓮",
-      "total_net_vol": -51,
-      "avg_net_vol": -51.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "富邦-永康",
+      "broker_name": "元大-雙和",
       "total_net_vol": 51,
       "avg_net_vol": 51.0,
       "buy_count": 1,
@@ -938,7 +1106,23 @@
       "sell_count": 0
     },
     {
-      "broker_name": "凱基-鳳山",
+      "broker_name": "華南永昌-林口",
+      "total_net_vol": -51,
+      "avg_net_vol": -51.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "台新-松德",
+      "total_net_vol": -51,
+      "avg_net_vol": -51.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "永豐金-忠孝",
       "total_net_vol": -50,
       "avg_net_vol": -50.0,
       "buy_count": 0,
@@ -946,7 +1130,15 @@
       "sell_count": 1
     },
     {
-      "broker_name": "富邦-苗栗",
+      "broker_name": "兆豐-南京",
+      "total_net_vol": 50,
+      "avg_net_vol": 50.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "凱基-大直",
       "total_net_vol": 49,
       "avg_net_vol": 49.0,
       "buy_count": 1,
@@ -954,15 +1146,7 @@
       "sell_count": 0
     },
     {
-      "broker_name": "統一-永和",
-      "total_net_vol": -49,
-      "avg_net_vol": -49.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "凱基-新豐",
+      "broker_name": "統一-台南",
       "total_net_vol": 49,
       "avg_net_vol": 49.0,
       "buy_count": 1,
@@ -970,55 +1154,31 @@
       "sell_count": 0
     },
     {
-      "broker_name": "美好-蘆洲",
-      "total_net_vol": 47,
-      "avg_net_vol": 47.0,
+      "broker_name": "永豐金-信義",
+      "total_net_vol": 49,
+      "avg_net_vol": 49.0,
       "buy_count": 1,
       "stocks_traded": 1,
       "sell_count": 0
     },
     {
-      "broker_name": "富邦-永和",
-      "total_net_vol": -46,
-      "avg_net_vol": -46.0,
+      "broker_name": "元大-虎尾",
+      "total_net_vol": -44,
+      "avg_net_vol": -44.0,
       "buy_count": 0,
       "stocks_traded": 1,
       "sell_count": 1
     },
     {
-      "broker_name": "玉山-高雄",
-      "total_net_vol": -46,
-      "avg_net_vol": -46.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
+      "broker_name": "富邦-仁愛",
+      "total_net_vol": -43,
+      "avg_net_vol": -14.333333333333334,
+      "buy_count": 2,
+      "stocks_traded": 3,
       "sell_count": 1
     },
     {
-      "broker_name": "元大-西屯",
-      "total_net_vol": -45,
-      "avg_net_vol": -45.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "台新-新店",
-      "total_net_vol": 43,
-      "avg_net_vol": 43.0,
-      "buy_count": 1,
-      "stocks_traded": 1,
-      "sell_count": 0
-    },
-    {
-      "broker_name": "台新-大裕",
-      "total_net_vol": -42,
-      "avg_net_vol": -42.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "美好-富順",
+      "broker_name": "康和-台南",
       "total_net_vol": -40,
       "avg_net_vol": -40.0,
       "buy_count": 0,
@@ -1026,31 +1186,7 @@
       "sell_count": 1
     },
     {
-      "broker_name": "凱基-汐止",
-      "total_net_vol": 40,
-      "avg_net_vol": 40.0,
-      "buy_count": 1,
-      "stocks_traded": 1,
-      "sell_count": 0
-    },
-    {
-      "broker_name": "凱基-頭份",
-      "total_net_vol": 40,
-      "avg_net_vol": 40.0,
-      "buy_count": 1,
-      "stocks_traded": 1,
-      "sell_count": 0
-    },
-    {
-      "broker_name": "永豐金-屏東",
-      "total_net_vol": -39,
-      "avg_net_vol": -39.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "凱基-高美館",
+      "broker_name": "元大-大甲",
       "total_net_vol": -38,
       "avg_net_vol": -38.0,
       "buy_count": 0,
@@ -1058,103 +1194,79 @@
       "sell_count": 1
     },
     {
-      "broker_name": "台新-高雄",
-      "total_net_vol": -38,
-      "avg_net_vol": -19.0,
-      "buy_count": 1,
-      "stocks_traded": 2,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "國票-安和",
-      "total_net_vol": -38,
-      "avg_net_vol": -38.0,
+      "broker_name": "群益金鼎-東湖",
+      "total_net_vol": -36,
+      "avg_net_vol": -36.0,
       "buy_count": 0,
       "stocks_traded": 1,
       "sell_count": 1
     },
     {
-      "broker_name": "群益金鼎-館前",
-      "total_net_vol": -37,
-      "avg_net_vol": -18.5,
-      "buy_count": 1,
-      "stocks_traded": 2,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "中農",
-      "total_net_vol": -35,
-      "avg_net_vol": -35.0,
+      "broker_name": "新光-新竹",
+      "total_net_vol": -36,
+      "avg_net_vol": -36.0,
       "buy_count": 0,
       "stocks_traded": 1,
       "sell_count": 1
     },
     {
-      "broker_name": "元大-竹科",
-      "total_net_vol": -35,
-      "avg_net_vol": -35.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "富邦-宜蘭",
-      "total_net_vol": 34,
-      "avg_net_vol": 34.0,
+      "broker_name": "台新-北新莊",
+      "total_net_vol": 36,
+      "avg_net_vol": 36.0,
       "buy_count": 1,
       "stocks_traded": 1,
       "sell_count": 0
     },
     {
-      "broker_name": "富邦-台東",
-      "total_net_vol": -32,
-      "avg_net_vol": -32.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "元大-東港",
-      "total_net_vol": -31,
-      "avg_net_vol": -31.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "華南永昌-小港",
-      "total_net_vol": -31,
-      "avg_net_vol": -31.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "元大-台北",
-      "total_net_vol": 30,
-      "avg_net_vol": 30.0,
-      "buy_count": 1,
-      "stocks_traded": 1,
-      "sell_count": 0
-    },
-    {
-      "broker_name": "台新-西松",
-      "total_net_vol": 29,
-      "avg_net_vol": 9.666666666666666,
-      "buy_count": 2,
-      "stocks_traded": 3,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "台新-松德",
-      "total_net_vol": 29,
-      "avg_net_vol": 14.5,
+      "broker_name": "台灣企銀-九如",
+      "total_net_vol": -35,
+      "avg_net_vol": -17.5,
       "buy_count": 1,
       "stocks_traded": 2,
       "sell_count": 1
     },
     {
-      "broker_name": "富邦-敦南",
+      "broker_name": "元大-大里",
+      "total_net_vol": 35,
+      "avg_net_vol": 35.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "元大-民生三民",
+      "total_net_vol": -34,
+      "avg_net_vol": -34.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "新加坡商瑞銀",
+      "total_net_vol": -34,
+      "avg_net_vol": -1.7894736842105263,
+      "buy_count": 11,
+      "stocks_traded": 19,
+      "sell_count": 8
+    },
+    {
+      "broker_name": "(牛牛牛)亞-鑫豐",
+      "total_net_vol": -30,
+      "avg_net_vol": -30.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "華南永昌-長虹",
+      "total_net_vol": 29,
+      "avg_net_vol": 29.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "康和-新竹",
       "total_net_vol": -28,
       "avg_net_vol": -28.0,
       "buy_count": 0,
@@ -1162,15 +1274,7 @@
       "sell_count": 1
     },
     {
-      "broker_name": "中國信託-忠孝",
-      "total_net_vol": -27,
-      "avg_net_vol": -27.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "永豐金-天母",
+      "broker_name": "台新-城東",
       "total_net_vol": 27,
       "avg_net_vol": 27.0,
       "buy_count": 1,
@@ -1178,39 +1282,31 @@
       "sell_count": 0
     },
     {
-      "broker_name": "元大-忠孝",
-      "total_net_vol": -26,
-      "avg_net_vol": -26.0,
+      "broker_name": "統一-敦南",
+      "total_net_vol": -27,
+      "avg_net_vol": -27.0,
       "buy_count": 0,
       "stocks_traded": 1,
       "sell_count": 1
     },
     {
-      "broker_name": "永豐金-松山",
-      "total_net_vol": -26,
-      "avg_net_vol": -26.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
+      "broker_name": "台新-大昌",
+      "total_net_vol": 26,
+      "avg_net_vol": 13.0,
+      "buy_count": 1,
+      "stocks_traded": 2,
       "sell_count": 1
     },
     {
-      "broker_name": "兆豐-忠孝",
-      "total_net_vol": 25,
-      "avg_net_vol": 25.0,
+      "broker_name": "合庫-台南",
+      "total_net_vol": 26,
+      "avg_net_vol": 26.0,
       "buy_count": 1,
       "stocks_traded": 1,
       "sell_count": 0
     },
     {
-      "broker_name": "元大-西螺",
-      "total_net_vol": -25,
-      "avg_net_vol": -25.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "元大-松山",
+      "broker_name": "永豐金-市政",
       "total_net_vol": 24,
       "avg_net_vol": 24.0,
       "buy_count": 1,
@@ -1218,23 +1314,39 @@
       "sell_count": 0
     },
     {
-      "broker_name": "富邦-高雄",
-      "total_net_vol": 22,
-      "avg_net_vol": 22.0,
-      "buy_count": 1,
+      "broker_name": "元大-復北",
+      "total_net_vol": -24,
+      "avg_net_vol": -24.0,
+      "buy_count": 0,
       "stocks_traded": 1,
-      "sell_count": 0
-    },
-    {
-      "broker_name": "聯邦證券",
-      "total_net_vol": 21,
-      "avg_net_vol": 21.0,
-      "buy_count": 1,
-      "stocks_traded": 1,
-      "sell_count": 0
+      "sell_count": 1
     },
     {
       "broker_name": "元大-新莊",
+      "total_net_vol": -24,
+      "avg_net_vol": -24.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "元大-大統",
+      "total_net_vol": -21,
+      "avg_net_vol": -21.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "富邦-中壢",
+      "total_net_vol": -21,
+      "avg_net_vol": -21.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "台新-台中",
       "total_net_vol": 21,
       "avg_net_vol": 21.0,
       "buy_count": 1,
@@ -1242,7 +1354,7 @@
       "sell_count": 0
     },
     {
-      "broker_name": "元大-斗六",
+      "broker_name": "兆豐-嘉義",
       "total_net_vol": -20,
       "avg_net_vol": -20.0,
       "buy_count": 0,
@@ -1250,23 +1362,7 @@
       "sell_count": 1
     },
     {
-      "broker_name": "美好",
-      "total_net_vol": 20,
-      "avg_net_vol": 20.0,
-      "buy_count": 1,
-      "stocks_traded": 1,
-      "sell_count": 0
-    },
-    {
-      "broker_name": "永豐金-中正",
-      "total_net_vol": 20,
-      "avg_net_vol": 20.0,
-      "buy_count": 1,
-      "stocks_traded": 1,
-      "sell_count": 0
-    },
-    {
-      "broker_name": "凱基-虎尾",
+      "broker_name": "統一-板橋",
       "total_net_vol": -20,
       "avg_net_vol": -20.0,
       "buy_count": 0,
@@ -1274,23 +1370,47 @@
       "sell_count": 1
     },
     {
-      "broker_name": "永豐金-古亭",
+      "broker_name": "華南永昌-鶯歌",
       "total_net_vol": -19,
-      "avg_net_vol": -9.5,
-      "buy_count": 1,
-      "stocks_traded": 2,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "元大-大甲",
-      "total_net_vol": -16,
-      "avg_net_vol": -16.0,
+      "avg_net_vol": -19.0,
       "buy_count": 0,
       "stocks_traded": 1,
       "sell_count": 1
     },
     {
-      "broker_name": "美好-高雄",
+      "broker_name": "兆豐-桃鶯",
+      "total_net_vol": -18,
+      "avg_net_vol": -18.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "元大-中山北路",
+      "total_net_vol": -18,
+      "avg_net_vol": -18.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "富邦-敦南",
+      "total_net_vol": -17,
+      "avg_net_vol": -17.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "台灣企銀-桃園",
+      "total_net_vol": -17,
+      "avg_net_vol": -17.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "華南永昌-台南",
       "total_net_vol": -15,
       "avg_net_vol": -15.0,
       "buy_count": 0,
@@ -1298,15 +1418,31 @@
       "sell_count": 1
     },
     {
-      "broker_name": "統一-南京",
-      "total_net_vol": 13,
-      "avg_net_vol": 13.0,
+      "broker_name": "統一-金門",
+      "total_net_vol": 15,
+      "avg_net_vol": 15.0,
       "buy_count": 1,
       "stocks_traded": 1,
       "sell_count": 0
     },
     {
-      "broker_name": "新光-台中",
+      "broker_name": "臺銀-金山",
+      "total_net_vol": -15,
+      "avg_net_vol": -15.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "富邦-台北",
+      "total_net_vol": 14,
+      "avg_net_vol": 14.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "統一-屏東",
       "total_net_vol": -13,
       "avg_net_vol": -13.0,
       "buy_count": 0,
@@ -1314,79 +1450,31 @@
       "sell_count": 1
     },
     {
-      "broker_name": "元大-大里",
-      "total_net_vol": -13,
-      "avg_net_vol": -6.5,
-      "buy_count": 1,
-      "stocks_traded": 2,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "元大-鹿港",
-      "total_net_vol": -12,
-      "avg_net_vol": -6.0,
-      "buy_count": 1,
-      "stocks_traded": 2,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "亞東-板橋",
-      "total_net_vol": -11,
-      "avg_net_vol": -11.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "國票-天祥",
-      "total_net_vol": -11,
-      "avg_net_vol": -11.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "合庫-基隆",
-      "total_net_vol": 10,
-      "avg_net_vol": 5.0,
-      "buy_count": 1,
-      "stocks_traded": 2,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "元大-松江",
-      "total_net_vol": -10,
-      "avg_net_vol": -10.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "聯邦-忠孝",
-      "total_net_vol": -10,
-      "avg_net_vol": -10.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "統一-屏東",
-      "total_net_vol": 8,
-      "avg_net_vol": 8.0,
+      "broker_name": "第一金-安和",
+      "total_net_vol": 13,
+      "avg_net_vol": 13.0,
       "buy_count": 1,
       "stocks_traded": 1,
       "sell_count": 0
     },
     {
-      "broker_name": "台新-同大",
-      "total_net_vol": -7,
-      "avg_net_vol": -7.0,
-      "buy_count": 0,
+      "broker_name": "聯邦證券",
+      "total_net_vol": 7,
+      "avg_net_vol": 7.0,
+      "buy_count": 1,
       "stocks_traded": 1,
-      "sell_count": 1
+      "sell_count": 0
     },
     {
-      "broker_name": "群益金鼎-海山",
+      "broker_name": "元大-苑裡",
+      "total_net_vol": 6,
+      "avg_net_vol": 6.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "台新-信義",
       "total_net_vol": -6,
       "avg_net_vol": -6.0,
       "buy_count": 0,
@@ -1394,7 +1482,31 @@
       "sell_count": 1
     },
     {
-      "broker_name": "元大-草屯",
+      "broker_name": "兆豐-岡山",
+      "total_net_vol": 6,
+      "avg_net_vol": 6.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "元大-北三重",
+      "total_net_vol": 5,
+      "avg_net_vol": 5.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "元大-松江",
+      "total_net_vol": 5,
+      "avg_net_vol": 5.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "台新-板橋",
       "total_net_vol": -5,
       "avg_net_vol": -5.0,
       "buy_count": 0,
@@ -1402,28 +1514,44 @@
       "sell_count": 1
     },
     {
-      "broker_name": "兆豐-北高雄",
-      "total_net_vol": -4,
-      "avg_net_vol": -4.0,
-      "buy_count": 0,
-      "stocks_traded": 1,
-      "sell_count": 1
-    },
-    {
-      "broker_name": "凱基-三重",
-      "total_net_vol": -4,
-      "avg_net_vol": -2.0,
+      "broker_name": "富邦-三重",
+      "total_net_vol": 5,
+      "avg_net_vol": 5.0,
       "buy_count": 1,
-      "stocks_traded": 2,
-      "sell_count": 1
+      "stocks_traded": 1,
+      "sell_count": 0
     },
     {
-      "broker_name": "台中銀-台北",
-      "total_net_vol": -4,
-      "avg_net_vol": -4.0,
+      "broker_name": "群益金鼎-海山",
+      "total_net_vol": 5,
+      "avg_net_vol": 5.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
+    },
+    {
+      "broker_name": "統一-三多",
+      "total_net_vol": -5,
+      "avg_net_vol": -5.0,
       "buy_count": 0,
       "stocks_traded": 1,
       "sell_count": 1
+    },
+    {
+      "broker_name": "華南永昌-中正",
+      "total_net_vol": -5,
+      "avg_net_vol": -5.0,
+      "buy_count": 0,
+      "stocks_traded": 1,
+      "sell_count": 1
+    },
+    {
+      "broker_name": "國票證券",
+      "total_net_vol": 4,
+      "avg_net_vol": 4.0,
+      "buy_count": 1,
+      "stocks_traded": 1,
+      "sell_count": 0
     }
   ]
 }
