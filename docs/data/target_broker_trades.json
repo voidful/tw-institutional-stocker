@@ -1,2221 +1,2088 @@
 {
-  "updated": "2026-08-09T19:45:40.680224+08:00",
+  "updated": "2026-08-10T20:01:07.838884+08:00",
   "brokers": {
+    "元大-上新莊": [
+      {
+        "stock_code": "2882",
+        "net_vol": -59,
+        "side": "sell",
+        "pct": 0.41,
+        "rank": 14
+      }
+    ],
     "元大-中山北路": [
       {
         "stock_code": "3006",
-        "net_vol": 193,
-        "side": "buy",
-        "pct": 0.99,
+        "net_vol": -213,
+        "side": "sell",
+        "pct": 0.92,
         "rank": 3
       },
       {
-        "stock_code": "3034",
-        "net_vol": -37,
+        "stock_code": "2379",
+        "net_vol": -6,
         "side": "sell",
-        "pct": 1.06,
-        "rank": 7
-      }
-    ],
-    "元大-內湖": [
-      {
-        "stock_code": "2618",
-        "net_vol": -406,
-        "side": "sell",
-        "pct": 1.09,
-        "rank": 5
+        "pct": 0.23,
+        "rank": 11
       }
     ],
     "元大-北屯": [
       {
         "stock_code": "3037",
-        "net_vol": 34,
-        "side": "buy",
-        "pct": 0.16,
-        "rank": 15
+        "net_vol": -48,
+        "side": "sell",
+        "pct": 0.64,
+        "rank": 10
       }
     ],
-    "元大-北投": [
+    "元大-南京": [
       {
-        "stock_code": "2881",
-        "net_vol": -31,
+        "stock_code": "2454",
+        "net_vol": -34,
         "side": "sell",
-        "pct": 0.29,
+        "pct": 0.58,
+        "rank": 11
+      },
+      {
+        "stock_code": "3006",
+        "net_vol": -178,
+        "side": "sell",
+        "pct": 0.77,
+        "rank": 5
+      },
+      {
+        "stock_code": "2379",
+        "net_vol": -4,
+        "side": "sell",
+        "pct": 0.15,
         "rank": 14
+      }
+    ],
+    "元大-博愛": [
+      {
+        "stock_code": "3711",
+        "net_vol": -77,
+        "side": "sell",
+        "pct": 0.27,
+        "rank": 12
       }
     ],
     "元大-台中": [
       {
-        "stock_code": "2615",
-        "net_vol": -30,
+        "stock_code": "2412",
+        "net_vol": -38,
         "side": "sell",
-        "pct": 0.78,
-        "rank": 12
-      }
-    ],
-    "元大-台中中港": [
-      {
-        "stock_code": "3006",
-        "net_vol": 40,
-        "side": "buy",
-        "pct": 0.21,
-        "rank": 12
+        "pct": 0.4,
+        "rank": 13
       }
     ],
     "元大-台北": [
       {
         "stock_code": "2615",
-        "net_vol": -45,
+        "net_vol": -121,
         "side": "sell",
-        "pct": 1.16,
-        "rank": 8
-      }
-    ],
-    "元大-和平": [
-      {
-        "stock_code": "2379",
-        "net_vol": 15,
-        "side": "buy",
-        "pct": 0.51,
-        "rank": 9
+        "pct": 0.67,
+        "rank": 12
       }
     ],
     "元大-四維": [
       {
-        "stock_code": "2891",
-        "net_vol": 97,
-        "side": "buy",
-        "pct": 0.6,
+        "stock_code": "2308",
+        "net_vol": -53,
+        "side": "sell",
+        "pct": 0.51,
         "rank": 10
       }
     ],
     "元大-土城永寧": [
       {
         "stock_code": "2454",
-        "net_vol": 51,
+        "net_vol": -52,
+        "side": "sell",
+        "pct": 0.89,
+        "rank": 8
+      }
+    ],
+    "元大-基隆": [
+      {
+        "stock_code": "3034",
+        "net_vol": 9,
         "side": "buy",
-        "pct": 0.77,
-        "rank": 6
+        "pct": 0.3,
+        "rank": 13
+      }
+    ],
+    "元大-基隆孝二": [
+      {
+        "stock_code": "2615",
+        "net_vol": -119,
+        "side": "sell",
+        "pct": 0.65,
+        "rank": 13
+      }
+    ],
+    "元大-大同": [
+      {
+        "stock_code": "2603",
+        "net_vol": -91,
+        "side": "sell",
+        "pct": 0.62,
+        "rank": 14
+      },
+      {
+        "stock_code": "3034",
+        "net_vol": 127,
+        "side": "buy",
+        "pct": 4.23,
+        "rank": 3
+      }
+    ],
+    "元大-大灣": [
+      {
+        "stock_code": "2615",
+        "net_vol": 122,
+        "side": "buy",
+        "pct": 0.67,
+        "rank": 12
       }
     ],
     "元大-大甲": [
       {
-        "stock_code": "3034",
-        "net_vol": 8,
+        "stock_code": "2881",
+        "net_vol": 93,
         "side": "buy",
-        "pct": 0.23,
-        "rank": 14
-      }
-    ],
-    "元大-大里": [
-      {
-        "stock_code": "2609",
-        "net_vol": -74,
-        "side": "sell",
-        "pct": 0.75,
-        "rank": 5
-      },
-      {
-        "stock_code": "3006",
-        "net_vol": -50,
-        "side": "sell",
-        "pct": 0.26,
-        "rank": 11
-      }
-    ],
-    "元大-大雅": [
-      {
-        "stock_code": "2382",
-        "net_vol": 81,
-        "side": "buy",
-        "pct": 0.46,
-        "rank": 13
-      }
-    ],
-    "元大-天母": [
-      {
-        "stock_code": "2615",
-        "net_vol": -66,
-        "side": "sell",
-        "pct": 1.71,
-        "rank": 6
-      },
-      {
-        "stock_code": "2618",
-        "net_vol": -309,
-        "side": "sell",
-        "pct": 0.83,
+        "pct": 0.89,
         "rank": 9
-      },
-      {
-        "stock_code": "3006",
-        "net_vol": -67,
-        "side": "sell",
-        "pct": 0.34,
-        "rank": 6
-      },
+      }
+    ],
+    "元大-學甲": [
       {
         "stock_code": "2379",
-        "net_vol": -6,
+        "net_vol": -4,
         "side": "sell",
-        "pct": 0.2,
-        "rank": 14
+        "pct": 0.15,
+        "rank": 15
       }
     ],
-    "元大-復北": [
+    "元大-崇德": [
       {
-        "stock_code": "2881",
-        "net_vol": 20,
+        "stock_code": "2345",
+        "net_vol": 49,
         "side": "buy",
-        "pct": 0.18,
-        "rank": 13
-      },
-      {
-        "stock_code": "2882",
-        "net_vol": 275,
-        "side": "buy",
-        "pct": 1.98,
-        "rank": 7
+        "pct": 1.74,
+        "rank": 2
       }
     ],
     "元大-忠孝": [
       {
         "stock_code": "2609",
-        "net_vol": -150,
+        "net_vol": -260,
         "side": "sell",
-        "pct": 1.51,
-        "rank": 3
+        "pct": 1.1,
+        "rank": 4
       }
     ],
-    "元大-忠孝鼎富": [
+    "元大-新生": [
       {
-        "stock_code": "2454",
-        "net_vol": 24,
+        "stock_code": "2603",
+        "net_vol": 47,
         "side": "buy",
-        "pct": 0.36,
-        "rank": 10
-      }
-    ],
-    "元大-成功": [
-      {
-        "stock_code": "2412",
-        "net_vol": -23,
-        "side": "sell",
-        "pct": 0.33,
-        "rank": 15
-      }
-    ],
-    "元大-文心": [
-      {
-        "stock_code": "2412",
-        "net_vol": 29,
-        "side": "buy",
-        "pct": 0.42,
-        "rank": 12
+        "pct": 0.32,
+        "rank": 11
       }
     ],
     "元大-新盛": [
       {
-        "stock_code": "3037",
-        "net_vol": 181,
-        "side": "buy",
-        "pct": 0.84,
-        "rank": 5
-      },
-      {
-        "stock_code": "2345",
-        "net_vol": 28,
-        "side": "buy",
-        "pct": 0.66,
-        "rank": 11
-      }
-    ],
-    "元大-新竹": [
-      {
-        "stock_code": "2379",
-        "net_vol": -9,
+        "stock_code": "3006",
+        "net_vol": -307,
         "side": "sell",
-        "pct": 0.3,
-        "rank": 12
+        "pct": 1.33,
+        "rank": 1
       }
     ],
     "元大-新竹經國": [
       {
-        "stock_code": "2615",
-        "net_vol": 23,
+        "stock_code": "2891",
+        "net_vol": 30,
         "side": "buy",
-        "pct": 0.59,
+        "pct": 0.14,
+        "rank": 15
+      }
+    ],
+    "元大-民生三民": [
+      {
+        "stock_code": "2882",
+        "net_vol": 50,
+        "side": "buy",
+        "pct": 0.35,
         "rank": 12
       }
     ],
-    "元大-木柵": [
-      {
-        "stock_code": "2891",
-        "net_vol": 28,
-        "side": "buy",
-        "pct": 0.17,
-        "rank": 14
-      }
-    ],
-    "元大-松江": [
-      {
-        "stock_code": "2317",
-        "net_vol": 252,
-        "side": "buy",
-        "pct": 0.65,
-        "rank": 7
-      },
-      {
-        "stock_code": "3711",
-        "net_vol": -20,
-        "side": "sell",
-        "pct": 0.15,
-        "rank": 13
-      }
-    ],
-    "元大-永康": [
-      {
-        "stock_code": "2603",
-        "net_vol": -46,
-        "side": "sell",
-        "pct": 0.76,
-        "rank": 11
-      }
-    ],
-    "元大-永春": [
+    "元大-永和": [
       {
         "stock_code": "2412",
-        "net_vol": -36,
-        "side": "sell",
-        "pct": 0.52,
-        "rank": 11
-      }
-    ],
-    "元大-汐止": [
-      {
-        "stock_code": "2891",
-        "net_vol": 61,
+        "net_vol": 81,
         "side": "buy",
-        "pct": 0.38,
-        "rank": 11
+        "pct": 0.85,
+        "rank": 9
       }
     ],
     "元大-沙鹿": [
       {
-        "stock_code": "3711",
-        "net_vol": 98,
+        "stock_code": "2317",
+        "net_vol": 182,
         "side": "buy",
-        "pct": 0.75,
-        "rank": 3
+        "pct": 0.52,
+        "rank": 12
+      }
+    ],
+    "元大-竹北": [
+      {
+        "stock_code": "3711",
+        "net_vol": -69,
+        "side": "sell",
+        "pct": 0.24,
+        "rank": 15
+      },
+      {
+        "stock_code": "2609",
+        "net_vol": -112,
+        "side": "sell",
+        "pct": 0.47,
+        "rank": 14
       }
     ],
     "元大-竹南": [
       {
-        "stock_code": "2615",
-        "net_vol": 15,
-        "side": "buy",
-        "pct": 0.39,
+        "stock_code": "2618",
+        "net_vol": -194,
+        "side": "sell",
+        "pct": 0.48,
         "rank": 15
       }
     ],
     "元大-竹科": [
       {
         "stock_code": "2382",
-        "net_vol": 56,
+        "net_vol": -62,
+        "side": "sell",
+        "pct": 0.27,
+        "rank": 15
+      }
+    ],
+    "元大-莒光": [
+      {
+        "stock_code": "3711",
+        "net_vol": -96,
+        "side": "sell",
+        "pct": 0.33,
+        "rank": 9
+      }
+    ],
+    "元大-萬華": [
+      {
+        "stock_code": "2881",
+        "net_vol": 20,
         "side": "buy",
-        "pct": 0.32,
-        "rank": 15
+        "pct": 0.19,
+        "rank": 14
       }
     ],
-    "元大-羅東": [
+    "元大-蘆洲": [
       {
-        "stock_code": "2454",
-        "net_vol": -17,
+        "stock_code": "2303",
+        "net_vol": -507,
         "side": "sell",
-        "pct": 0.26,
-        "rank": 15
-      }
-    ],
-    "元大-花蓮": [
-      {
-        "stock_code": "3006",
-        "net_vol": -136,
-        "side": "sell",
-        "pct": 0.7,
-        "rank": 4
-      }
-    ],
-    "元大-草屯": [
-      {
-        "stock_code": "2379",
-        "net_vol": -6,
-        "side": "sell",
-        "pct": 0.2,
-        "rank": 15
-      }
-    ],
-    "元大-西螺": [
-      {
-        "stock_code": "2609",
-        "net_vol": 34,
-        "side": "buy",
-        "pct": 0.34,
-        "rank": 15
-      }
-    ],
-    "元大-鑫永和": [
-      {
-        "stock_code": "2412",
-        "net_vol": -31,
-        "side": "sell",
-        "pct": 0.45,
-        "rank": 13
+        "pct": 0.29,
+        "rank": 8
       }
     ],
     "元大-館前": [
       {
-        "stock_code": "2891",
-        "net_vol": 118,
+        "stock_code": "2454",
+        "net_vol": 27,
         "side": "buy",
-        "pct": 0.73,
-        "rank": 7
+        "pct": 0.46,
+        "rank": 10
       },
       {
-        "stock_code": "2603",
-        "net_vol": -85,
+        "stock_code": "2891",
+        "net_vol": -91,
         "side": "sell",
-        "pct": 1.41,
-        "rank": 7
+        "pct": 0.41,
+        "rank": 11
       }
     ],
-    "元大-龍潭": [
+    "元大-高雄": [
       {
-        "stock_code": "2603",
-        "net_vol": -43,
+        "stock_code": "2615",
+        "net_vol": -231,
         "side": "sell",
-        "pct": 0.71,
-        "rank": 13
-      },
+        "pct": 1.27,
+        "rank": 2
+      }
+    ],
+    "元大-鳳中": [
       {
-        "stock_code": "2618",
-        "net_vol": -352,
+        "stock_code": "2379",
+        "net_vol": -5,
         "side": "sell",
-        "pct": 0.94,
-        "rank": 7
+        "pct": 0.19,
+        "rank": 12
       }
     ],
     "元大證券": [
       {
-        "stock_code": "2330",
-        "net_vol": 291,
-        "side": "buy",
-        "pct": 1.27,
-        "rank": 8
-      },
-      {
         "stock_code": "2317",
-        "net_vol": -1126,
-        "side": "sell",
-        "pct": 2.9,
-        "rank": 4
-      },
-      {
-        "stock_code": "2454",
-        "net_vol": -101,
-        "side": "sell",
-        "pct": 1.53,
+        "net_vol": 825,
+        "side": "buy",
+        "pct": 2.37,
         "rank": 7
       },
       {
         "stock_code": "2308",
-        "net_vol": -316,
-        "side": "sell",
-        "pct": 3.09,
-        "rank": 4
+        "net_vol": 457,
+        "side": "buy",
+        "pct": 4.43,
+        "rank": 5
       },
       {
         "stock_code": "2382",
-        "net_vol": -465,
-        "side": "sell",
-        "pct": 2.65,
-        "rank": 7
-      },
-      {
-        "stock_code": "2891",
-        "net_vol": 855,
+        "net_vol": 1102,
         "side": "buy",
-        "pct": 5.26,
-        "rank": 3
-      },
-      {
-        "stock_code": "2881",
-        "net_vol": 167,
-        "side": "buy",
-        "pct": 1.54,
-        "rank": 8
-      },
-      {
-        "stock_code": "2882",
-        "net_vol": 571,
-        "side": "buy",
-        "pct": 4.11,
-        "rank": 6
-      },
-      {
-        "stock_code": "2303",
-        "net_vol": -9701,
-        "side": "sell",
-        "pct": 5.73,
-        "rank": 3
-      },
-      {
-        "stock_code": "2603",
-        "net_vol": 766,
-        "side": "buy",
-        "pct": 12.71,
-        "rank": 1
-      },
-      {
-        "stock_code": "2615",
-        "net_vol": 628,
-        "side": "buy",
-        "pct": 16.24,
-        "rank": 1
-      },
-      {
-        "stock_code": "2618",
-        "net_vol": 5795,
-        "side": "buy",
-        "pct": 15.49,
+        "pct": 4.84,
         "rank": 2
       },
       {
-        "stock_code": "3037",
-        "net_vol": -783,
+        "stock_code": "2891",
+        "net_vol": 857,
+        "side": "buy",
+        "pct": 3.87,
+        "rank": 5
+      },
+      {
+        "stock_code": "2881",
+        "net_vol": 166,
+        "side": "buy",
+        "pct": 1.59,
+        "rank": 7
+      },
+      {
+        "stock_code": "2882",
+        "net_vol": 315,
+        "side": "buy",
+        "pct": 2.2,
+        "rank": 5
+      },
+      {
+        "stock_code": "2303",
+        "net_vol": 9309,
+        "side": "buy",
+        "pct": 5.3,
+        "rank": 2
+      },
+      {
+        "stock_code": "3711",
+        "net_vol": 253,
+        "side": "buy",
+        "pct": 0.88,
+        "rank": 11
+      },
+      {
+        "stock_code": "2603",
+        "net_vol": 1618,
+        "side": "buy",
+        "pct": 11.05,
+        "rank": 2
+      },
+      {
+        "stock_code": "2609",
+        "net_vol": -201,
         "side": "sell",
-        "pct": 3.63,
+        "pct": 0.85,
+        "rank": 6
+      },
+      {
+        "stock_code": "2615",
+        "net_vol": 503,
+        "side": "buy",
+        "pct": 2.77,
+        "rank": 8
+      },
+      {
+        "stock_code": "2618",
+        "net_vol": 2481,
+        "side": "buy",
+        "pct": 6.15,
         "rank": 1
       },
       {
+        "stock_code": "3037",
+        "net_vol": 215,
+        "side": "buy",
+        "pct": 2.88,
+        "rank": 6
+      },
+      {
         "stock_code": "2345",
-        "net_vol": -237,
+        "net_vol": -60,
         "side": "sell",
-        "pct": 5.61,
-        "rank": 4
+        "pct": 2.13,
+        "rank": 6
       },
       {
         "stock_code": "3006",
-        "net_vol": 104,
+        "net_vol": 281,
         "side": "buy",
-        "pct": 0.53,
+        "pct": 1.22,
         "rank": 7
       },
       {
         "stock_code": "2379",
-        "net_vol": -25,
-        "side": "sell",
-        "pct": 0.85,
-        "rank": 7
+        "net_vol": 51,
+        "side": "buy",
+        "pct": 1.95,
+        "rank": 6
       },
       {
         "stock_code": "3034",
-        "net_vol": -172,
+        "net_vol": -16,
         "side": "sell",
-        "pct": 4.94,
-        "rank": 2
+        "pct": 0.53,
+        "rank": 12
       },
       {
         "stock_code": "2412",
-        "net_vol": 55,
+        "net_vol": 96,
         "side": "buy",
-        "pct": 0.79,
+        "pct": 1.01,
         "rank": 8
       }
     ],
     "凱基": [
       {
         "stock_code": "2330",
-        "net_vol": 581,
-        "side": "buy",
-        "pct": 2.54,
-        "rank": 4
+        "net_vol": -126,
+        "side": "sell",
+        "pct": 0.63,
+        "rank": 8
       },
       {
         "stock_code": "2317",
-        "net_vol": -121,
+        "net_vol": -434,
         "side": "sell",
-        "pct": 0.31,
-        "rank": 15
+        "pct": 1.25,
+        "rank": 4
       },
       {
         "stock_code": "2454",
-        "net_vol": -115,
+        "net_vol": -178,
         "side": "sell",
-        "pct": 1.74,
-        "rank": 5
-      },
-      {
-        "stock_code": "2308",
-        "net_vol": 189,
-        "side": "buy",
-        "pct": 1.85,
-        "rank": 5
+        "pct": 3.03,
+        "rank": 2
       },
       {
         "stock_code": "2382",
-        "net_vol": -156,
-        "side": "sell",
-        "pct": 0.89,
-        "rank": 10
-      },
-      {
-        "stock_code": "2303",
-        "net_vol": -1588,
-        "side": "sell",
-        "pct": 0.94,
-        "rank": 13
-      },
-      {
-        "stock_code": "3037",
-        "net_vol": 64,
+        "net_vol": 132,
         "side": "buy",
-        "pct": 0.3,
-        "rank": 10
+        "pct": 0.58,
+        "rank": 12
       },
       {
-        "stock_code": "2345",
-        "net_vol": -98,
-        "side": "sell",
-        "pct": 2.32,
+        "stock_code": "2891",
+        "net_vol": 312,
+        "side": "buy",
+        "pct": 1.41,
         "rank": 7
       },
       {
-        "stock_code": "2379",
-        "net_vol": 13,
+        "stock_code": "2881",
+        "net_vol": 107,
         "side": "buy",
-        "pct": 0.44,
+        "pct": 1.03,
+        "rank": 8
+      },
+      {
+        "stock_code": "3711",
+        "net_vol": 776,
+        "side": "buy",
+        "pct": 2.71,
+        "rank": 6
+      },
+      {
+        "stock_code": "2618",
+        "net_vol": -234,
+        "side": "sell",
+        "pct": 0.58,
         "rank": 14
       },
       {
-        "stock_code": "3034",
-        "net_vol": -22,
-        "side": "sell",
-        "pct": 0.63,
-        "rank": 9
+        "stock_code": "2345",
+        "net_vol": 151,
+        "side": "buy",
+        "pct": 5.37,
+        "rank": 1
       },
       {
-        "stock_code": "2412",
-        "net_vol": -499,
+        "stock_code": "2379",
+        "net_vol": -98,
         "side": "sell",
-        "pct": 7.21,
+        "pct": 3.75,
         "rank": 3
       }
     ],
-    "凱基-中壢": [
+    "凱基-三多": [
       {
-        "stock_code": "3006",
-        "net_vol": -45,
+        "stock_code": "2330",
+        "net_vol": -244,
         "side": "sell",
-        "pct": 0.23,
-        "rank": 13
+        "pct": 1.22,
+        "rank": 6
       }
     ],
     "凱基-中山": [
       {
-        "stock_code": "2382",
-        "net_vol": -642,
-        "side": "sell",
-        "pct": 3.67,
-        "rank": 5
-      }
-    ],
-    "凱基-中港": [
-      {
-        "stock_code": "2454",
-        "net_vol": 33,
+        "stock_code": "2618",
+        "net_vol": 193,
         "side": "buy",
-        "pct": 0.5,
-        "rank": 9
+        "pct": 0.48,
+        "rank": 11
       }
     ],
     "凱基-信義": [
       {
-        "stock_code": "2330",
-        "net_vol": -48,
+        "stock_code": "2891",
+        "net_vol": -53,
         "side": "sell",
-        "pct": 0.21,
-        "rank": 14
+        "pct": 0.24,
+        "rank": 15
+      }
+    ],
+    "凱基-八德": [
+      {
+        "stock_code": "2891",
+        "net_vol": 76,
+        "side": "buy",
+        "pct": 0.34,
+        "rank": 11
       }
     ],
     "凱基-台中": [
       {
-        "stock_code": "3711",
-        "net_vol": -35,
+        "stock_code": "2379",
+        "net_vol": -4,
         "side": "sell",
-        "pct": 0.27,
-        "rank": 10
+        "pct": 0.15,
+        "rank": 13
       }
     ],
     "凱基-台北": [
       {
         "stock_code": "2330",
-        "net_vol": 114,
+        "net_vol": 795,
         "side": "buy",
-        "pct": 0.5,
-        "rank": 14
-      },
-      {
-        "stock_code": "2317",
-        "net_vol": 813,
-        "side": "buy",
-        "pct": 2.09,
-        "rank": 2
-      },
-      {
-        "stock_code": "2454",
-        "net_vol": -170,
-        "side": "sell",
-        "pct": 2.57,
+        "pct": 3.96,
         "rank": 4
       },
       {
-        "stock_code": "2308",
-        "net_vol": -239,
-        "side": "sell",
-        "pct": 2.34,
-        "rank": 5
-      },
-      {
-        "stock_code": "2382",
-        "net_vol": -364,
-        "side": "sell",
-        "pct": 2.08,
+        "stock_code": "2317",
+        "net_vol": 465,
+        "side": "buy",
+        "pct": 1.33,
         "rank": 8
       },
       {
+        "stock_code": "2454",
+        "net_vol": 25,
+        "side": "buy",
+        "pct": 0.43,
+        "rank": 11
+      },
+      {
+        "stock_code": "2382",
+        "net_vol": 570,
+        "side": "buy",
+        "pct": 2.5,
+        "rank": 5
+      },
+      {
         "stock_code": "2891",
-        "net_vol": -864,
+        "net_vol": -1010,
         "side": "sell",
-        "pct": 5.31,
+        "pct": 4.56,
         "rank": 4
       },
       {
         "stock_code": "2881",
-        "net_vol": 1046,
+        "net_vol": 564,
         "side": "buy",
-        "pct": 9.66,
-        "rank": 2
+        "pct": 5.42,
+        "rank": 4
       },
       {
         "stock_code": "2882",
-        "net_vol": 179,
+        "net_vol": 163,
         "side": "buy",
-        "pct": 1.29,
+        "pct": 1.14,
         "rank": 8
       },
       {
         "stock_code": "2303",
-        "net_vol": -2584,
-        "side": "sell",
-        "pct": 1.53,
-        "rank": 10
+        "net_vol": 3058,
+        "side": "buy",
+        "pct": 1.74,
+        "rank": 6
       },
       {
         "stock_code": "3711",
-        "net_vol": -29,
-        "side": "sell",
-        "pct": 0.22,
-        "rank": 12
+        "net_vol": 209,
+        "side": "buy",
+        "pct": 0.73,
+        "rank": 13
       },
       {
         "stock_code": "2603",
-        "net_vol": 349,
+        "net_vol": 1384,
         "side": "buy",
-        "pct": 5.79,
-        "rank": 8
-      },
-      {
-        "stock_code": "2609",
-        "net_vol": 841,
-        "side": "buy",
-        "pct": 8.49,
-        "rank": 1
-      },
-      {
-        "stock_code": "2615",
-        "net_vol": -126,
-        "side": "sell",
-        "pct": 3.26,
-        "rank": 1
-      },
-      {
-        "stock_code": "2618",
-        "net_vol": 971,
-        "side": "buy",
-        "pct": 2.59,
-        "rank": 8
-      },
-      {
-        "stock_code": "2345",
-        "net_vol": 38,
-        "side": "buy",
-        "pct": 0.9,
-        "rank": 9
-      },
-      {
-        "stock_code": "3006",
-        "net_vol": 157,
-        "side": "buy",
-        "pct": 0.81,
+        "pct": 9.46,
         "rank": 4
       },
       {
-        "stock_code": "2379",
-        "net_vol": -19,
-        "side": "sell",
-        "pct": 0.64,
-        "rank": 10
+        "stock_code": "2609",
+        "net_vol": 578,
+        "side": "buy",
+        "pct": 2.44,
+        "rank": 6
       },
       {
-        "stock_code": "3034",
-        "net_vol": 250,
+        "stock_code": "2615",
+        "net_vol": 1372,
         "side": "buy",
-        "pct": 7.18,
+        "pct": 7.55,
+        "rank": 4
+      },
+      {
+        "stock_code": "3037",
+        "net_vol": 257,
+        "side": "buy",
+        "pct": 3.44,
+        "rank": 5
+      },
+      {
+        "stock_code": "3006",
+        "net_vol": 679,
+        "side": "buy",
+        "pct": 2.94,
         "rank": 3
       },
       {
-        "stock_code": "2412",
-        "net_vol": 114,
+        "stock_code": "2379",
+        "net_vol": 52,
         "side": "buy",
-        "pct": 1.65,
+        "pct": 1.99,
         "rank": 5
-      }
-    ],
-    "凱基-台南": [
+      },
       {
-        "stock_code": "2615",
-        "net_vol": 16,
+        "stock_code": "3034",
+        "net_vol": 64,
         "side": "buy",
-        "pct": 0.41,
-        "rank": 14
-      }
-    ],
-    "凱基-台東": [
+        "pct": 2.13,
+        "rank": 6
+      },
       {
-        "stock_code": "2882",
-        "net_vol": 21,
+        "stock_code": "2412",
+        "net_vol": 352,
         "side": "buy",
-        "pct": 0.15,
-        "rank": 13
+        "pct": 3.69,
+        "rank": 2
       }
     ],
-    "凱基-和平": [
+    "凱基-城中": [
       {
-        "stock_code": "2881",
-        "net_vol": -28,
+        "stock_code": "2308",
+        "net_vol": 142,
+        "side": "buy",
+        "pct": 1.38,
+        "rank": 11
+      },
+      {
+        "stock_code": "2303",
+        "net_vol": -419,
         "side": "sell",
-        "pct": 0.26,
-        "rank": 15
+        "pct": 0.24,
+        "rank": 11
+      },
+      {
+        "stock_code": "3037",
+        "net_vol": 47,
+        "side": "buy",
+        "pct": 0.63,
+        "rank": 10
       }
     ],
     "凱基-士林": [
       {
-        "stock_code": "2882",
-        "net_vol": 28,
+        "stock_code": "2881",
+        "net_vol": 50,
         "side": "buy",
-        "pct": 0.2,
+        "pct": 0.48,
         "rank": 12
       }
     ],
-    "凱基-大直": [
+    "凱基-宜蘭": [
       {
-        "stock_code": "2382",
-        "net_vol": 154,
+        "stock_code": "3037",
+        "net_vol": 28,
         "side": "buy",
-        "pct": 0.88,
-        "rank": 8
+        "pct": 0.38,
+        "rank": 15
       }
     ],
     "凱基-市府": [
       {
-        "stock_code": "2454",
-        "net_vol": 54,
-        "side": "buy",
-        "pct": 0.82,
-        "rank": 5
+        "stock_code": "2317",
+        "net_vol": -188,
+        "side": "sell",
+        "pct": 0.54,
+        "rank": 10
       },
       {
+        "stock_code": "2303",
+        "net_vol": 1456,
+        "side": "buy",
+        "pct": 0.83,
+        "rank": 10
+      }
+    ],
+    "凱基-市政": [
+      {
         "stock_code": "2615",
-        "net_vol": -27,
+        "net_vol": 97,
+        "side": "buy",
+        "pct": 0.53,
+        "rank": 15
+      }
+    ],
+    "凱基-新店": [
+      {
+        "stock_code": "2317",
+        "net_vol": 101,
+        "side": "buy",
+        "pct": 0.29,
+        "rank": 15
+      },
+      {
+        "stock_code": "3034",
+        "net_vol": 10,
+        "side": "buy",
+        "pct": 0.33,
+        "rank": 11
+      }
+    ],
+    "凱基-東港": [
+      {
+        "stock_code": "3037",
+        "net_vol": -43,
         "side": "sell",
-        "pct": 0.7,
-        "rank": 13
+        "pct": 0.58,
+        "rank": 12
       }
     ],
     "凱基-松山": [
       {
-        "stock_code": "2308",
-        "net_vol": -20,
+        "stock_code": "2615",
+        "net_vol": -131,
         "side": "sell",
-        "pct": 0.2,
-        "rank": 15
+        "pct": 0.72,
+        "rank": 9
       }
     ],
-    "凱基-湖口": [
+    "凱基-桃園": [
       {
-        "stock_code": "3006",
-        "net_vol": 62,
-        "side": "buy",
-        "pct": 0.32,
-        "rank": 10
+        "stock_code": "2891",
+        "net_vol": -77,
+        "side": "sell",
+        "pct": 0.35,
+        "rank": 12
       }
     ],
     "凱基-站前": [
       {
-        "stock_code": "2330",
-        "net_vol": -82,
-        "side": "sell",
-        "pct": 0.36,
-        "rank": 10
-      },
-      {
-        "stock_code": "2891",
-        "net_vol": -99,
-        "side": "sell",
-        "pct": 0.61,
-        "rank": 9
+        "stock_code": "2618",
+        "net_vol": 324,
+        "side": "buy",
+        "pct": 0.8,
+        "rank": 6
       },
       {
         "stock_code": "3037",
-        "net_vol": -34,
-        "side": "sell",
-        "pct": 0.16,
-        "rank": 13
-      },
-      {
-        "stock_code": "2345",
-        "net_vol": 19,
+        "net_vol": 43,
         "side": "buy",
-        "pct": 0.45,
+        "pct": 0.58,
         "rank": 12
-      },
-      {
-        "stock_code": "3034",
-        "net_vol": -15,
-        "side": "sell",
-        "pct": 0.43,
-        "rank": 14
       }
     ],
-    "凱基-興隆": [
+    "凱基-竹科": [
       {
-        "stock_code": "2345",
-        "net_vol": -26,
-        "side": "sell",
-        "pct": 0.62,
-        "rank": 14
-      }
-    ],
-    "凱基-虎尾": [
-      {
-        "stock_code": "2317",
-        "net_vol": -432,
-        "side": "sell",
-        "pct": 1.11,
+        "stock_code": "2454",
+        "net_vol": 29,
+        "side": "buy",
+        "pct": 0.49,
         "rank": 9
       },
       {
-        "stock_code": "3711",
-        "net_vol": 44,
+        "stock_code": "2382",
+        "net_vol": -76,
+        "side": "sell",
+        "pct": 0.33,
+        "rank": 14
+      }
+    ],
+    "凱基-高美館": [
+      {
+        "stock_code": "2330",
+        "net_vol": 68,
         "side": "buy",
         "pct": 0.34,
-        "rank": 13
+        "rank": 15
+      },
+      {
+        "stock_code": "2303",
+        "net_vol": -451,
+        "side": "sell",
+        "pct": 0.26,
+        "rank": 10
       }
     ],
     "凱基-高雄": [
       {
         "stock_code": "2882",
-        "net_vol": -246,
-        "side": "sell",
-        "pct": 1.77,
-        "rank": 6
-      }
-    ],
-    "台灣摩根士丹利": [
-      {
-        "stock_code": "2330",
-        "net_vol": -2205,
-        "side": "sell",
-        "pct": 9.64,
-        "rank": 1
-      },
-      {
-        "stock_code": "2317",
-        "net_vol": -1134,
-        "side": "sell",
-        "pct": 2.92,
-        "rank": 3
-      },
-      {
-        "stock_code": "2454",
-        "net_vol": 123,
-        "side": "buy",
-        "pct": 1.86,
-        "rank": 4
-      },
-      {
-        "stock_code": "2308",
-        "net_vol": -94,
-        "side": "sell",
-        "pct": 0.92,
-        "rank": 9
-      },
-      {
-        "stock_code": "2382",
-        "net_vol": -2077,
-        "side": "sell",
-        "pct": 11.86,
-        "rank": 1
-      },
-      {
-        "stock_code": "2891",
-        "net_vol": 2163,
-        "side": "buy",
-        "pct": 13.3,
-        "rank": 1
-      },
-      {
-        "stock_code": "2881",
-        "net_vol": -323,
-        "side": "sell",
-        "pct": 2.98,
-        "rank": 4
-      },
-      {
-        "stock_code": "2882",
-        "net_vol": -1763,
-        "side": "sell",
-        "pct": 12.7,
-        "rank": 1
-      },
-      {
-        "stock_code": "2303",
-        "net_vol": -7661,
-        "side": "sell",
-        "pct": 4.52,
-        "rank": 4
-      },
-      {
-        "stock_code": "3711",
-        "net_vol": -278,
-        "side": "sell",
-        "pct": 2.13,
-        "rank": 5
-      },
-      {
-        "stock_code": "2603",
-        "net_vol": 387,
-        "side": "buy",
-        "pct": 6.42,
-        "rank": 6
-      },
-      {
-        "stock_code": "2609",
-        "net_vol": 177,
-        "side": "buy",
-        "pct": 1.79,
-        "rank": 6
-      },
-      {
-        "stock_code": "2615",
-        "net_vol": -26,
-        "side": "sell",
-        "pct": 0.67,
-        "rank": 14
-      },
-      {
-        "stock_code": "2618",
-        "net_vol": 5950,
-        "side": "buy",
-        "pct": 15.9,
-        "rank": 1
-      },
-      {
-        "stock_code": "3037",
-        "net_vol": -486,
-        "side": "sell",
-        "pct": 2.25,
-        "rank": 3
-      },
-      {
-        "stock_code": "2345",
-        "net_vol": -296,
-        "side": "sell",
-        "pct": 7.0,
-        "rank": 3
-      },
-      {
-        "stock_code": "3006",
-        "net_vol": 1848,
-        "side": "buy",
-        "pct": 9.48,
-        "rank": 1
-      },
-      {
-        "stock_code": "2379",
-        "net_vol": 371,
-        "side": "buy",
-        "pct": 12.55,
-        "rank": 1
-      },
-      {
-        "stock_code": "3034",
-        "net_vol": 302,
-        "side": "buy",
-        "pct": 8.67,
-        "rank": 2
-      },
-      {
-        "stock_code": "2412",
-        "net_vol": -126,
-        "side": "sell",
-        "pct": 1.82,
-        "rank": 6
-      }
-    ],
-    "大和國泰": [
-      {
-        "stock_code": "2330",
-        "net_vol": -1997,
-        "side": "sell",
-        "pct": 8.73,
-        "rank": 2
-      },
-      {
-        "stock_code": "2454",
-        "net_vol": -32,
-        "side": "sell",
-        "pct": 0.48,
-        "rank": 12
-      },
-      {
-        "stock_code": "2308",
-        "net_vol": -508,
-        "side": "sell",
-        "pct": 4.96,
-        "rank": 2
-      },
-      {
-        "stock_code": "2891",
-        "net_vol": -113,
-        "side": "sell",
-        "pct": 0.69,
-        "rank": 8
-      },
-      {
-        "stock_code": "2881",
-        "net_vol": -125,
-        "side": "sell",
-        "pct": 1.15,
-        "rank": 6
-      },
-      {
-        "stock_code": "2303",
-        "net_vol": -2070,
-        "side": "sell",
-        "pct": 1.22,
-        "rank": 11
-      }
-    ],
-    "富邦-中壢": [
-      {
-        "stock_code": "2891",
-        "net_vol": -92,
+        "net_vol": -81,
         "side": "sell",
         "pct": 0.57,
         "rank": 10
       },
       {
-        "stock_code": "3006",
-        "net_vol": 99,
+        "stock_code": "2618",
+        "net_vol": -816,
+        "side": "sell",
+        "pct": 2.02,
+        "rank": 4
+      }
+    ],
+    "凱基-鳳山": [
+      {
+        "stock_code": "2454",
+        "net_vol": 13,
         "side": "buy",
-        "pct": 0.51,
+        "pct": 0.22,
+        "rank": 15
+      }
+    ],
+    "台灣摩根士丹利": [
+      {
+        "stock_code": "2330",
+        "net_vol": -2147,
+        "side": "sell",
+        "pct": 10.7,
+        "rank": 1
+      },
+      {
+        "stock_code": "2317",
+        "net_vol": -1130,
+        "side": "sell",
+        "pct": 3.24,
+        "rank": 1
+      },
+      {
+        "stock_code": "2454",
+        "net_vol": 227,
+        "side": "buy",
+        "pct": 3.87,
+        "rank": 4
+      },
+      {
+        "stock_code": "2308",
+        "net_vol": 411,
+        "side": "buy",
+        "pct": 3.98,
+        "rank": 7
+      },
+      {
+        "stock_code": "2891",
+        "net_vol": 1632,
+        "side": "buy",
+        "pct": 7.36,
+        "rank": 4
+      },
+      {
+        "stock_code": "2881",
+        "net_vol": -751,
+        "side": "sell",
+        "pct": 7.21,
+        "rank": 2
+      },
+      {
+        "stock_code": "2882",
+        "net_vol": 247,
+        "side": "buy",
+        "pct": 1.72,
+        "rank": 6
+      },
+      {
+        "stock_code": "2303",
+        "net_vol": 11558,
+        "side": "buy",
+        "pct": 6.58,
+        "rank": 1
+      },
+      {
+        "stock_code": "3711",
+        "net_vol": 751,
+        "side": "buy",
+        "pct": 2.62,
+        "rank": 7
+      },
+      {
+        "stock_code": "2603",
+        "net_vol": 2723,
+        "side": "buy",
+        "pct": 18.6,
+        "rank": 1
+      },
+      {
+        "stock_code": "2609",
+        "net_vol": 3201,
+        "side": "buy",
+        "pct": 13.52,
+        "rank": 2
+      },
+      {
+        "stock_code": "2615",
+        "net_vol": 2320,
+        "side": "buy",
+        "pct": 12.77,
+        "rank": 2
+      },
+      {
+        "stock_code": "3037",
+        "net_vol": 1042,
+        "side": "buy",
+        "pct": 13.96,
+        "rank": 2
+      },
+      {
+        "stock_code": "2345",
+        "net_vol": -35,
+        "side": "sell",
+        "pct": 1.25,
+        "rank": 13
+      },
+      {
+        "stock_code": "3006",
+        "net_vol": 348,
+        "side": "buy",
+        "pct": 1.51,
+        "rank": 5
+      },
+      {
+        "stock_code": "2379",
+        "net_vol": 159,
+        "side": "buy",
+        "pct": 6.08,
+        "rank": 2
+      },
+      {
+        "stock_code": "3034",
+        "net_vol": 122,
+        "side": "buy",
+        "pct": 4.06,
+        "rank": 4
+      }
+    ],
+    "大和國泰": [
+      {
+        "stock_code": "2308",
+        "net_vol": 253,
+        "side": "buy",
+        "pct": 2.45,
+        "rank": 8
+      },
+      {
+        "stock_code": "2882",
+        "net_vol": 66,
+        "side": "buy",
+        "pct": 0.46,
+        "rank": 11
+      },
+      {
+        "stock_code": "2345",
+        "net_vol": 17,
+        "side": "buy",
+        "pct": 0.6,
         "rank": 8
       }
     ],
     "富邦-仁愛": [
       {
         "stock_code": "2317",
-        "net_vol": 108,
-        "side": "buy",
-        "pct": 0.28,
-        "rank": 14
-      },
-      {
-        "stock_code": "2308",
-        "net_vol": -39,
+        "net_vol": -342,
         "side": "sell",
-        "pct": 0.38,
-        "rank": 11
+        "pct": 0.98,
+        "rank": 7
       },
       {
-        "stock_code": "2303",
-        "net_vol": 403,
-        "side": "buy",
-        "pct": 0.24,
-        "rank": 11
+        "stock_code": "2382",
+        "net_vol": -140,
+        "side": "sell",
+        "pct": 0.62,
+        "rank": 8
+      },
+      {
+        "stock_code": "3037",
+        "net_vol": -57,
+        "side": "sell",
+        "pct": 0.76,
+        "rank": 6
       }
     ],
     "富邦-南京": [
       {
-        "stock_code": "2382",
-        "net_vol": 161,
-        "side": "buy",
-        "pct": 0.92,
-        "rank": 6
-      },
-      {
-        "stock_code": "2609",
-        "net_vol": 410,
-        "side": "buy",
-        "pct": 4.14,
-        "rank": 3
+        "stock_code": "2891",
+        "net_vol": -111,
+        "side": "sell",
+        "pct": 0.5,
+        "rank": 8
       }
     ],
-    "富邦-台中": [
+    "富邦-南員林": [
       {
-        "stock_code": "2603",
-        "net_vol": 23,
+        "stock_code": "2412",
+        "net_vol": -39,
+        "side": "sell",
+        "pct": 0.41,
+        "rank": 12
+      }
+    ],
+    "富邦-南港": [
+      {
+        "stock_code": "2618",
+        "net_vol": 308,
         "side": "buy",
-        "pct": 0.38,
-        "rank": 13
+        "pct": 0.76,
+        "rank": 7
       }
     ],
     "富邦-台北": [
       {
+        "stock_code": "2317",
+        "net_vol": -172,
+        "side": "sell",
+        "pct": 0.49,
+        "rank": 12
+      },
+      {
         "stock_code": "2454",
-        "net_vol": 20,
+        "net_vol": 14,
         "side": "buy",
-        "pct": 0.3,
-        "rank": 13
+        "pct": 0.24,
+        "rank": 14
+      },
+      {
+        "stock_code": "2308",
+        "net_vol": -56,
+        "side": "sell",
+        "pct": 0.54,
+        "rank": 9
       },
       {
         "stock_code": "2882",
-        "net_vol": -135,
-        "side": "sell",
-        "pct": 0.97,
-        "rank": 8
-      },
-      {
-        "stock_code": "2303",
-        "net_vol": 496,
+        "net_vol": 80,
         "side": "buy",
-        "pct": 0.29,
+        "pct": 0.56,
         "rank": 10
       },
       {
-        "stock_code": "3711",
-        "net_vol": 37,
+        "stock_code": "2345",
+        "net_vol": 24,
         "side": "buy",
-        "pct": 0.28,
-        "rank": 15
-      },
-      {
-        "stock_code": "2615",
-        "net_vol": -109,
-        "side": "sell",
-        "pct": 2.82,
-        "rank": 2
-      },
-      {
-        "stock_code": "3037",
-        "net_vol": 46,
-        "side": "buy",
-        "pct": 0.21,
-        "rank": 11
-      },
-      {
-        "stock_code": "3034",
-        "net_vol": -12,
-        "side": "sell",
-        "pct": 0.34,
-        "rank": 15
+        "pct": 0.85,
+        "rank": 6
       }
     ],
     "富邦-嘉義": [
       {
         "stock_code": "2454",
-        "net_vol": 35,
-        "side": "buy",
-        "pct": 0.53,
-        "rank": 8
+        "net_vol": -30,
+        "side": "sell",
+        "pct": 0.51,
+        "rank": 12
       },
       {
-        "stock_code": "2618",
-        "net_vol": 176,
+        "stock_code": "2882",
+        "net_vol": 31,
         "side": "buy",
-        "pct": 0.47,
-        "rank": 11
+        "pct": 0.22,
+        "rank": 14
       }
     ],
-    "富邦-宜蘭": [
+    "富邦-屏東": [
       {
-        "stock_code": "2882",
-        "net_vol": -132,
+        "stock_code": "2618",
+        "net_vol": -247,
         "side": "sell",
-        "pct": 0.95,
-        "rank": 9
+        "pct": 0.61,
+        "rank": 12
+      }
+    ],
+    "富邦-建國": [
+      {
+        "stock_code": "2303",
+        "net_vol": 674,
+        "side": "buy",
+        "pct": 0.38,
+        "rank": 14
+      },
+      {
+        "stock_code": "3034",
+        "net_vol": 87,
+        "side": "buy",
+        "pct": 2.9,
+        "rank": 5
       }
     ],
     "富邦-彰化": [
       {
+        "stock_code": "2603",
+        "net_vol": 116,
+        "side": "buy",
+        "pct": 0.79,
+        "rank": 9
+      },
+      {
         "stock_code": "2379",
-        "net_vol": -38,
+        "net_vol": -13,
         "side": "sell",
-        "pct": 1.29,
-        "rank": 5
+        "pct": 0.5,
+        "rank": 7
       }
     ],
     "富邦-新店": [
       {
-        "stock_code": "3037",
-        "net_vol": -52,
+        "stock_code": "2308",
+        "net_vol": -41,
         "side": "sell",
-        "pct": 0.24,
-        "rank": 10
+        "pct": 0.4,
+        "rank": 12
+      },
+      {
+        "stock_code": "2891",
+        "net_vol": -66,
+        "side": "sell",
+        "pct": 0.3,
+        "rank": 13
       }
     ],
     "富邦-新板": [
       {
-        "stock_code": "2412",
-        "net_vol": 38,
+        "stock_code": "2881",
+        "net_vol": 194,
         "side": "buy",
-        "pct": 0.55,
-        "rank": 11
-      }
-    ],
-    "富邦-新竹": [
+        "pct": 1.86,
+        "rank": 6
+      },
       {
-        "stock_code": "2618",
-        "net_vol": -608,
-        "side": "sell",
-        "pct": 1.62,
-        "rank": 2
-      }
-    ],
-    "富邦-木柵": [
+        "stock_code": "2882",
+        "net_vol": 124,
+        "side": "buy",
+        "pct": 0.86,
+        "rank": 9
+      },
       {
-        "stock_code": "2615",
-        "net_vol": -45,
+        "stock_code": "2609",
+        "net_vol": -166,
         "side": "sell",
-        "pct": 1.16,
+        "pct": 0.7,
         "rank": 9
       }
     ],
     "富邦-板橋": [
       {
         "stock_code": "2882",
-        "net_vol": 37,
-        "side": "buy",
-        "pct": 0.27,
-        "rank": 10
+        "net_vol": -52,
+        "side": "sell",
+        "pct": 0.36,
+        "rank": 15
       },
       {
-        "stock_code": "3006",
-        "net_vol": -46,
+        "stock_code": "2609",
+        "net_vol": -133,
         "side": "sell",
-        "pct": 0.24,
+        "pct": 0.56,
         "rank": 12
       }
     ],
     "富邦-桃園": [
       {
-        "stock_code": "3037",
-        "net_vol": 45,
+        "stock_code": "2330",
+        "net_vol": -84,
+        "side": "sell",
+        "pct": 0.42,
+        "rank": 11
+      },
+      {
+        "stock_code": "2609",
+        "net_vol": -236,
+        "side": "sell",
+        "pct": 1.0,
+        "rank": 5
+      }
+    ],
+    "富邦-永和": [
+      {
+        "stock_code": "2379",
+        "net_vol": 11,
         "side": "buy",
-        "pct": 0.21,
+        "pct": 0.42,
         "rank": 12
       }
     ],
-    "富邦-花蓮": [
+    "富邦-竹北": [
       {
-        "stock_code": "2618",
-        "net_vol": -235,
+        "stock_code": "2345",
+        "net_vol": 13,
+        "side": "buy",
+        "pct": 0.46,
+        "rank": 11
+      }
+    ],
+    "富邦-竹東": [
+      {
+        "stock_code": "2412",
+        "net_vol": -18,
         "side": "sell",
-        "pct": 0.63,
+        "pct": 0.19,
         "rank": 15
+      }
+    ],
+    "富邦-羅東": [
+      {
+        "stock_code": "2412",
+        "net_vol": 361,
+        "side": "buy",
+        "pct": 3.78,
+        "rank": 1
       }
     ],
     "富邦-陽明": [
       {
-        "stock_code": "2303",
-        "net_vol": 355,
-        "side": "buy",
-        "pct": 0.21,
-        "rank": 14
-      },
-      {
-        "stock_code": "2345",
-        "net_vol": 14,
-        "side": "buy",
-        "pct": 0.33,
-        "rank": 15
+        "stock_code": "3006",
+        "net_vol": -208,
+        "side": "sell",
+        "pct": 0.9,
+        "rank": 4
       }
     ],
-    "富邦-頭份": [
+    "富邦-青埔": [
       {
-        "stock_code": "2317",
-        "net_vol": 195,
+        "stock_code": "2379",
+        "net_vol": 8,
         "side": "buy",
-        "pct": 0.5,
-        "rank": 10
+        "pct": 0.31,
+        "rank": 14
+      }
+    ],
+    "富邦-高雄": [
+      {
+        "stock_code": "3006",
+        "net_vol": -83,
+        "side": "sell",
+        "pct": 0.36,
+        "rank": 11
       }
     ],
     "富邦證券": [
       {
         "stock_code": "2330",
-        "net_vol": -260,
+        "net_vol": -523,
         "side": "sell",
-        "pct": 1.14,
-        "rank": 6
+        "pct": 2.61,
+        "rank": 5
       },
       {
-        "stock_code": "2317",
-        "net_vol": -1436,
-        "side": "sell",
-        "pct": 3.7,
-        "rank": 2
+        "stock_code": "2454",
+        "net_vol": 284,
+        "side": "buy",
+        "pct": 4.84,
+        "rank": 3
       },
       {
         "stock_code": "2308",
-        "net_vol": 38,
+        "net_vol": 807,
         "side": "buy",
-        "pct": 0.37,
-        "rank": 9
+        "pct": 7.82,
+        "rank": 1
       },
       {
         "stock_code": "2382",
-        "net_vol": 1116,
+        "net_vol": 830,
         "side": "buy",
-        "pct": 6.37,
-        "rank": 1
+        "pct": 3.65,
+        "rank": 4
       },
       {
         "stock_code": "2891",
-        "net_vol": -1495,
-        "side": "sell",
-        "pct": 9.19,
-        "rank": 1
-      },
-      {
-        "stock_code": "2881",
-        "net_vol": 164,
+        "net_vol": 458,
         "side": "buy",
-        "pct": 1.51,
-        "rank": 9
+        "pct": 2.07,
+        "rank": 6
       },
       {
         "stock_code": "2882",
-        "net_vol": 3104,
-        "side": "buy",
-        "pct": 22.36,
+        "net_vol": -937,
+        "side": "sell",
+        "pct": 6.54,
         "rank": 1
       },
       {
-        "stock_code": "2303",
-        "net_vol": -4844,
-        "side": "sell",
-        "pct": 2.86,
-        "rank": 5
+        "stock_code": "3711",
+        "net_vol": 1215,
+        "side": "buy",
+        "pct": 4.24,
+        "rank": 2
       },
       {
-        "stock_code": "3711",
-        "net_vol": 92,
-        "side": "buy",
-        "pct": 0.7,
-        "rank": 4
+        "stock_code": "2603",
+        "net_vol": -283,
+        "side": "sell",
+        "pct": 1.93,
+        "rank": 2
       },
       {
         "stock_code": "2609",
-        "net_vol": 343,
+        "net_vol": 120,
         "side": "buy",
-        "pct": 3.46,
-        "rank": 4
-      },
-      {
-        "stock_code": "2615",
-        "net_vol": 110,
-        "side": "buy",
-        "pct": 2.84,
-        "rank": 3
-      },
-      {
-        "stock_code": "2618",
-        "net_vol": 2080,
-        "side": "buy",
-        "pct": 5.56,
-        "rank": 5
-      },
-      {
-        "stock_code": "2345",
-        "net_vol": -82,
-        "side": "sell",
-        "pct": 1.94,
+        "pct": 0.51,
         "rank": 9
       },
       {
-        "stock_code": "3006",
-        "net_vol": -266,
+        "stock_code": "2615",
+        "net_vol": -117,
         "side": "sell",
-        "pct": 1.36,
-        "rank": 3
+        "pct": 0.64,
+        "rank": 15
+      },
+      {
+        "stock_code": "2618",
+        "net_vol": -5946,
+        "side": "sell",
+        "pct": 14.73,
+        "rank": 1
+      },
+      {
+        "stock_code": "3037",
+        "net_vol": 52,
+        "side": "buy",
+        "pct": 0.7,
+        "rank": 9
       },
       {
         "stock_code": "2379",
-        "net_vol": 192,
+        "net_vol": 120,
         "side": "buy",
-        "pct": 6.49,
+        "pct": 4.59,
         "rank": 3
-      },
-      {
-        "stock_code": "3034",
-        "net_vol": 125,
-        "side": "buy",
-        "pct": 3.59,
-        "rank": 4
       }
     ],
     "摩根大通": [
       {
         "stock_code": "2330",
-        "net_vol": 2140,
+        "net_vol": 1657,
         "side": "buy",
-        "pct": 9.36,
-        "rank": 1
+        "pct": 8.26,
+        "rank": 3
       },
       {
         "stock_code": "2317",
-        "net_vol": -938,
-        "side": "sell",
-        "pct": 2.42,
-        "rank": 7
+        "net_vol": 3580,
+        "side": "buy",
+        "pct": 10.27,
+        "rank": 1
       },
       {
         "stock_code": "2454",
-        "net_vol": -312,
+        "net_vol": -225,
         "side": "sell",
-        "pct": 4.72,
+        "pct": 3.83,
         "rank": 1
       },
       {
         "stock_code": "2308",
-        "net_vol": 358,
+        "net_vol": 246,
         "side": "buy",
-        "pct": 3.5,
-        "rank": 2
+        "pct": 2.38,
+        "rank": 9
       },
       {
         "stock_code": "2382",
-        "net_vol": -1445,
+        "net_vol": -570,
         "side": "sell",
-        "pct": 8.25,
+        "pct": 2.5,
         "rank": 3
       },
       {
         "stock_code": "2891",
-        "net_vol": 2127,
-        "side": "buy",
-        "pct": 13.08,
-        "rank": 2
+        "net_vol": -996,
+        "side": "sell",
+        "pct": 4.49,
+        "rank": 5
       },
       {
         "stock_code": "2881",
-        "net_vol": 1953,
-        "side": "buy",
-        "pct": 18.04,
-        "rank": 1
+        "net_vol": -48,
+        "side": "sell",
+        "pct": 0.46,
+        "rank": 15
       },
       {
         "stock_code": "2882",
-        "net_vol": 686,
-        "side": "buy",
-        "pct": 4.94,
-        "rank": 4
+        "net_vol": -416,
+        "side": "sell",
+        "pct": 2.9,
+        "rank": 3
       },
       {
         "stock_code": "2303",
-        "net_vol": -12187,
+        "net_vol": -3004,
         "side": "sell",
-        "pct": 7.2,
-        "rank": 2
+        "pct": 1.71,
+        "rank": 3
       },
       {
         "stock_code": "3711",
-        "net_vol": -836,
+        "net_vol": -945,
         "side": "sell",
-        "pct": 6.41,
-        "rank": 2
+        "pct": 3.29,
+        "rank": 1
       },
       {
         "stock_code": "2603",
-        "net_vol": 366,
+        "net_vol": 1432,
         "side": "buy",
-        "pct": 6.07,
-        "rank": 7
+        "pct": 9.78,
+        "rank": 3
       },
       {
         "stock_code": "2609",
-        "net_vol": 531,
+        "net_vol": 1611,
         "side": "buy",
-        "pct": 5.36,
-        "rank": 2
+        "pct": 6.8,
+        "rank": 3
       },
       {
         "stock_code": "2615",
-        "net_vol": 299,
+        "net_vol": 1684,
         "side": "buy",
-        "pct": 7.73,
+        "pct": 9.27,
+        "rank": 3
+      },
+      {
+        "stock_code": "2618",
+        "net_vol": -3030,
+        "side": "sell",
+        "pct": 7.51,
         "rank": 2
       },
       {
         "stock_code": "3037",
-        "net_vol": 185,
+        "net_vol": 1289,
         "side": "buy",
-        "pct": 0.86,
-        "rank": 3
+        "pct": 17.27,
+        "rank": 1
       },
       {
         "stock_code": "2345",
-        "net_vol": -319,
+        "net_vol": -166,
         "side": "sell",
-        "pct": 7.55,
-        "rank": 2
+        "pct": 5.91,
+        "rank": 1
       },
       {
         "stock_code": "3006",
-        "net_vol": -355,
-        "side": "sell",
-        "pct": 1.82,
+        "net_vol": 756,
+        "side": "buy",
+        "pct": 3.28,
         "rank": 2
       },
       {
         "stock_code": "2379",
-        "net_vol": -598,
+        "net_vol": -350,
         "side": "sell",
-        "pct": 20.22,
-        "rank": 1
+        "pct": 13.39,
+        "rank": 2
       },
       {
         "stock_code": "3034",
-        "net_vol": 81,
+        "net_vol": 24,
         "side": "buy",
-        "pct": 2.32,
-        "rank": 5
+        "pct": 0.8,
+        "rank": 9
       },
       {
         "stock_code": "2412",
-        "net_vol": 603,
-        "side": "buy",
-        "pct": 8.71,
-        "rank": 2
+        "net_vol": -1644,
+        "side": "sell",
+        "pct": 17.23,
+        "rank": 1
       }
     ],
     "新加坡商瑞銀": [
       {
         "stock_code": "2330",
-        "net_vol": 636,
+        "net_vol": 1787,
         "side": "buy",
-        "pct": 2.78,
-        "rank": 3
+        "pct": 8.91,
+        "rank": 2
       },
       {
         "stock_code": "2317",
-        "net_vol": -1693,
-        "side": "sell",
-        "pct": 4.36,
-        "rank": 1
+        "net_vol": 2818,
+        "side": "buy",
+        "pct": 8.09,
+        "rank": 2
       },
       {
         "stock_code": "2454",
-        "net_vol": -269,
+        "net_vol": -53,
         "side": "sell",
-        "pct": 4.07,
-        "rank": 3
+        "pct": 0.9,
+        "rank": 7
       },
       {
         "stock_code": "2308",
-        "net_vol": -492,
-        "side": "sell",
-        "pct": 4.81,
-        "rank": 3
+        "net_vol": 569,
+        "side": "buy",
+        "pct": 5.51,
+        "rank": 4
       },
       {
         "stock_code": "2382",
-        "net_vol": -565,
+        "net_vol": -555,
         "side": "sell",
-        "pct": 3.23,
-        "rank": 6
+        "pct": 2.44,
+        "rank": 4
       },
       {
         "stock_code": "2891",
-        "net_vol": 287,
-        "side": "buy",
-        "pct": 1.77,
+        "net_vol": -422,
+        "side": "sell",
+        "pct": 1.9,
         "rank": 6
       },
       {
         "stock_code": "2881",
-        "net_vol": 374,
-        "side": "buy",
-        "pct": 3.45,
-        "rank": 3
-      },
-      {
-        "stock_code": "2303",
-        "net_vol": 6049,
-        "side": "buy",
-        "pct": 3.57,
+        "net_vol": -1192,
+        "side": "sell",
+        "pct": 11.45,
         "rank": 1
       },
       {
-        "stock_code": "3711",
-        "net_vol": -1005,
-        "side": "sell",
-        "pct": 7.7,
-        "rank": 1
-      },
-      {
-        "stock_code": "2603",
-        "net_vol": 540,
+        "stock_code": "2882",
+        "net_vol": 1249,
         "side": "buy",
-        "pct": 8.96,
-        "rank": 3
-      },
-      {
-        "stock_code": "2609",
-        "net_vol": 254,
-        "side": "buy",
-        "pct": 2.57,
-        "rank": 5
-      },
-      {
-        "stock_code": "2615",
-        "net_vol": 65,
-        "side": "buy",
-        "pct": 1.68,
-        "rank": 4
-      },
-      {
-        "stock_code": "2618",
-        "net_vol": 4169,
-        "side": "buy",
-        "pct": 11.14,
-        "rank": 3
-      },
-      {
-        "stock_code": "3037",
-        "net_vol": 38,
-        "side": "buy",
-        "pct": 0.18,
-        "rank": 13
-      },
-      {
-        "stock_code": "2345",
-        "net_vol": -25,
-        "side": "sell",
-        "pct": 0.59,
-        "rank": 15
-      },
-      {
-        "stock_code": "3006",
-        "net_vol": 579,
-        "side": "buy",
-        "pct": 2.97,
+        "pct": 8.71,
         "rank": 2
       },
       {
-        "stock_code": "2379",
-        "net_vol": 86,
+        "stock_code": "2303",
+        "net_vol": 3780,
         "side": "buy",
-        "pct": 2.91,
+        "pct": 2.15,
         "rank": 5
       },
       {
-        "stock_code": "3034",
-        "net_vol": -313,
+        "stock_code": "3711",
+        "net_vol": -113,
         "side": "sell",
-        "pct": 8.98,
+        "pct": 0.39,
+        "rank": 7
+      },
+      {
+        "stock_code": "2603",
+        "net_vol": 888,
+        "side": "buy",
+        "pct": 6.07,
+        "rank": 6
+      },
+      {
+        "stock_code": "2609",
+        "net_vol": 1473,
+        "side": "buy",
+        "pct": 6.22,
+        "rank": 4
+      },
+      {
+        "stock_code": "2615",
+        "net_vol": 656,
+        "side": "buy",
+        "pct": 3.61,
+        "rank": 5
+      },
+      {
+        "stock_code": "2618",
+        "net_vol": 375,
+        "side": "buy",
+        "pct": 0.93,
+        "rank": 5
+      },
+      {
+        "stock_code": "3037",
+        "net_vol": 505,
+        "side": "buy",
+        "pct": 6.77,
+        "rank": 4
+      },
+      {
+        "stock_code": "2345",
+        "net_vol": -94,
+        "side": "sell",
+        "pct": 3.34,
+        "rank": 4
+      },
+      {
+        "stock_code": "3006",
+        "net_vol": -94,
+        "side": "sell",
+        "pct": 0.41,
+        "rank": 10
+      },
+      {
+        "stock_code": "2379",
+        "net_vol": 48,
+        "side": "buy",
+        "pct": 1.84,
+        "rank": 7
+      },
+      {
+        "stock_code": "3034",
+        "net_vol": -170,
+        "side": "sell",
+        "pct": 5.66,
         "rank": 1
       },
       {
         "stock_code": "2412",
-        "net_vol": 356,
-        "side": "buy",
-        "pct": 5.14,
+        "net_vol": -408,
+        "side": "sell",
+        "pct": 4.28,
         "rank": 3
       }
     ],
     "港商野村": [
       {
-        "stock_code": "2330",
-        "net_vol": -509,
-        "side": "sell",
-        "pct": 2.23,
-        "rank": 5
-      },
-      {
-        "stock_code": "2308",
-        "net_vol": -125,
-        "side": "sell",
-        "pct": 1.22,
-        "rank": 7
-      },
-      {
-        "stock_code": "2382",
-        "net_vol": 205,
-        "side": "buy",
-        "pct": 1.17,
-        "rank": 5
-      },
-      {
         "stock_code": "2881",
-        "net_vol": 213,
+        "net_vol": 1589,
         "side": "buy",
-        "pct": 1.97,
-        "rank": 6
+        "pct": 15.26,
+        "rank": 1
       },
       {
         "stock_code": "2882",
-        "net_vol": 637,
+        "net_vol": 987,
         "side": "buy",
-        "pct": 4.59,
-        "rank": 5
-      },
-      {
-        "stock_code": "2303",
-        "net_vol": 403,
-        "side": "buy",
-        "pct": 0.24,
-        "rank": 12
-      },
-      {
-        "stock_code": "3711",
-        "net_vol": -471,
-        "side": "sell",
-        "pct": 3.61,
+        "pct": 6.88,
         "rank": 3
       },
       {
+        "stock_code": "2303",
+        "net_vol": 700,
+        "side": "buy",
+        "pct": 0.4,
+        "rank": 13
+      },
+      {
+        "stock_code": "3711",
+        "net_vol": 191,
+        "side": "buy",
+        "pct": 0.67,
+        "rank": 14
+      },
+      {
         "stock_code": "2609",
-        "net_vol": -72,
-        "side": "sell",
-        "pct": 0.73,
+        "net_vol": 355,
+        "side": "buy",
+        "pct": 1.5,
+        "rank": 7
+      },
+      {
+        "stock_code": "2615",
+        "net_vol": 606,
+        "side": "buy",
+        "pct": 3.33,
         "rank": 6
       },
       {
         "stock_code": "3037",
-        "net_vol": 104,
-        "side": "buy",
-        "pct": 0.48,
-        "rank": 8
+        "net_vol": -211,
+        "side": "sell",
+        "pct": 2.83,
+        "rank": 1
       },
       {
         "stock_code": "2345",
-        "net_vol": -104,
+        "net_vol": -46,
         "side": "sell",
-        "pct": 2.46,
+        "pct": 1.64,
+        "rank": 9
+      },
+      {
+        "stock_code": "3006",
+        "net_vol": 320,
+        "side": "buy",
+        "pct": 1.39,
         "rank": 6
       },
       {
         "stock_code": "2379",
-        "net_vol": 11,
+        "net_vol": 35,
         "side": "buy",
-        "pct": 0.37,
-        "rank": 15
+        "pct": 1.34,
+        "rank": 9
       },
       {
         "stock_code": "3034",
-        "net_vol": -157,
-        "side": "sell",
-        "pct": 4.51,
-        "rank": 3
+        "net_vol": 8,
+        "side": "buy",
+        "pct": 0.27,
+        "rank": 14
       }
     ],
     "港商麥格理": [
       {
         "stock_code": "2330",
-        "net_vol": 1654,
+        "net_vol": 1954,
         "side": "buy",
-        "pct": 7.23,
-        "rank": 2
-      },
-      {
-        "stock_code": "2317",
-        "net_vol": 1188,
-        "side": "buy",
-        "pct": 3.06,
+        "pct": 9.74,
         "rank": 1
       },
       {
-        "stock_code": "2454",
-        "net_vol": 249,
+        "stock_code": "2317",
+        "net_vol": 2253,
         "side": "buy",
-        "pct": 3.77,
-        "rank": 2
+        "pct": 6.46,
+        "rank": 3
       },
       {
-        "stock_code": "2308",
-        "net_vol": 200,
+        "stock_code": "2454",
+        "net_vol": 17,
         "side": "buy",
-        "pct": 1.95,
-        "rank": 4
+        "pct": 0.29,
+        "rank": 12
       },
       {
         "stock_code": "2382",
-        "net_vol": -181,
+        "net_vol": -737,
         "side": "sell",
-        "pct": 1.03,
-        "rank": 9
-      },
-      {
-        "stock_code": "2891",
-        "net_vol": -70,
-        "side": "sell",
-        "pct": 0.43,
-        "rank": 14
-      },
-      {
-        "stock_code": "2882",
-        "net_vol": -68,
-        "side": "sell",
-        "pct": 0.49,
-        "rank": 15
-      },
-      {
-        "stock_code": "3711",
-        "net_vol": 299,
-        "side": "buy",
-        "pct": 2.29,
+        "pct": 3.24,
         "rank": 2
       },
       {
-        "stock_code": "3037",
-        "net_vol": 183,
-        "side": "buy",
-        "pct": 0.85,
-        "rank": 4
-      },
-      {
-        "stock_code": "2345",
-        "net_vol": -75,
+        "stock_code": "2882",
+        "net_vol": -151,
         "side": "sell",
-        "pct": 1.77,
-        "rank": 10
+        "pct": 1.05,
+        "rank": 7
       },
       {
-        "stock_code": "2379",
-        "net_vol": 51,
+        "stock_code": "2303",
+        "net_vol": 1150,
         "side": "buy",
-        "pct": 1.72,
-        "rank": 6
+        "pct": 0.65,
+        "rank": 11
       },
       {
-        "stock_code": "3034",
-        "net_vol": 29,
-        "side": "buy",
-        "pct": 0.83,
-        "rank": 6
+        "stock_code": "3711",
+        "net_vol": -110,
+        "side": "sell",
+        "pct": 0.38,
+        "rank": 8
       },
       {
-        "stock_code": "2412",
-        "net_vol": 74,
+        "stock_code": "2609",
+        "net_vol": 93,
         "side": "buy",
-        "pct": 1.07,
-        "rank": 6
+        "pct": 0.39,
+        "rank": 12
       }
     ],
     "美商高盛": [
       {
         "stock_code": "2330",
-        "net_vol": -1828,
+        "net_vol": -1344,
         "side": "sell",
-        "pct": 7.99,
-        "rank": 3
-      },
-      {
-        "stock_code": "2317",
-        "net_vol": -1010,
-        "side": "sell",
-        "pct": 2.6,
-        "rank": 6
+        "pct": 6.7,
+        "rank": 2
       },
       {
         "stock_code": "2454",
-        "net_vol": -279,
-        "side": "sell",
-        "pct": 4.22,
-        "rank": 2
-      },
-      {
-        "stock_code": "2308",
-        "net_vol": 439,
+        "net_vol": 89,
         "side": "buy",
-        "pct": 4.29,
-        "rank": 1
-      },
-      {
-        "stock_code": "2382",
-        "net_vol": -1555,
-        "side": "sell",
-        "pct": 8.88,
-        "rank": 2
-      },
-      {
-        "stock_code": "2891",
-        "net_vol": 744,
-        "side": "buy",
-        "pct": 4.58,
-        "rank": 4
-      },
-      {
-        "stock_code": "2881",
-        "net_vol": 182,
-        "side": "buy",
-        "pct": 1.68,
-        "rank": 7
-      },
-      {
-        "stock_code": "2882",
-        "net_vol": -447,
-        "side": "sell",
-        "pct": 3.22,
-        "rank": 3
-      },
-      {
-        "stock_code": "2303",
-        "net_vol": -3267,
-        "side": "sell",
-        "pct": 1.93,
-        "rank": 8
-      },
-      {
-        "stock_code": "3711",
-        "net_vol": -376,
-        "side": "sell",
-        "pct": 2.88,
-        "rank": 4
-      },
-      {
-        "stock_code": "2603",
-        "net_vol": 43,
-        "side": "buy",
-        "pct": 0.71,
-        "rank": 10
-      },
-      {
-        "stock_code": "2609",
-        "net_vol": -919,
-        "side": "sell",
-        "pct": 9.28,
-        "rank": 2
-      },
-      {
-        "stock_code": "2615",
-        "net_vol": -75,
-        "side": "sell",
-        "pct": 1.94,
+        "pct": 1.52,
         "rank": 5
       },
       {
-        "stock_code": "2618",
-        "net_vol": 2504,
+        "stock_code": "2308",
+        "net_vol": 643,
         "side": "buy",
-        "pct": 6.69,
-        "rank": 4
+        "pct": 6.23,
+        "rank": 3
       },
       {
-        "stock_code": "3037",
-        "net_vol": 327,
+        "stock_code": "2382",
+        "net_vol": 2066,
         "side": "buy",
-        "pct": 1.51,
+        "pct": 9.08,
         "rank": 1
       },
       {
-        "stock_code": "2345",
-        "net_vol": -336,
+        "stock_code": "2891",
+        "net_vol": 4225,
+        "side": "buy",
+        "pct": 19.06,
+        "rank": 1
+      },
+      {
+        "stock_code": "2881",
+        "net_vol": -307,
         "side": "sell",
-        "pct": 7.95,
-        "rank": 1
+        "pct": 2.95,
+        "rank": 3
       },
       {
-        "stock_code": "3006",
-        "net_vol": 41,
-        "side": "buy",
-        "pct": 0.21,
-        "rank": 11
-      },
-      {
-        "stock_code": "2379",
-        "net_vol": 199,
-        "side": "buy",
-        "pct": 6.73,
+        "stock_code": "2882",
+        "net_vol": -595,
+        "side": "sell",
+        "pct": 4.15,
         "rank": 2
       },
       {
-        "stock_code": "3034",
-        "net_vol": 379,
+        "stock_code": "2303",
+        "net_vol": 6442,
         "side": "buy",
-        "pct": 10.88,
+        "pct": 3.67,
+        "rank": 3
+      },
+      {
+        "stock_code": "3711",
+        "net_vol": -486,
+        "side": "sell",
+        "pct": 1.69,
+        "rank": 2
+      },
+      {
+        "stock_code": "2603",
+        "net_vol": 1117,
+        "side": "buy",
+        "pct": 7.63,
+        "rank": 5
+      },
+      {
+        "stock_code": "2609",
+        "net_vol": 4206,
+        "side": "buy",
+        "pct": 17.77,
+        "rank": 1
+      },
+      {
+        "stock_code": "2615",
+        "net_vol": 2721,
+        "side": "buy",
+        "pct": 14.97,
+        "rank": 1
+      },
+      {
+        "stock_code": "2618",
+        "net_vol": -2218,
+        "side": "sell",
+        "pct": 5.49,
+        "rank": 3
+      },
+      {
+        "stock_code": "3037",
+        "net_vol": 523,
+        "side": "buy",
+        "pct": 7.01,
+        "rank": 3
+      },
+      {
+        "stock_code": "2345",
+        "net_vol": -54,
+        "side": "sell",
+        "pct": 1.92,
+        "rank": 7
+      },
+      {
+        "stock_code": "3006",
+        "net_vol": 1049,
+        "side": "buy",
+        "pct": 4.55,
+        "rank": 1
+      },
+      {
+        "stock_code": "2379",
+        "net_vol": 238,
+        "side": "buy",
+        "pct": 9.11,
+        "rank": 1
+      },
+      {
+        "stock_code": "3034",
+        "net_vol": 313,
+        "side": "buy",
+        "pct": 10.42,
         "rank": 1
       },
       {
         "stock_code": "2412",
-        "net_vol": 682,
+        "net_vol": 221,
         "side": "buy",
-        "pct": 9.85,
-        "rank": 1
+        "pct": 2.32,
+        "rank": 3
       }
     ],
     "美林": [
       {
         "stock_code": "2330",
-        "net_vol": -675,
-        "side": "sell",
-        "pct": 2.95,
-        "rank": 4
+        "net_vol": 526,
+        "side": "buy",
+        "pct": 2.62,
+        "rank": 5
       },
       {
         "stock_code": "2317",
-        "net_vol": 503,
+        "net_vol": 272,
         "side": "buy",
-        "pct": 1.3,
-        "rank": 4
+        "pct": 0.78,
+        "rank": 10
       },
       {
         "stock_code": "2454",
-        "net_vol": 196,
+        "net_vol": 434,
         "side": "buy",
-        "pct": 2.97,
-        "rank": 3
+        "pct": 7.39,
+        "rank": 1
       },
       {
         "stock_code": "2308",
-        "net_vol": -205,
+        "net_vol": -100,
         "side": "sell",
-        "pct": 2.0,
+        "pct": 0.97,
         "rank": 6
       },
       {
         "stock_code": "2382",
-        "net_vol": -812,
-        "side": "sell",
-        "pct": 4.64,
-        "rank": 4
-      },
-      {
-        "stock_code": "2891",
-        "net_vol": 515,
+        "net_vol": 1043,
         "side": "buy",
-        "pct": 3.17,
-        "rank": 5
-      },
-      {
-        "stock_code": "2881",
-        "net_vol": -774,
-        "side": "sell",
-        "pct": 7.15,
+        "pct": 4.58,
         "rank": 3
       },
       {
-        "stock_code": "2882",
-        "net_vol": 1537,
+        "stock_code": "2891",
+        "net_vol": 281,
         "side": "buy",
-        "pct": 11.07,
-        "rank": 2
+        "pct": 1.27,
+        "rank": 8
+      },
+      {
+        "stock_code": "2881",
+        "net_vol": 285,
+        "side": "buy",
+        "pct": 2.74,
+        "rank": 5
+      },
+      {
+        "stock_code": "2882",
+        "net_vol": -317,
+        "side": "sell",
+        "pct": 2.21,
+        "rank": 5
       },
       {
         "stock_code": "2303",
-        "net_vol": 1913,
+        "net_vol": 4117,
         "side": "buy",
-        "pct": 1.13,
+        "pct": 2.34,
         "rank": 4
       },
       {
         "stock_code": "3711",
-        "net_vol": -135,
+        "net_vol": -312,
         "side": "sell",
-        "pct": 1.03,
-        "rank": 7
+        "pct": 1.09,
+        "rank": 4
       },
       {
         "stock_code": "2603",
-        "net_vol": -114,
+        "net_vol": -160,
         "side": "sell",
-        "pct": 1.89,
-        "rank": 3
-      },
-      {
-        "stock_code": "2609",
-        "net_vol": -72,
-        "side": "sell",
-        "pct": 0.73,
+        "pct": 1.09,
         "rank": 7
       },
       {
         "stock_code": "2615",
-        "net_vol": 48,
+        "net_vol": 546,
         "side": "buy",
-        "pct": 1.24,
+        "pct": 3.0,
         "rank": 7
       },
       {
         "stock_code": "2618",
-        "net_vol": 295,
-        "side": "buy",
-        "pct": 0.79,
-        "rank": 9
-      },
-      {
-        "stock_code": "3037",
-        "net_vol": -69,
+        "net_vol": -329,
         "side": "sell",
-        "pct": 0.32,
+        "pct": 0.82,
         "rank": 8
       },
       {
-        "stock_code": "2345",
-        "net_vol": 242,
-        "side": "buy",
-        "pct": 5.73,
-        "rank": 1
-      },
-      {
-        "stock_code": "3006",
-        "net_vol": -55,
+        "stock_code": "3037",
+        "net_vol": -113,
         "side": "sell",
-        "pct": 0.28,
-        "rank": 9
-      },
-      {
-        "stock_code": "2379",
-        "net_vol": -97,
-        "side": "sell",
-        "pct": 3.28,
+        "pct": 1.51,
         "rank": 3
       },
       {
-        "stock_code": "3034",
-        "net_vol": -105,
+        "stock_code": "2345",
+        "net_vol": 43,
+        "side": "buy",
+        "pct": 1.53,
+        "rank": 3
+      },
+      {
+        "stock_code": "3006",
+        "net_vol": 167,
+        "side": "buy",
+        "pct": 0.72,
+        "rank": 8
+      },
+      {
+        "stock_code": "2379",
+        "net_vol": -494,
         "side": "sell",
-        "pct": 3.01,
-        "rank": 4
+        "pct": 18.91,
+        "rank": 1
+      },
+      {
+        "stock_code": "3034",
+        "net_vol": 37,
+        "side": "buy",
+        "pct": 1.23,
+        "rank": 7
       },
       {
         "stock_code": "2412",
-        "net_vol": 68,
-        "side": "buy",
-        "pct": 0.98,
-        "rank": 7
+        "net_vol": -628,
+        "side": "sell",
+        "pct": 6.58,
+        "rank": 2
       }
     ]
   }
