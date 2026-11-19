@@ -87,13 +87,23 @@ def is_weekend(d: date) -> bool:
     return d.weekday() >= 5  # 5=Sat, 6=Sun
 
 
-def get_target_trade_date() -> date:
-    """用台北時間的「今天」，週末往前推到最近一個平日。
+def get_target_trade_date(now: Optional[datetime] = None) -> date:
+    """Select the latest weekday whose evening publication window has passed.
 
-    GitHub Actions 在台北晚間執行，TWSE/TPEX 當日三大法人買賣超此時已發布；
-    若仍抓昨天，資料會天然落後一天，且連續空回應時不容易被注意到。
+    Scheduled Actions may be delayed past midnight in Taipei. Before 19:00,
+    today's data is not expected yet, so use the preceding weekday. This is
+    the pipeline's conservative publication cutoff, not the market close.
+    Exchange holidays are not inferred from missing responses: the existing
+    freshness validation must still report missing/stale data.
     """
-    target = get_taipei_today()
+    tz = ZoneInfo("Asia/Taipei")
+    now = datetime.now(tz) if now is None else now
+    if now.tzinfo is None or now.utcoffset() is None:
+        raise ValueError("now must be timezone-aware")
+    local_now = now.astimezone(tz)
+    target = local_now.date()
+    if local_now.hour < 19:
+        target -= timedelta(days=1)
     while is_weekend(target):
         target -= timedelta(days=1)
     return target
