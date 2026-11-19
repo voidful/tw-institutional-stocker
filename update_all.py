@@ -21,6 +21,7 @@ import requests
 import pandas as pd
 
 from utils_columns import find_col_any, normalize_columns
+from market_calendar import is_scheduled_session
 
 DATA_DIR = "data"
 DOCS_DIR = os.path.join("docs", "data")
@@ -88,13 +89,13 @@ def is_weekend(d: date) -> bool:
 
 
 def get_target_trade_date(now: Optional[datetime] = None) -> date:
-    """Select the latest weekday whose evening publication window has passed.
+    """Select the latest scheduled session whose publication window has passed.
 
     Scheduled Actions may be delayed past midnight in Taipei. Before 19:00,
-    today's data is not expected yet, so use the preceding weekday. This is
+    today's data is not expected yet, so use the preceding session. This is
     the pipeline's conservative publication cutoff, not the market close.
-    Exchange holidays are not inferred from missing responses: the existing
-    freshness validation must still report missing/stale data.
+    Reviewed exchange holidays are skipped; missing responses never imply a
+    holiday. Freshness validation must still report missing/stale session data.
     """
     tz = ZoneInfo("Asia/Taipei")
     now = datetime.now(tz) if now is None else now
@@ -102,9 +103,10 @@ def get_target_trade_date(now: Optional[datetime] = None) -> date:
         raise ValueError("now must be timezone-aware")
     local_now = now.astimezone(tz)
     target = local_now.date()
+    is_scheduled_session(target)  # Reject unknown calendar years before rollback.
     if local_now.hour < 19:
         target -= timedelta(days=1)
-    while is_weekend(target):
+    while not is_scheduled_session(target):
         target -= timedelta(days=1)
     return target
 
