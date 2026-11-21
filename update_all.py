@@ -21,6 +21,7 @@ import requests
 import pandas as pd
 
 from utils_columns import find_col_any, normalize_columns
+from market_calendar import is_scheduled_session
 
 DATA_DIR = "data"
 DOCS_DIR = os.path.join("docs", "data")
@@ -87,14 +88,25 @@ def is_weekend(d: date) -> bool:
     return d.weekday() >= 5  # 5=Sat, 6=Sun
 
 
-def get_target_trade_date() -> date:
-    """用台北時間的「今天」，週末往前推到最近一個平日。
+def get_target_trade_date(now: Optional[datetime] = None) -> date:
+    """Select the latest scheduled session whose publication window has passed.
 
-    GitHub Actions 在台北晚間執行，TWSE/TPEX 當日三大法人買賣超此時已發布；
-    若仍抓昨天，資料會天然落後一天，且連續空回應時不容易被注意到。
+    Scheduled Actions may be delayed past midnight in Taipei. Before 19:00,
+    today's data is not expected yet, so use the preceding session. This is
+    the pipeline's conservative publication cutoff, not the market close.
+    Reviewed exchange holidays are skipped; missing responses never imply a
+    holiday. Freshness validation must still report missing/stale session data.
     """
-    target = get_taipei_today()
-    while is_weekend(target):
+    tz = ZoneInfo("Asia/Taipei")
+    now = datetime.now(tz) if now is None else now
+    if now.tzinfo is None or now.utcoffset() is None:
+        raise ValueError("now must be timezone-aware")
+    local_now = now.astimezone(tz)
+    target = local_now.date()
+    is_scheduled_session(target)  # Reject unknown calendar years before rollback.
+    if local_now.hour < 19:
+        target -= timedelta(days=1)
+    while not is_scheduled_session(target):
         target -= timedelta(days=1)
     return target
 

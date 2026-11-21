@@ -48,7 +48,7 @@
     - 市場過濾（全部 / TWSE / TPEX）與 log scale 切換。
 
 - `.github/workflows/update.yml`
-  - 每天 00:10 UTC 由 GitHub Actions 執行 `python update_all.py`
+  - 每天 11:10 UTC（台北 19:10） 由 GitHub Actions 執行 `python update_all.py`
   - 若 `data/` 或 `docs/data/` 有變動，會自動 commit + push 回 main 分支。
 
 ## 本地開發
@@ -64,3 +64,14 @@ python update_all.py
 1. 從投信 / 自營商的財報或官方持股統計整理出某幾個日期的「實際持股股數」。
 2. 填入 `data/inst_baseline.csv`。
 3. 重新跑 `python update_all.py`。之後 GitHub Actions 自動更新也會沿用這些 baseline。
+
+## 測試與目標日期
+
+執行 `python -m unittest discover -s tests -v` 可離線測試日期邊界與資料新鮮度檢查。
+更新程式以台北 19:00 為保守的資料發布分界；此前使用前一個交易日，
+因此排程延遲到隔日凌晨仍會抓取前一天，而非尚未開盤的新一天。
+週末及已核對的年度休市日會向前回推：2026 年經 TWSE／TPEx 股票表交叉核對；
+2027 年依 TWSE 公告表，尚未取得 TPEx 附表逐日交叉核對。
+超出日曆涵蓋範圍會明確報錯，不能把未知年份當成平日即可交易。
+臨時休市不由空回應猜測；實際交易日缺資料仍會明確報錯。
+詳見 [日曆來源與維護範圍](docs/market-calendar.md)。
